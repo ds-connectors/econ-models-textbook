@@ -1,0 +1,89 @@
+# This file contains the order and numbering for all sections in the book.
+#
+# It is a sample TOC file to help you get started. Fill it out with entries
+# for your own content.
+#
+# Each entry has the following schema:
+#
+# - title: mytitle   # Title of chapter or section
+#   url: /myurl  # URL of section relative to the /content/ folder.
+#   sections:  # Contains a list of more entries that make up the chapter's sections
+#   not_numbered: true  # if the section shouldn't have a number in the sidebar
+#     (e.g. Introduction or appendices)
+#   expand_sections: true  # if you'd like the sections of this chapter to always
+#     be expanded in the sidebar.
+#   external: true  # Whether the URL is an external link or points to content in the book
+#
+# Below are some special values that trigger specific behavior:
+# - search: true  # Will provide a link to a search page
+# - divider: true  # Will insert a divider in the sidebar
+# - header: My Header  # Will insert a header with no link in the sidebar
+#
+# See the links below for an example.
+
+# Top-level page
+- title: Home
+  url: /intro
+  not_numbered: true
+
+- divider: true
+  header: "Part I: Foundation Economics"
+
+- title: SymPy and LaTeX
+  url: /topic-intros/sympy-latex
+  sections:
+    - title: SymPy and LaTeX
+      url: /sympy-latex/sympy-latex
+      not_numbered: true
+
+- title: Supply and Firm Behavior
+  url: /topic-intros/supply
+  sections:
+    - title: Horizontal Sum Supply
+      url: /supply/horizontal-sum-supply
+      not_numbered: true
+    - title: Production
+      url: /supply/production
+      not_numbered: true
+    - title: Supply and Firm Behavior
+      url: /supply/supply
+      not_numbered: true
+
+- title: Demand and Market Equilibrium
+  url: /topic-intros/demand
+  sections:
+    - title: Creating a Demand Curve
+      url: /demand/create-demand-curve
+      not_numbered: true
+    - title: Demand and Market Equilibrium
+      url: /demand/demand
+      not_numbered: true
+
+- title: Utility Maximization
+  url: /topic-intros/utility
+  sections:
+    - title: Utility Maximization
+      url: /utility/utility
+      not_numbered: true
+
+- title: Welfare and Elasticities
+  url: /topic-intros/elasticities
+  sections:
+    - title: Welfare and Elasticities
+      url: /elasticities/elasticities
+      not_numbered: true
+
+- title: Trade and Taxes
+  url: /topic-intros/trade
+  sections:
+    - title: Trade and Taxes
+      url: /trade/trade
+      not_numbered: true
+
+- title: Production and Cobb-Douglas
+  url: /topic-intros/cobb-douglas
+  sections:
+    - title: Production and Cobb-Douglas
+      url: /cobb-douglas/cobb-douglas
+      not_numbered: true
+
