@@ -1,0 +1,480 @@
+---
+interact_link: content/econometrics/dummy-variables.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Dummy Variables
+prev_page:
+  url: /econometrics/econometrics.html
+  title: |-
+    Econometrics and Data Science
+next_page:
+  url: 
+  title: |-
+    
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<main class="jupyter-page">
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table style="width: 100%;">
+    <tr style="background-color: transparent;"><td>
+        <img src="https://d8a-88.github.io/econ-fa19/assets/images/blue_text.png" width="250px" style="margin-left: 0;" />
+    </td><td>
+        <p style="text-align: right; font-size: 12pt;"><strong>Economic Models</strong>, Fall 2019<br>
+            Dr. Eric Van Dusen</p></td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Lecture-12---Dummy-Variables">Lecture 12 - Dummy Variables<a class="anchor-link" href="#Lecture-12---Dummy-Variables"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;seaborn-muted&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Why do we need dummary variables?</strong></p>
+<p>Two cases:</p>
+<ul>
+<li>variable has non-numeric values, e.g. the <code>sex</code>, <code>education</code>, <code>marital_status</code> variables in <code>defaults</code></li>
+<li>variable has categorical numeric values, e.g. a Likert scale (1 to $n$ are possible values) or the <code>age</code> variable</li>
+</ul>
+<p>In the first case, the reason is obvious: How can we model a variable that has text as its value?</p>
+<p>In the second, the reason is more subtle. Let's build two models on data from a Likert scale with values 1 to 7. The first model will leave the values as-is, and the second will use dummy variables for each possible value of the variable.</p>
+<p>In this section, we'll use a completely <strong>deterministic</strong> model, wherein $y$ will be a nonlinear function of $x$, with a bit of randomness introduced in the model constants. Our function for $y$ will be</p>
+$$\Large 
+f(x) = a e^x + bx + c
+$$<p>with $a,b \sim U(0, 100)$ for each value of $x$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">y</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's build an OLS model based on <code>x</code> and <code>y</code> <em>without</em> creating dummies for $x$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_hat_1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">fittedvalues</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our RMSE for this model is calculated in the cell below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rmse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">))</span>
+
+<span class="n">rmse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now let's create some dummy variables for <code>x</code>; we'll store these in <code>X</code> (note the switch to capitals, since we are now in the multivariate case).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x&quot;</span> <span class="p">:</span> <span class="n">x</span><span class="p">}),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's now fit a model and look at our RMSE.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_hat_2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">rmse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see a drop in the RMSE when we use dummy variables for age because age is not a continuous variable, but a categorical one. With numerical categorical variables, values that are larger in magnitude that others cause greater shifts in model weights due only to their magnitude. This also helps to reveal nonlinear patterns between variables and a categorical variables.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-to-Get-Dummy-Variables-for-a-Table">How to Get Dummy Variables for a Table<a class="anchor-link" href="#How-to-Get-Dummy-Variables-for-a-Table"> </a></h2><p>You may have noticed that the code above uses the library <code>pandas</code>, which you will learn about in Data 100. However, if we want to use the <code>datascience</code> library, we need to define our own function to create dummy variables. Let's start by thinking about the intuition of creating dummy variables using a one-column table with only two possible values: <code>H</code> or <code>T</code>, for the flip of a coin.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flips</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;flip&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">],</span> <span class="mi">200</span><span class="p">))</span>
+<span class="n">flips</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thinking about our problem, what's the first thing that we need to know? I propose that we need to know all of the <strong>unique</strong> values of our variable, since we will need to create one new column for each of these. Although we already know our variable has only 2 possible values, "H" and "T", let's practice anyway. The function <code>np.unique</code> will give you an array of the unique values of the array passed to it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">unique_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">flips</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;flip&quot;</span><span class="p">))</span>
+<span class="n">unique_vals</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we know these values, we want to create a column for each value with a 1 if the value for that row equals the column value, and a 0 otherwise. To do this, we'll need to use a function that tells us if some value is equal to another pre-specified value. Luckily, you already know these! The predicate functions you use in <code>Table.where</code> will do this for us. So let's now look at how we can use these functions to create the columns we want:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">unique_vals</span><span class="p">:</span>
+    <span class="n">dummy_vals</span> <span class="o">=</span> <span class="n">flips</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="s2">&quot;flip&quot;</span><span class="p">)</span>
+    <span class="n">flips</span> <span class="o">=</span> <span class="n">flips</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;flip_&quot;</span> <span class="o">+</span> <span class="n">val</span><span class="p">,</span> <span class="n">dummy_vals</span><span class="p">)</span>
+
+<span class="n">flips</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice that we've created columns with names of the format <code>flips_{value}</code>. However, we still have a problem: these columns have boolean values, not integers!</p>
+<p>Recall now that we can <strong>typecast</strong> a <code>bool</code> to an <code>int</code> by calling the <code>int</code> function on it. This will map <code>True</code> to 1 and <code>False</code> to 0. Let's now do this with <code>Table.apply</code>. Notice in the cell below that we have added logic to apply this function to <em>our new columns</em> using the format of their name.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">unique_vals</span><span class="p">:</span>
+    <span class="n">int_vals</span> <span class="o">=</span> <span class="n">flips</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;flip_&quot;</span> <span class="o">+</span> <span class="n">val</span><span class="p">)</span>
+    <span class="n">flips</span> <span class="o">=</span> <span class="n">flips</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;flip_&quot;</span> <span class="o">+</span> <span class="n">val</span><span class="p">,</span> <span class="n">int_vals</span><span class="p">)</span>
+    
+<span class="n">flips</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we're almost there! The last thing we want to do is get rid of the original column, so that it doesn't muck up any analysis we do later on. Let's drop it with <code>Table.drop</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flips</span> <span class="o">=</span> <span class="n">flips</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;flip&quot;</span><span class="p">)</span>
+<span class="n">flips</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Congratulations, you've now created dummy variables for a categorical variable! Notice that our choice to iterate through the unique values means that we can use this same logic for any arbitrarily large number of unique values. The function <code>get_dummies</code> defined below encapsulates this logic that we've built, albeit with a simplified encoding step. This function will be provided for you in the project.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_dummies</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates dummy variables for a column of a table&quot;&quot;&quot;</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">tbl</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+        <span class="n">encoding</span> <span class="o">=</span> <span class="n">tbl</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">val</span><span class="p">),</span> <span class="n">col</span><span class="p">)</span>
+        <span class="n">tbl</span> <span class="o">=</span> <span class="n">tbl</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">encoding</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">drop</span><span class="p">:</span>
+        <span class="n">tbl</span> <span class="o">=</span> <span class="n">tbl</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tbl</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To illustrate this function and its flexibility, let's imagine that we were rolling an icosahedron (a 20-sided die).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rolls</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;roll&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="mi">400</span><span class="p">))</span>
+<span class="n">rolls</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dummies</span><span class="p">(</span><span class="n">rolls</span><span class="p">,</span> <span class="s2">&quot;roll&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+</main>

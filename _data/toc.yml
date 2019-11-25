@@ -52,9 +52,9 @@
 - title: Demand and Market Equilibrium
   url: /topic-intros/demand
   sections:
-    - title: Creating a Demand Curve
-      url: /demand/create-demand-curve
-      not_numbered: true
+    # - title: Creating a Demand Curve
+    #   url: /demand/create-demand-curve
+    #   not_numbered: true
     - title: Demand and Market Equilibrium
       url: /demand/demand
       not_numbered: true
@@ -87,3 +87,40 @@
       url: /cobb-douglas/cobb-douglas
       not_numbered: true
 
+- title: "Economic Development: Africa"
+  url: /topic-intros/economic-development
+  sections:
+    - title: "Economic Development: Africa"
+      url: /economic-development/economic-development
+      not_numbered: true
+
+- title: Finance and Time Series Data
+  url: /topic-intros/finance
+  sections:
+    - title: Finance and Time Series Data
+      url: /finance/finance
+      not_numbered: true
+
+- title: Inequality and Tax Rates
+  url: /topic-intros/inequality
+  sections:
+    - title: Inequality and Tax Rates
+      url: /inequality/inequality
+      not_numbered: true
+
+- title: Environmental Economics
+  url: /topic-intros/envecon
+  sections:
+    - title: Environmental Economics
+      url: /envecon/envecon
+      not_numbered: true
+
+- title: Econometrics and Data Science
+  url: /topic-intros/Econometrics
+  sections:
+    - title: Econometrics and Data Science
+      url: /econometrics/econometrics
+      not_numbered: true
+    - title: Dummy Variables
+      url: /econometrics/dummy-variables
+      not_numbered: true

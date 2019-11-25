@@ -1,0 +1,1913 @@
+---
+interact_link: content/demand/demand.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Demand and Market Equilibrium
+prev_page:
+  url: /topic-intros/demand.html
+  title: |-
+    Demand and Market Equilibrium
+next_page:
+  url: /topic-intros/utility.html
+  title: |-
+    Utility Maximization
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<main class="jupyter-page">
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Demand-Curve-and-Inverse-Demand-Curve">Demand Curve and Inverse Demand Curve<a class="anchor-link" href="#Demand-Curve-and-Inverse-Demand-Curve"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Last week, we learned about the supply curve. This week, we will learn about the demand curve and using both the supply and demand curve to find market equilibrium.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The demand curve shows the graphical relationship between the price of a good or service and the quantity demanded for it over a given period of time. In other words, it shows the quantity of goods or services consumers are willing to buy at each market price. The quantity of goods or services demanded or supplied is a function of price, as in</p>
+$$\text{Quantity} = f(\text{Price})$$<p>The curve decreases because of the law of demand, which states that as the price of a good or service increases, the quantity demanded for it decreases, assuming all other factors are held constant. This makes intuitive sense: as prices increase, fewer people are willing to pay the higher price for the same good. Naturally, as prices decrease, more people are willing to pay the lower price for the same good. Hence, the demand of a good or service is based on the price. This relationship is usually somewhat linear and can be found as</p>
+$$\text{Quantity}_{d}=a \cdot \text{Price}_{d} + b$$<p>This can be interpreted as: As the price unit increases by 1, there is an a unit increase/decrease in the quantity demanded. An example is</p>
+$$\text{Quantity}_{d}=2 \cdot \text{Price}_{d} + 3$$<p>Another concept is when price is dependent on quantity. In this case, we use an inverse demand function, as it is an inverse function of the demand function. Thus, price is a function of quantity, as shown by</p>
+$$\text{Price} = f(\text{Quantity})$$<p></p>
+<p>Because it is the inverse of a demand function, the inverse demand function for the example above will be</p>
+$$\text{Price}_{d}=\frac{1}{2}\cdot\text{Quantity}_{d}-3/2$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Shifts-in-Demand-Curve">Shifts in Demand Curve<a class="anchor-link" href="#Shifts-in-Demand-Curve"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The demand curve can shift out or in based on events happening in the real world. Some factors other than a change in price of the good/service are changes in</p>
+<ol>
+<li><p>buyer's income</p>
+</li>
+<li><p>consumer preferences</p>
+</li>
+<li><p>expectation of future price/supply/demand/etc</p>
+</li>
+<li><p>price of related goods</p>
+</li>
+</ol>
+<p>If any of these changes occur and causes the demand for the selected good/service to decrease, then the curve shifts to the left, as less of the good or service will be demanded at every price. During the 2008 recession, consumers' incomes decreased. Because their buying power decreased, they purchased fewer items even though the prices of the select goods stayed the same.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Airfare-Tickets-and-Market-Equilibrium">Airfare Tickets and Market Equilibrium<a class="anchor-link" href="#Airfare-Tickets-and-Market-Equilibrium"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">from</span> <span class="nn">datascience</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">import</span> <span class="nn">sympy</span>
+<span class="n">solve</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">sympy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">))</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;Not Single Solution&quot;</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-muted&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">interact</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will now apply what we learned about demand functions and market equilibrium onto a real world dataset. We want to answer the question "What is the market equilibrium for airline tickets?" We will use a dataset released by the U.S. Department of Transportation on about 1,000 U.S. domestic routes for the 4th quarter of 2002.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">airlines</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;airlines.csv&#39;</span><span class="p">)</span>
+<span class="n">airlines</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>City 1</th> <th>City 2</th> <th>Average Fare</th> <th>Distance</th> <th>Average Weekly Passengers</th> <th>Market Leading Airline</th> <th>Market Share</th> <th>Average Fare.1</th> <th>Low Price Airline</th> <th>Market Share.1</th> <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>CAK   </td> <td>ATL    </td> <td>114.47      </td> <td>528     </td> <td>424.56                   </td> <td>FL                    </td> <td>70.19       </td> <td>111.03        </td> <td>FL               </td> <td>70.19         </td> <td>111.03</td>
+        </tr>
+        <tr>
+            <td>CAK   </td> <td>MCO    </td> <td>122.47      </td> <td>860     </td> <td>276.84                   </td> <td>FL                    </td> <td>75.1        </td> <td>123.09        </td> <td>DL               </td> <td>17.23         </td> <td>118.94</td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>ATL    </td> <td>214.42      </td> <td>852     </td> <td>215.76                   </td> <td>DL                    </td> <td>78.89       </td> <td>223.98        </td> <td>CO               </td> <td>2.77          </td> <td>167.12</td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>BWI    </td> <td>69.4        </td> <td>288     </td> <td>606.84                   </td> <td>WN                    </td> <td>96.97       </td> <td>68.86         </td> <td>WN               </td> <td>96.97         </td> <td>68.86 </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>ORD    </td> <td>158.13      </td> <td>723     </td> <td>313.04                   </td> <td>UA                    </td> <td>39.79       </td> <td>161.36        </td> <td>WN               </td> <td>15.34         </td> <td>145.42</td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>FLL    </td> <td>135.17      </td> <td>1204    </td> <td>199.02                   </td> <td>WN                    </td> <td>40.68       </td> <td>137.97        </td> <td>DL               </td> <td>17.09         </td> <td>127.69</td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>LAS    </td> <td>152.85      </td> <td>2237    </td> <td>237.17                   </td> <td>WN                    </td> <td>59.94       </td> <td>148.59        </td> <td>WN               </td> <td>59.94         </td> <td>148.59</td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>LAX    </td> <td>190.73      </td> <td>2467    </td> <td>191.95                   </td> <td>DL                    </td> <td>17.89       </td> <td>205.06        </td> <td>US               </td> <td>16.59         </td> <td>174   </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>MCO    </td> <td>129.35      </td> <td>1073    </td> <td>550.54                   </td> <td>WN                    </td> <td>76.84       </td> <td>127.69        </td> <td>WN               </td> <td>76.84         </td> <td>127.69</td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>TPA    </td> <td>134.17      </td> <td>1130    </td> <td>202.93                   </td> <td>US                    </td> <td>35.4        </td> <td>132.91        </td> <td>DL               </td> <td>26.4          </td> <td>124.78</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (990 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Remember that at the end of the day, we want columns relating to price and quantity. Create a new table that does just that.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">airlines</span> <span class="o">=</span> <span class="n">airlines</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">airlinesFiltered</span> <span class="o">=</span> <span class="n">airlines</span><span class="o">.</span><span class="n">relabeled</span><span class="p">([</span><span class="s2">&quot;Average Fare&quot;</span><span class="p">,</span> <span class="s2">&quot;Average Weekly Passengers&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="s2">&quot;Quantity&quot;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Revenue Per Available Seat Mile (RASM) measures the efficiency of different airlines. It is found by dividing the average fare by the distance. The higher the RASM, the more profitable the airline is.</p>
+<p>Create a scatter plot that displays the RASM of the dataset.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rasm</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s2">&quot;RASM&quot;</span><span class="p">,</span> <span class="n">airlinesFiltered</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="n">airlines</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">),</span> <span class="s2">&quot;Quantity&quot;</span><span class="p">,</span> <span class="n">airlines</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">rasm</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;RASM&quot;</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_12_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That looks unconvincing. Let's segment the market based on distance into 3 categories. Make a scatter plot when you're done.</p>
+<ol>
+<li><p>short (distance is less than 700)</p>
+</li>
+<li><p>medium (distance is greater than or equal to 700 and less than 1900)</p>
+</li>
+<li><p>long (distance is greater than or equal to 1900)</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">airlinesFiltered</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>City 1</th> <th>City 2</th> <th>Price</th> <th>Distance</th> <th>Quantity</th> <th>Market Leading Airline</th> <th>Market Share</th> <th>Average Fare.1</th> <th>Low Price Airline</th> <th>Market Share.1</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>CAK   </td> <td>ATL    </td> <td>114.47</td> <td>528     </td> <td>424.56  </td> <td>FL                    </td> <td>70.19       </td> <td>111.03        </td> <td>FL               </td> <td>70.19         </td>
+        </tr>
+        <tr>
+            <td>CAK   </td> <td>MCO    </td> <td>122.47</td> <td>860     </td> <td>276.84  </td> <td>FL                    </td> <td>75.1        </td> <td>123.09        </td> <td>DL               </td> <td>17.23         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>ATL    </td> <td>214.42</td> <td>852     </td> <td>215.76  </td> <td>DL                    </td> <td>78.89       </td> <td>223.98        </td> <td>CO               </td> <td>2.77          </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>BWI    </td> <td>69.4  </td> <td>288     </td> <td>606.84  </td> <td>WN                    </td> <td>96.97       </td> <td>68.86         </td> <td>WN               </td> <td>96.97         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>ORD    </td> <td>158.13</td> <td>723     </td> <td>313.04  </td> <td>UA                    </td> <td>39.79       </td> <td>161.36        </td> <td>WN               </td> <td>15.34         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>FLL    </td> <td>135.17</td> <td>1204    </td> <td>199.02  </td> <td>WN                    </td> <td>40.68       </td> <td>137.97        </td> <td>DL               </td> <td>17.09         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>LAS    </td> <td>152.85</td> <td>2237    </td> <td>237.17  </td> <td>WN                    </td> <td>59.94       </td> <td>148.59        </td> <td>WN               </td> <td>59.94         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>LAX    </td> <td>190.73</td> <td>2467    </td> <td>191.95  </td> <td>DL                    </td> <td>17.89       </td> <td>205.06        </td> <td>US               </td> <td>16.59         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>MCO    </td> <td>129.35</td> <td>1073    </td> <td>550.54  </td> <td>WN                    </td> <td>76.84       </td> <td>127.69        </td> <td>WN               </td> <td>76.84         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>TPA    </td> <td>134.17</td> <td>1130    </td> <td>202.93  </td> <td>US                    </td> <td>35.4        </td> <td>132.91        </td> <td>DL               </td> <td>26.4          </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (990 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">short</span> <span class="o">=</span> <span class="n">airlinesFiltered</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">airlinesFiltered</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">700</span><span class="p">)</span>
+<span class="n">medium</span> <span class="o">=</span> <span class="n">airlinesFiltered</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">airlinesFiltered</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">700</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">airlinesFiltered</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1900</span><span class="p">))</span>
+<span class="n">long</span> <span class="o">=</span> <span class="n">airlinesFiltered</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">airlinesFiltered</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1900</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">short</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span> <span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_16_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">medium</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span> <span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_17_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">long</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span> <span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_18_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Most of the data seems to be scattered between 0 and 2000. Let's only look at that data for each of the market segments.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">short</span> <span class="o">=</span> <span class="n">short</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">short</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">medium</span> <span class="o">=</span> <span class="n">medium</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">medium</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">long</span> <span class="o">=</span> <span class="n">long</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">long</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">short</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span> <span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_21_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">medium</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span> <span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_22_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">long</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span> <span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_23_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can observe that "long" is different from "short" and "medium". This is due to a number of reasons (different supply curve, popularity of flights, etc). We will only focus on "short" and "medium" going forward.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's find the mean of the price of tickets sold per market segment.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">short</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>129.70494152046786</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">medium</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>164.0686778593914</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's also find the mean of the quantity of tickets sold per market segment.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">short</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>622.004298245614</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">medium</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>544.6893913955929</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now you should see a linear relationship between price and quantity. Find and interpret an equation for each market segment.</p>
+<p>The general template is $y = mx + b$, where $m$ is the slope and $b$ is $y$-intercept. In economic terms, $m$ is the demand curve's slope that shows how the good's price affects the quantity demanded, and $b$ encompasses the effects of all of the factors that are not price that affect demand.</p>
+<p>We will use <code>np.polyfit</code> to find the slope and $y$-intercept. The first value in the array will be the slope, and the second value in the array will be the $y$-intercept.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">shortCoefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">short</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">),</span><span class="n">short</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">shortCoefficients</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-3.71445384e-02,  1.52809004e+02])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mediumCoefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">medium</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">),</span> <span class="n">medium</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mediumCoefficients</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-2.64947489e-02,  1.78500087e+02])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;Q&quot;</span><span class="p">)</span>
+<span class="n">shortdemand</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">037</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mf">152.8</span>
+<span class="n">shortdemand</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-0.037*Q + 152.8</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mediumdemand</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">026</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mf">178.5</span>
+<span class="n">mediumdemand</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-0.026*Q + 178.5</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's assume the supply curve for airfare is $y = 0.0225x + 100$ for each. This is not based on any data; it is chosen out for the purpose of this exercise. Use SymPy to create an expression for supply and interpret what this means.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">supply</span> <span class="o">=</span> <span class="mf">0.0225</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the quantity equilibrium using the supply and demand curves for each market. Describe Q*.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Q_star_short</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">shortdemand</span><span class="p">,</span> <span class="n">supply</span><span class="p">)</span>
+<span class="n">Q_star_short</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>887.394957983193</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Q_star_medium</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">mediumdemand</span><span class="p">,</span> <span class="n">supply</span><span class="p">)</span>
+<span class="n">Q_star_medium</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1618.55670103093</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Why are the quantity equilibriums different from the mean of quantity of tickets sold different? Specifically, why is the quantity equilibrium so different from the average quantity for the medium market segment.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the price equilibrium using the supply and demand curves for each market. Describe P*.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">shortdemand</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Q_star_short</span><span class="p">)</span>
+<span class="n">supply</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Q_star_short</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>119.966386554622</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mediumdemand</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Q_star_medium</span><span class="p">)</span>
+<span class="n">supply</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Q_star_medium</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>136.417525773196</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Why are the price equilibriums different from the mean of quantity of tickets sold different?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Visualize the market equilibrium on a graph. Describe the market equilibrium in this case.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_equation</span><span class="p">(</span><span class="n">equation</span><span class="p">,</span> <span class="n">price_start</span><span class="p">,</span> <span class="n">price_end</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">plot_prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">price_start</span><span class="p">,</span> <span class="n">price_end</span><span class="p">]</span>
+    <span class="n">plot_quantities</span> <span class="o">=</span> <span class="p">[</span><span class="n">equation</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">equation</span><span class="o">.</span><span class="n">free_symbols</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">plot_prices</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_prices</span><span class="p">,</span> <span class="n">plot_quantities</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">plot_intercept</span><span class="p">(</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">):</span>
+    <span class="n">ex</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq1</span><span class="o">-</span><span class="n">eq2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">why</span> <span class="o">=</span> <span class="n">eq1</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">free_symbols</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ex</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">ex</span><span class="p">],</span> <span class="p">[</span><span class="n">why</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">why</span><span class="p">)</span>
+    
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">shortdemand</span><span class="p">,</span> <span class="o">-</span><span class="mi">2500</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="o">-</span><span class="mi">2500</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Airfare Supply and Demand for Short Distance Market&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plot_intercept</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="n">shortdemand</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_47_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_equation</span><span class="p">(</span><span class="n">mediumdemand</span><span class="p">,</span> <span class="o">-</span><span class="mi">2500</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="o">-</span><span class="mi">2500</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Airfare Supply and Demand for Medium Distance Market&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plot_intercept</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="n">mediumdemand</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_48_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How do the two market segments compare against each other?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_equation</span><span class="p">(</span><span class="n">shortdemand</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Short Demand&quot;</span><span class="p">)</span>
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">220</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Airfare Supply and Demand Market Segments&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plot_intercept</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="n">shortdemand</span><span class="p">)</span>
+
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">mediumdemand</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Medium Demand&quot;</span><span class="p">)</span>
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="n">plot_intercept</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="n">mediumdemand</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_50_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Assume the economy boosted 4% last quarter and all consumers in the short distance airfare industry now have $40 more to spend on airfare. How will this impact the demand curve? Describe how this will change market equilibrium both algebraically and graphically.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">newDemand</span> <span class="o">=</span> <span class="n">shortdemand</span> <span class="o">+</span> <span class="mi">40</span>
+<span class="n">Q_star</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">newDemand</span><span class="p">,</span> <span class="n">supply</span><span class="p">)</span>
+<span class="n">newDemand</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Q_star</span><span class="p">)</span>
+<span class="n">supply</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Q_star</span><span class="p">)</span>
+
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">newDemand</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Modified Demand&quot;</span><span class="p">)</span>
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">225</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Shift in Short Distance Industry&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plot_intercept</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="n">newDemand</span><span class="p">)</span>
+
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">shortdemand</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Original Demand&quot;</span><span class="p">)</span>
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="n">plot_intercept</span><span class="p">(</span><span class="n">supply</span><span class="p">,</span> <span class="n">shortdemand</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="n">xstmark</span><span class="o">=</span><span class="mi">1200</span>
+<span class="n">xenmark</span><span class="o">=</span><span class="mi">2000</span>
+<span class="n">ystmark</span><span class="o">=</span><span class="mi">110</span>
+<span class="n">an1</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">xstmark</span><span class="p">,</span> <span class="n">ystmark</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">xenmark</span><span class="p">,</span> <span class="n">ystmark</span><span class="p">),</span><span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;&lt;-&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="s1">&#39;Shift&#39;</span><span class="p">,</span><span class="n">xy</span><span class="o">=</span><span class="p">(((</span><span class="n">xstmark</span><span class="o">+</span><span class="n">xenmark</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">ystmark</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mf">12.0</span><span class="p">,</span><span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_52_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Delta's-Innovations">Delta's Innovations<a class="anchor-link" href="#Delta's-Innovations"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In 2002, Delta sponsored the 2002 Olympic Winter Games at its Salt Lake City hub. Different technological innovations, such as kiosks at check-in, expanded gate information systems and virtual check-in on websites improved customer experience. Because of these two factors, consumers believed Delta was a promising airline to fly on. Manipulate the original table to only assume Delta flights for Market Leading Airline and see if its demand curve is different from the general demand curve. Why do you think there is a difference or is not a difference?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">airlines</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>City 1</th> <th>City 2</th> <th>Average Fare</th> <th>Distance</th> <th>Average Weekly Passengers</th> <th>Market Leading Airline</th> <th>Market Share</th> <th>Average Fare.1</th> <th>Low Price Airline</th> <th>Market Share.1</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>CAK   </td> <td>ATL    </td> <td>114.47      </td> <td>528     </td> <td>424.56                   </td> <td>FL                    </td> <td>70.19       </td> <td>111.03        </td> <td>FL               </td> <td>70.19         </td>
+        </tr>
+        <tr>
+            <td>CAK   </td> <td>MCO    </td> <td>122.47      </td> <td>860     </td> <td>276.84                   </td> <td>FL                    </td> <td>75.1        </td> <td>123.09        </td> <td>DL               </td> <td>17.23         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>ATL    </td> <td>214.42      </td> <td>852     </td> <td>215.76                   </td> <td>DL                    </td> <td>78.89       </td> <td>223.98        </td> <td>CO               </td> <td>2.77          </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>BWI    </td> <td>69.4        </td> <td>288     </td> <td>606.84                   </td> <td>WN                    </td> <td>96.97       </td> <td>68.86         </td> <td>WN               </td> <td>96.97         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>ORD    </td> <td>158.13      </td> <td>723     </td> <td>313.04                   </td> <td>UA                    </td> <td>39.79       </td> <td>161.36        </td> <td>WN               </td> <td>15.34         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>FLL    </td> <td>135.17      </td> <td>1204    </td> <td>199.02                   </td> <td>WN                    </td> <td>40.68       </td> <td>137.97        </td> <td>DL               </td> <td>17.09         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>LAS    </td> <td>152.85      </td> <td>2237    </td> <td>237.17                   </td> <td>WN                    </td> <td>59.94       </td> <td>148.59        </td> <td>WN               </td> <td>59.94         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>LAX    </td> <td>190.73      </td> <td>2467    </td> <td>191.95                   </td> <td>DL                    </td> <td>17.89       </td> <td>205.06        </td> <td>US               </td> <td>16.59         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>MCO    </td> <td>129.35      </td> <td>1073    </td> <td>550.54                   </td> <td>WN                    </td> <td>76.84       </td> <td>127.69        </td> <td>WN               </td> <td>76.84         </td>
+        </tr>
+        <tr>
+            <td>ALB   </td> <td>TPA    </td> <td>134.17      </td> <td>1130    </td> <td>202.93                   </td> <td>US                    </td> <td>35.4        </td> <td>132.91        </td> <td>DL               </td> <td>26.4          </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (990 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following cell of code is provided.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="n">airlines</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;Market Leading Airline&quot;</span><span class="p">,</span> <span class="s2">&quot;DL&quot;</span><span class="p">)</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">&quot;Average Fare&quot;</span><span class="p">,</span> <span class="s2">&quot;Average Weekly Passengers&quot;</span><span class="p">])</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">relabeled</span><span class="p">([</span><span class="s2">&quot;Average Weekly Passengers&quot;</span><span class="p">,</span> <span class="s2">&quot;Average Fare&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">])</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">delta</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">delta</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_58_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">delta</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">),</span><span class="n">delta</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-3.49594506e-02,  1.89076806e+02])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">deltademand</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.035</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mf">189.1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose the supply curve is $\text{Supply} = 0.03 \cdot Q + 14$. This is not based on any data; it is chosen out for the purpose of this exercise. Write its expression.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">deltasupply</span> <span class="o">=</span> <span class="mf">0.03</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mi">14</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the quantity equilibrium.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Q_star_delta</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">deltademand</span><span class="p">,</span> <span class="n">deltasupply</span><span class="p">)</span>
+<span class="n">Q_star_delta</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2693.84615384615</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the price equilibrium.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">deltademand</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Q_star_delta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>94.8153846153846</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">deltasupply</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Q_star_delta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>94.8153846153846</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the market equilibrium. Visualize it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_equation</span><span class="p">(</span><span class="n">deltademand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plot_equation</span><span class="p">(</span><span class="n">deltasupply</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Delta Supply and Demand&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plot_intercept</span><span class="p">(</span><span class="n">deltasupply</span><span class="p">,</span> <span class="n">deltademand</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_69_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this week's homework, one of the exercises you will work on is to compare Delta vs non-Delta flights' demand. Until then, let's suppose that Delta's innovations did influence the demand of Delta tickets. How would the demand curve shift?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NO CODE</span>
+<span class="k">def</span> <span class="nf">shift_demand</span><span class="p">():</span>
+    <span class="n">equation</span> <span class="o">=</span> <span class="n">deltademand</span>
+    <span class="k">def</span> <span class="nf">shift_helper</span><span class="p">(</span><span class="n">shift</span><span class="p">):</span>
+        <span class="n">plot_equation</span><span class="p">(</span><span class="n">equation</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Original&quot;</span><span class="p">)</span>
+        <span class="n">plot_equation</span><span class="p">(</span><span class="n">deltasupply</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="n">old</span> <span class="o">=</span> <span class="n">plot_intercept</span><span class="p">(</span><span class="n">equation</span><span class="p">,</span> <span class="n">deltasupply</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original Intercept:&#39;</span><span class="p">,</span> <span class="n">old</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">shift</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">plot_equation</span><span class="p">(</span><span class="n">equation</span> <span class="o">+</span> <span class="n">shift</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="s1">&#39;Shifted&#39;</span><span class="p">)</span>
+            <span class="n">new</span> <span class="o">=</span> <span class="n">plot_intercept</span><span class="p">(</span><span class="n">equation</span> <span class="o">+</span> <span class="n">shift</span><span class="p">,</span> <span class="n">supply</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New intercept:&#39;</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Change in Price:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">old</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nothing shifted yet, use the slider to move the line!&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5000</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Shift in Customer Preference Impact on Delta Ticket Sales&quot;</span><span class="p">)</span>
+    <span class="n">interact</span><span class="p">(</span><span class="n">shift_helper</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">shift_demand</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Original Intercept: (2693.84615384615, 94.8153846153846)
+New intercept: (1445.21739130435, 132.517391304348)
+Change in Price: 37.7
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/demand/demand_71_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+</main>

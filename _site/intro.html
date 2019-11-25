@@ -1,73 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Home</title>
-  <meta name="description" content="Books with Jupyter and Jekyll">
+  <meta name="description" content="        Data 88: Economic Models This is a textbook developed for UC Berkeley's course Data 88: Economic Models. Data 88 is a generic course listing for Data...">
 
-  <link rel="canonical" href="https://jupyter.org/jupyter-book/intro.html">
-  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
+  <link rel="canonical" href="https://ds-connectors.github.io/econ-models-textbook/intro.html">
+  <link rel="alternate" type="application/rss+xml" title="Data 88: Economic Models" href="https://ds-connectors.github.io/econ-models-textbook/feed.xml">
 
-  <meta property="og:url"         content="https://jupyter.org/jupyter-book/intro.html" />
+  <meta property="og:url"         content="https://ds-connectors.github.io/econ-models-textbook/intro.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Home" />
-<meta property="og:description" content="Books with Jupyter and Jekyll" />
-<meta property="og:image"       content="" />
+<meta property="og:description" content="        Data 88: Economic Models This is a textbook developed for UC Berkeley's course Data 88: Economic Models. Data 88 is a generic course listing for Data..." />
+<meta property="og:image"       content="https://ds-connectors.github.io/econ-models-textbook/images/econ-models.png" />
+
+<meta name="twitter:card" content="summary">
 
 
   <script type="application/ld+json">
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage":
-    "https://jupyter.org/jupyter-book/intro.html",
-  "headline":
-    "Home",
-  "datePublished":
-    "2019-06-04T21:25:48-07:00",
-  "dateModified":
-    "2019-06-04T21:25:48-07:00",
-  "description":
-    "Books with Jupyter and Jekyll",
+  "mainEntityOfPage": "https://ds-connectors.github.io/econ-models-textbook/intro.html",
+  "headline": "Home",
+  "datePublished": "2019-11-25T12:55:56-08:00",
+  "dateModified": "2019-11-25T12:55:56-08:00",
+  "description": "        Data 88: Economic Models This is a textbook developed for UC Berkeley's course Data 88: Economic Models. Data 88 is a generic course listing for Data...",
   "author": {
     "@type": "Person",
-    "name": "The Jupyter Book Community"
+    "name": "Eric Van Dusen et al."
   },
   "publisher": {
     "@type": "Organization",
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://jupyter.org/jupyter-book",
+      "url": "https://ds-connectors.github.io/econ-models-textbook",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://jupyter.org/jupyter-book",
+    "url": "https://ds-connectors.github.io/econ-models-textbook",
     "height": 60,
     "width": 60
   }
 }
 
   </script>
-  <link rel="stylesheet" href="/jupyter-book/assets/css/styles.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="stylesheet" href="/econ-models-textbook/assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/regular.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/solid.css">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
   <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
@@ -76,10 +63,12 @@
   <meta name="theme-color" content="#233947">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/jupyter-book/images/logo/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/econ-models-textbook/images/favicon.ico">
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -88,54 +77,36 @@ MathJax.Hub.Config({
         processEscapes: true,
         processEnvironments: true
     },
-    CommonHTML: {
-        linebreaks: {
-            automatic: true,
-        },
-    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
 });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
 
   <!-- DOM updating function -->
-  <script>
-const runWhenDOMLoaded = cb => {
-  if (document.readyState != 'loading') {
-    cb()
-  } else if (document.addEventListener) {
-    document.addEventListener('DOMContentLoaded', cb)
-  } else {
-    document.attachEvent('onreadystatechange', function() {
-      if (document.readyState == 'complete') cb()
-    })
-  }
-}
+  <script src="/econ-models-textbook/assets/js/dom-update.js"></script>
 
-// Helper function to init things quickly
-initFunction = function(myfunc) {
-  runWhenDOMLoaded(myfunc);
-  document.addEventListener('turbolinks:load', myfunc);
-};
-</script>
+  <!-- Selectors for elements on the page -->
+  <script src="/econ-models-textbook/assets/js/documentSelectors.js"></script>
 
   <!-- Define some javascript variables that will be useful in other javascript -->
   <script>
-    const site_basename = '/jupyter-book';
+    const site_basename = '/econ-models-textbook';
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/jupyter-book/assets/js/anchor.min.js"  type="text/javascript"></script>
-  <script>
-
-initFunction(function () {
-    anchors.add("main h1, main h2, main h3, main h4")
-});
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/econ-models-textbook/assets/js/anchors.js" async></script>
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/jupyter-book/assets/js/turbolinks.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
 
   <!-- Load nbinteract for widgets -->
@@ -145,313 +116,34 @@ initFunction(function () {
   <!-- Include Thebelab for interactive code if it's enabled -->
 
 
-<!-- Display Thebelab button in each code cell -->
-<script>
-/**
- * Set up thebelab button for code blocks
- */
 
-const thebelabCellButton = id =>
-  `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
-    <img src="/jupyter-book/assets/images/edit-button.svg" alt="Start interactive mode">
-  </a>`
-
-
-const addThebelabButtonToCodeCells =  () => {
-
-  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
-  codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    if (document.getElementById("thebelab-cell-button-" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
-    }
-  })
-}
-
-initFunction(addThebelabButtonToCodeCells);
-</script>
-
-
-
-<script type="text/x-thebe-config">
-    {
-      requestKernel: true,
-      binderOptions: {
-        repo: 'jupyter/jupyter-book',
-        ref: 'gh-pages',
-      },
-      codeMirrorConfig: {
-        theme: "abcdef"
-      },
-      kernelOptions: {
-        name: 'python3',
-      }
-    }
-</script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
-<script>
-    /**
-     * Add attributes to Thebelab blocks
-     */
-
-    const initThebelab = () => {
-        const addThebelabToCodeCells = () => {
-            console.log("Adding thebelab to code cells...");
-            // If Thebelab hasn't loaded, wait a bit and try again. This
-            // happens because we load ClipboardJS asynchronously.
-            if (window.thebelab === undefined) {
-                setTimeout(addThebelabToCodeCells, 250)
-            return
-            }
-
-            // If we already detect a Thebelab cell, don't re-run
-            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
-                return;
-            }
-
-            // Find all code cells, replace with Thebelab interactive code cells
-            const codeCells = document.querySelectorAll('.input_area pre')
-            codeCells.forEach((codeCell, index) => {
-                const id = codeCellId(index)
-                codeCell.setAttribute('data-executable', 'true')
-
-                // Figure out the language it uses and add this too
-                var parentDiv = codeCell.parentElement.parentElement;
-                var arrayLength = parentDiv.classList.length;
-                for (var ii = 0; ii < arrayLength; ii++) {
-                    var parts = parentDiv.classList[ii].split('language-');
-                    if (parts.length === 2) {
-                        // If found, assign dataLanguage and break the loop
-                        var dataLanguage = parts[1];
-                        break;
-                    }
-                }
-                codeCell.setAttribute('data-language', dataLanguage)
-
-                // If the code cell is hidden, show it
-                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
-                if (inputCheckbox !== null) {
-                    setCodeCellVisibility(inputCheckbox, 'visible');
-                }
-            });
-
-            // Remove the event listener from the page so keyboard press doesn't
-            // Change page
-            document.removeEventListener('keydown', initPageNav)
-            keyboardListener = false;
-
-            // Init thebelab
-            thebelab.bootstrap();
-
-            // Remove copy buttons since they won't work anymore
-            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
-            copyAndThebeButtons.forEach((button, index) => {
-                button.remove();
-            });
-
-            // Remove outputs since they'll be stale
-            const outputs = document.querySelectorAll('.output *, .output')
-            outputs.forEach((output, index) => {
-                output.remove();
-            });
-        }
-
-        // Add event listener for the function to modify code cells
-        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
-        thebelabButtons.forEach((thebelabButton,index) => {
-            if (thebelabButton === null) {
-                setTimeout(initThebelab, 250)
-                return
-            };
-            thebelabButton.addEventListener('click', addThebelabToCodeCells);
-        });
-    }
-
-    // Initialize Thebelab
-    initFunction(initThebelab);
-</script>
-
-
-
-  <!-- Load the auto-generating TOC -->
-  <script src="/jupyter-book/assets/js/tocbot.min.js"  type="text/javascript"></script>
-  <script>
-var initToc = function () {
-  tocbot.init({
-    tocSelector: 'nav.onthispage',
-    contentSelector: '.c-textbook__content',
-    headingSelector: 'h2, h3',
-    orderedList: false,
-    collapseDepth: 6,
-    listClass: 'toc__menu',
-    activeListItemClass: "",  // Not using
-    activeLinkClass: "", // Not using
-  });
-  tocbot.refresh();
-}
-initFunction(initToc);
-</script>
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+  <script src="/econ-models-textbook/assets/js/tocbot.js"></script>
 
   <!-- Google analytics -->
-  <script src="/jupyter-book/assets/js/ga.js" async></script>
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
 
   <!-- Clipboard copy button -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
-
-  <!-- Load JS that depends on site variables -->
-  <script>
-/**
- * Set up copy/paste for code blocks
- */
-const codeCellId = index => `codecell${index}`
-
-const clipboardButton = id =>
-  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
-  </a>`
-
-// Clears selected text since ClipboardJS will select the text when copying
-const clearSelection = () => {
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges()
-  } else if (document.selection) {
-    document.selection.empty()
-  }
-}
-
-// Changes tooltip text for two seconds, then changes it back
-const temporarilyChangeTooltip = (el, newText) => {
-  const oldText = el.getAttribute('data-tooltip')
-  el.setAttribute('data-tooltip', newText)
-  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
-}
-
-const addCopyButtonToCodeCells = () => {
-  // If ClipboardJS hasn't loaded, wait a bit and try again. This
-  // happens because we load ClipboardJS asynchronously.
-  if (window.ClipboardJS === undefined) {
-    setTimeout(addCopyButtonToCodeCells, 250)
-    return
-  }
-
-  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
-  codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    if (document.getElementById("copy-button" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
-    }
-  })
-
-  const clipboard = new ClipboardJS('.copybtn')
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, 'Copied!')
-  })
-
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
-  })
-
-  // Get rid of clipboard before the next page visit to avoid memory leak
-  document.addEventListener('turbolinks:before-visit', () =>
-    clipboard.destroy()
-  )
-}
-
-initFunction(addCopyButtonToCodeCells);
-</script>
-
-
-  <!-- Hide cell code -->
-  <script>
-    /**
-    Add buttons to hide code cells
-    */
-
-
-    var setCodeCellVisibility = function (inputField, kind) {
-        // Update the image and class for hidden
-        var id = inputField.getAttribute('data-id');
-        var codeCell = document.querySelector(`#${id} div.highlight`);
-
-        if (kind === "visible") {
-            codeCell.classList.remove('hidden');
-            inputField.checked = true;
-        } else {
-            codeCell.classList.add('hidden');
-            inputField.checked = false;
-        }
-    }
-
-    var toggleCodeCellVisibility = function (event) {
-        // The label is clicked, and now we decide what to do based on the input field's clicked status
-        if (event.target.tagName === "LABEL") {
-            var inputField = event.target.previousElementSibling;
-        } else {
-            // It is the span inside the target
-            var inputField = event.target.parentElement.previousElementSibling;
-        }
-
-        if (inputField.checked === true) {
-            setCodeCellVisibility(inputField, "visible");
-        } else {
-            setCodeCellVisibility(inputField, "hidden");
-        }
-    }
-
-
-    // Button constructor
-    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
-
-    var addHideButton = function () {
-        // If a hide button is already added, don't add another
-        if (document.querySelector('div.hidecode input') !== null) {
-            return;
-        }
-
-        // Find the input cells and add a hide button
-        document.querySelectorAll('div.input_area').forEach(function (item, index) {
-            if (!item.classList.contains("hidecode")) {
-                // Skip the cell if it doesn't have a hidecode class
-                return;
-            }
-
-            const id = codeCellId(index)
-            item.setAttribute('id', id);
-            // Insert the button just inside the end of the next div
-            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
-
-            // Set up the visibility toggle
-            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
-            hideLink.addEventListener('click', toggleCodeCellVisibility)
-        });
-    }
-
-
-    // Initialize the hide buttos
-    var initHiddenCells = function () {
-        // Add hide buttons to the cells
-        addHideButton();
-
-        // Toggle the code cells that should be hidden
-        document.querySelectorAll('div.hidecode input').forEach(function (item) {
-            setCodeCellVisibility(item, 'hidden');
-            item.checked = true;
-        })
-    }
-
-    initFunction(initHiddenCells);
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
 
   <!-- Load custom website scripts -->
-  <script src="/jupyter-book/assets/js/scripts.js" async></script>
+  <script src="/econ-models-textbook/assets/js/scripts.js" async></script>
 
   <!-- Load custom user CSS and JS  -->
-  <script src="/jupyter-book/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/jupyter-book/assets/custom/custom.css">
+  <script src="/econ-models-textbook/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/econ-models-textbook/assets/custom/custom.css">
 
   <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
   
@@ -515,7 +207,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("https://jupyter.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("https://ds-connectors.github.io") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {
@@ -575,7 +267,7 @@ function updateInteractLink() {
       } else {
         // If interact button isn't binderhub, assume it's jupyterhub
         // If JupyterHub links, we only need to replace the hub url
-        href = href.replace("", hubUrl);
+        href = href.replace("https://datahub.berkeley.edu", hubUrl);
         if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
           // Assume we're working from a local Jupyter server and remove `/hub`
           href = href.replace("/hub/user-redirect", "");
@@ -598,7 +290,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/jupyter-book/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -684,6 +376,45 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 initFunction(initQuery);
 </script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/econ-models-textbook/assets/js/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/econ-models-textbook/assets/js/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/econ-models-textbook/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
 </head>
 
   <body>
@@ -694,8 +425,8 @@ initFunction(initQuery);
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://jupyter.org/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
-  <h2 class="c-sidebar__title">Jupyter Book</h2>
+  <a href="https://ds-connectors.github.io/econ-models-textbook"><img src="/econ-models-textbook/images/econ-models.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">Data 88: Economic Models</h2>
   <ul class="c-sidebar__chapters">
     
       
@@ -708,305 +439,10 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry c-sidebar__entry--active"
-          href="/jupyter-book/intro.html"
+          href="/econ-models-textbook/intro.html"
         >
           
           Home
-        </a>
-
-        
-      </li>
-
-      
-    
-      
-      
-        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/jupyter-book/search.html">Search</a></li>
-        
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/jupyter-book/guide/01_overview.html"
-        >
-          
-          Getting started
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections ">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/02_create.html"
-                >
-                  
-                  Create your book
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/03_build.html"
-                >
-                  
-                  Build and publish your book
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/04_faq.html"
-                >
-                  
-                  FAQ
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/05_advanced.html"
-                >
-                  
-                  How-to and advanced topics
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/jupyter-book/features/features.html"
-        >
-          
-          Features and customization
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections ">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/markdown.html"
-                >
-                  
-                  Markdown files
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/notebooks.html"
-                >
-                  
-                  Jupyter notebooks
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/hiding.html"
-                >
-                  
-                  Hiding code blocks or entire cells
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/interact.html"
-                >
-                  
-                  Connecting content with JupyterHub and Binder
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/interactive_cells.html"
-                >
-                  
-                  Adding interactivity to your book pages
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/citations.html"
-                >
-                  
-                  Citations and bibliographies
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/search.html"
-                >
-                  
-                  Searching your book
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/limits.html"
-                >
-                  
-                  Feature Limits
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="https://github.com/jupyter/jupyter-book"
-        >
-          
-          GitHub repository
         </a>
 
         
@@ -1020,10 +456,6 @@ initFunction(initQuery);
         
       
       
-        <li><h2 class="c-sidebar__title">Demo textbook</li>
-        
-      
-      
 
       
       
@@ -1032,12 +464,12 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/01/what-is-data-science.html"
+          href="/econ-models-textbook/topic-intros/sympy-latex.html"
         >
           
             1.
           
-          Data Science
+          SymPy and LaTeX
         </a>
 
         
@@ -1056,81 +488,13 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/01/1/intro.html"
+                  href="/econ-models-textbook/sympy-latex/sympy-latex.html"
                 >
                   
-                    1.1
-                  
-                  Introduction
+                  SymPy and LaTeX
                 </a>
 
                 
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/01/2/why-data-science.html"
-                >
-                  
-                    1.2
-                  
-                  Why Data Science?
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/01/3/Plotting_the_Classics.html"
-                >
-                  
-                    1.3
-                  
-                  Plotting the Classics
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/jupyter-book/01/3/subsection/subsections.html"
-                    >
-                      
-                        1.3.1
-                        
-                      
-                      Subsection Demo 1
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/jupyter-book/01/3/subsection/subsectiontwo.html"
-                    >
-                      
-                        1.3.2
-                        
-                      
-                      Subsection Demo 2
-                    </a>
                 
 
               </li>
@@ -1152,12 +516,12 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/02/causality-and-experiments.html"
+          href="/econ-models-textbook/topic-intros/supply.html"
         >
           
             2.
           
-          Causality and Experiments
+          Supply and Firm Behavior
         </a>
 
         
@@ -1176,12 +540,10 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html"
+                  href="/econ-models-textbook/supply/horizontal-sum-supply.html"
                 >
                   
-                    2.1
-                  
-                  John Snow and the Broad Street Pump
+                  Horizontal Sum Supply
                 </a>
 
                 
@@ -1195,12 +557,10 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/2/snow-s-grand-experiment.html"
+                  href="/econ-models-textbook/supply/production.html"
                 >
                   
-                    2.2
-                  
-                  Snow’s “Grand Experiment”
+                  Production
                 </a>
 
                 
@@ -1214,50 +574,10 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/3/establishing-causality.html"
+                  href="/econ-models-textbook/supply/supply.html"
                 >
                   
-                    2.3
-                  
-                  Establishing Causality
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/4/randomization.html"
-                >
-                  
-                    2.4
-                  
-                  Randomization
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/5/endnote.html"
-                >
-                  
-                    2.5
-                  
-                  Endnote
+                  Supply and Firm Behavior
                 </a>
 
                 
@@ -1282,12 +602,12 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/03/programming-in-python.html"
+          href="/econ-models-textbook/topic-intros/demand.html"
         >
           
             3.
           
-          Programming in Python
+          Demand and Market Equilibrium
         </a>
 
         
@@ -1306,69 +626,10 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/03/1/Expressions.html"
+                  href="/econ-models-textbook/demand/demand.html"
                 >
                   
-                    3.1
-                  
-                  Expressions
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/03/2/Names.html"
-                >
-                  
-                    3.2
-                  
-                  Names
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/03/3/Calls.html"
-                >
-                  
-                    3.3
-                  
-                  Call Expressions
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/03/4/Introduction_to_Tables.html"
-                >
-                  
-                    3.4
-                  
-                  Introduction to Tables
+                  Demand and Market Equilibrium
                 </a>
 
                 
@@ -1393,12 +654,12 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/04/Types.html"
+          href="/econ-models-textbook/topic-intros/utility.html"
         >
           
             4.
           
-          Data Types
+          Utility Maximization
         </a>
 
         
@@ -1417,12 +678,426 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/04/1/Numbers.html"
+                  href="/econ-models-textbook/utility/utility.html"
                 >
                   
-                    4.1
+                  Utility Maximization
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/econ-models-textbook/topic-intros/elasticities.html"
+        >
+          
+            5.
+          
+          Welfare and Elasticities
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/econ-models-textbook/elasticities/elasticities.html"
+                >
                   
-                  Numbers
+                  Welfare and Elasticities
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/econ-models-textbook/topic-intros/trade.html"
+        >
+          
+            6.
+          
+          Trade and Taxes
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/econ-models-textbook/trade/trade.html"
+                >
+                  
+                  Trade and Taxes
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/econ-models-textbook/topic-intros/cobb-douglas.html"
+        >
+          
+            7.
+          
+          Production and Cobb-Douglas
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/econ-models-textbook/cobb-douglas/cobb-douglas.html"
+                >
+                  
+                  Production and Cobb-Douglas
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/econ-models-textbook/topic-intros/economic-development.html"
+        >
+          
+            8.
+          
+          Economic Development: Africa
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/econ-models-textbook/economic-development/economic-development.html"
+                >
+                  
+                  Economic Development: Africa
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/econ-models-textbook/topic-intros/finance.html"
+        >
+          
+            9.
+          
+          Finance and Time Series Data
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/econ-models-textbook/finance/finance.html"
+                >
+                  
+                  Finance and Time Series Data
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/econ-models-textbook/topic-intros/inequality.html"
+        >
+          
+            10.
+          
+          Inequality and Tax Rates
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/econ-models-textbook/inequality/inequality.html"
+                >
+                  
+                  Inequality and Tax Rates
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/econ-models-textbook/topic-intros/envecon.html"
+        >
+          
+            11.
+          
+          Environmental Economics
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/econ-models-textbook/envecon/envecon.html"
+                >
+                  
+                  Environmental Economics
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/econ-models-textbook/topic-intros/Econometrics.html"
+        >
+          
+            12.
+          
+          Econometrics and Data Science
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/econ-models-textbook/econometrics/econometrics.html"
+                >
+                  
+                  Econometrics and Data Science
                 </a>
 
                 
@@ -1436,31 +1111,10 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/04/2/Strings.html"
+                  href="/econ-models-textbook/econometrics/dummy-variables.html"
                 >
                   
-                    4.2
-                  
-                  Strings
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/jupyter-book/04/3/Comparison.html"
-                >
-                  
-                    4.3
-                  
-                  Comparisons
+                  Dummy Variables
                 </a>
 
                 
@@ -1480,107 +1134,64 @@ initFunction(initQuery);
 </nav>
 
       
-      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-      <aside class="sidebar__right">
-          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
-          <nav class="onthispage">
-          </nav>
-      </aside>
-      
-      <main class="c-textbook__page" tabindex="-1">
-          <div class="o-wrapper">
-            <div class="c-sidebar-toggle">
+      <div class="c-topbar" id="top-navbar">
   <!-- We show the sidebar by default so we use .is-active -->
-  <button
-    id="js-sidebar-toggle"
-    class="hamburger hamburger--arrowalt is-active"
-  >
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
-  </button>
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <div class="download-buttons">
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+    </div>
 </div>
 
-            
+</div>
 
-            <div class="c-textbook__content">
-              <h1 id="books-with-jupyter-and-jekyll">Books with Jupyter and Jekyll</h1>
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/econ-models-textbook/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
 
-<p><img src="https://circleci.com/gh/jupyter/jupyter-book.svg?style=svg" class="left" /></p>
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+                  <main class="jupyter-page">
+    <div class="jb_cell">
 
-<p>Jupyter Books lets you build an online book using a collection of Jupyter Notebooks
-and Markdown files. Its output is similar to the excellent <a href="https://bookdown.org/yihui/bookdown/">Bookdown</a> tool,
-and adds extra functionality for people running a Jupyter stack.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Data-88:-Economic-Models">Data 88: Economic Models<a class="anchor-link" href="#Data-88:-Economic-Models"> </a></h1><p>This is a textbook developed for UC Berkeley's course Data 88: Economic Models. <a href="https://ds-connectors.github.io">Data 88</a> is a generic course listing for Data 8 connector courses.</p>
+<h2 id="Course-Description">Course Description<a class="anchor-link" href="#Course-Description"> </a></h2><p>The idea for the class is to take students through a series of exercises to motivate and illustrate key concepts in Economics with examples in Python Jupyter notebooks. The class will cover concepts from Introductory Economics, MIcroeconomic Theory, Econometrics, Development Economics, Environmental Economics and Public Economics. The course will give data science students a pathway to apply python programming and data science concepts within the discipline of economics. The course will also give economics students a pathway to apply programming to reinforce fundamental concepts and to advance the level of study in upper division coursework and possible thesis work.</p>
+<h2 id="Acknowledgements">Acknowledgements<a class="anchor-link" href="#Acknowledgements"> </a></h2><p><strong>Course Instructor:</strong> Eric Van Dusen</p>
+<p><strong>Textbook Developer:</strong> <a href="https://chrispyles.io">Christopher Pyles</a></p>
+<p><strong>Content Developers:</strong> Angela Guan, Shashank Dalmia, Amal Bhatnagar, Andrei Caprau, Eric Van Dusen, Christopher Pyles, <a href="http://alanliang.me/">Alan Liang</a>, Umar Maniku, Alex McMurry</p>
+<h2 id="License">License<a class="anchor-link" href="#License"> </a></h2><p>This textbook is licensed under a <a href="https://github.com/ds-connectors/econ-models-textbook/blob/master/LICENSE">BSD 3-Clause License</a>.</p>
 
-<p>For an example of a book built with Jupyter Books, see the <a href="https://www.textbook.ds100.org/">textbook for Data 100</a> at UC Berkeley (or this website!)</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>Here are a few features of Jupyter Books</p>
-
-<ul>
-  <li>A Command-Line Interface (CLI) to quickly create, build, and upgrade books.</li>
-  <li>Write book content in markdown and Jupyter Notebooks</li>
-  <li>Convert these into Jekyll pages that can be hosted for free on GitHub</li>
-  <li>Pages can have <a href="https://mybinder.org">Binder</a>, JupyterHub, or Theblab links
-automatically added for interactivity.</li>
-  <li>The website itself is based on Jekyll and is highly extensible.</li>
-  <li>There are lots of nifty HTML features under-the-hood, such as
-Turbolinks fast-navigation and click-to-copy in code cells.</li>
-</ul>
-
-<p>Check out other features in the <a href="features/features">Features section</a>.</p>
-
-<h2 id="getting-started">Getting started</h2>
-
-<p>To get started, you may be interested in the following links.
-Here are a few links of interest:</p>
-
-<ul>
-  <li>
-    <p><strong><a href="features/features">Jupyter Book features</a></strong> is a quick demo and overview
-of Jupyter Books.</p>
-  </li>
-  <li>
-    <p><strong><a href="guide/01_overview">The Jupyter Book Guide</a></strong>
-will step you through the process of configuring and building your own Jupyter Book.</p>
-  </li>
-</ul>
-
-<h3 id="installation">Installation</h3>
-
-<p>To install the Jupyter Book command-line interface (CLI), use <code class="highlighter-rouge">pip</code>!</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install jupyter-book
-</code></pre></div></div>
-
-<h3 id="create-a-new-book">Create a new book</h3>
-
-<p>Once you’ve installed the CLI, create a new book using the demo book content
-(the website that you’re viewing now) with this command:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter-book create mybookname --demo
-</code></pre></div></div>
-
-<h3 id="build-the-markdown-for-your-book">Build the markdown for your book</h3>
-
-<p>Now, build the markdown that Jekyll will use for your book. Run this command:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter-book build mybookname
-</code></pre></div></div>
-
-<h3 id="thats-it">That’s it!</h3>
-
-<p>You can now either push your book to GitHub and serve the demo with gh-pages,
-or modify the book with your own content.</p>
-
-<h2 id="acknowledgements">Acknowledgements</h2>
-
-<p>Jupyter Books was originally created by <a href="http://www.samlau.me/">Sam Lau</a> and <a href="https://predictablynoisy.com">Chris Holdgraf</a>
-with support of the <strong>UC Berkeley Data Science Education Program and the
-<a href="https://bids.berkeley.edu/">Berkeley Institute for Data Science</a></strong>.</p>
+ 
 
 
-              <nav class="c-page__nav">
+    </main>
+    
+            </div>
+            <nav class="c-page__nav">
   
     
     <a id="js-page__nav__prev" class="c-page__nav__prev" href="">
@@ -1590,17 +1201,18 @@ with support of the <strong>UC Berkeley Data Science Education Program and the
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/jupyter-book/guide/01_overview">
-      Getting started <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/econ-models-textbook/topic-intros/sympy-latex.html">
+      SymPy and LaTeX <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
 
-            </div>
-          </div>
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
         </div>
       </main>
     </div>
-
   </body>
 </html>

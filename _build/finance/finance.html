@@ -1,0 +1,526 @@
+---
+interact_link: content/finance/finance.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Finance and Time Series Data
+prev_page:
+  url: /topic-intros/finance.html
+  title: |-
+    Finance and Time Series Data
+next_page:
+  url: /topic-intros/inequality.html
+  title: |-
+    Inequality and Tax Rates
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<main class="jupyter-page">
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table style="width: 100%;">
+    <tr style="background-color: transparent;"><td>
+        <img src="https://d8a-88.github.io/econ-fa19/assets/images/blue_text.png" width="250px" style="margin-left: 0;" />
+    </td><td>
+        <p style="text-align: right; font-size: 12pt;"><strong>Economic Models</strong>, Fall 2019<br>
+            Dr. Eric Van Dusen</p></td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Lab-9:-Financial-Economics----Fixed-Income-Securities">Lab 9: Financial Economics -- Fixed-Income Securities<a class="anchor-link" href="#Lab-9:-Financial-Economics----Fixed-Income-Securities"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;seaborn-muted&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This notebook will aim to introduce Fixed Income securities to you, as an introduction to the larger field of Financial Economics. These are assets that pay a fixed amount of money at regular intervals according to a prescribed interest rate. We will focus on what interest means and how money changes value over time. From this, we will proceed into a discussion of the different examples of fixed-income securities: Annuities, Perpetuities, Forward Start Perpetuities, Zero Coupon Bonds and Bonds themselves. Along the way, we will learn about yield, price, the yield curve, and the different measures of risk that go into selecting which fixed income security to enter.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Time-Value-of-Money">The Time Value of Money<a class="anchor-link" href="#The-Time-Value-of-Money"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An important concept that some might argue is the basis for most of finance is the <em>time value of money</em>: money now is worth more than money in the future. This makes sense; you would rather have $\$$100 now than later. But what if I owed you money and I really wanted to postpone the payment? In order to compensate you for your bias toward having money as soon as possible, I would need to pay more than I owed. Otherwise, you might not tolerate a delayed payment. This idea of an extra payment to address time concerns is called <em>interest</em>. There is also a dimension of risk, as well. If you had reason to doubt my ability to repay you in the future, you might charge me more interest to compensate for this risk.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Interest">Interest<a class="anchor-link" href="#Interest"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Interest is at the heart of fixed income securities and financial economics in general. We are familiar with the basic transaction in the context of a bank account: the principal (you, the investor) giving a certain amount of money to a financial institution, and them compensating you for allowing them to use your money to invest in other assets. The money they pay you for keeping your money is interest, and is normally quantified as a percentage of what you deposit with them - an interest rate. Thus, for each dollar deposited into the institution, the principal will receive 1(1+r) where r is the interest rate quoted by said institution. Note that r takes the form of 0.05, for instance, and not 5%.</p>
+<p>Fixed income securities work in a similar way. However, instead of depositing money into a bank, you decide to purchase an asset that will pay you a fixed amount of money at regular intervals, before returning the initial amount at a given time. The amount of money paid out is based on interest. Thus in both ways, bank deposits and fixed income securities, your money will grow by some amount.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The next question becomes how often is interest paid out - monthly, quarterly, yearly or continuously? This is where the concept of compounding comes in. We are able to determine how much $\$$1 will generate in t years, when compounding n times per year at an interest rate of r.</p>
+$$
+\text{Value} = 1 \left (1 + \dfrac{r}{n} \right)^{nt}
+$$<p>Take a look at the table below for an example.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th>-</th>
+<th>Bank 1: 5% annually</th>
+<th>Bank 2: 5% semi-annually</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>January 2016</td>
+<td>$\$100 $</td>
+<td>$\$100 $</td>
+</tr>
+<tr>
+<td>July 2016</td>
+<td>-</td>
+<td>$\$100 \left ( 1 + \dfrac{0.05}{2} \right )$ = $\$$102.50</td>
+</tr>
+<tr>
+<td>January 2017</td>
+<td>$\$$100(1.05) = $\$$105</td>
+<td>$\$102.50 \left ( 1+\dfrac{0.05}{2} \right )$ = $\$$105.0625</td>
+</tr>
+<tr>
+<td>July 2017</td>
+<td>-</td>
+<td>$\$ 105.0625 \left ( 1+ \dfrac{0.05}{2} \right )$ = $\$$107.69</td>
+</tr>
+<tr>
+<td>January 2018</td>
+<td>$\$$105(1.05) = $\$$110.25</td>
+<td>$\$ 107.69 \left ( 1+ \dfrac{0.05}{2} \right )$ = $\$$110.38</td>
+</tr>
+<tr>
+<td>Total Percent Change</td>
+<td>10.25%</td>
+<td>10.38%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice that instead of a $5\%\cdot2$ = $10\%$ increase, you end up receiving a 10.25% or 10.38% increase depending on the rate of compounding. This is because the interest you received in the first compounding period (in bank 1’s case, a year, in bank 2’s case, half a year) is added onto your initial deposit, and this new deposit is used for calculating interest in the next period. This is the value of compounding - the growth rate is applied at an exponential rate. Thus, even a small amount of $\$$1 can grow quickly under any kind of interest rate compounding.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Rule-of-70">The Rule of 70<a class="anchor-link" href="#The-Rule-of-70"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can reorganize the equation above to find out how long it will take to double your initial deposit. Let $n = 1$, and $r = 0.01$.</p>
+$$
+20 = 10 \left (1 + 0.01 \right )^{t} \\
+2 = \left (1 + 0.01 \right )^{t} \\
+\ln(2) = t \ln(1 + 0.01) \\
+0.693147 = 0.00995t \\
+t \approx 69.66 \approx 70
+$$<p>A good approximation of this is the rule of 70. This states that at a 1% 
+interest rate, it will take 70 compounding periods to double one’s money. So if the rate is 1% and the compounding period is one year, it will roughly take 70 years to double the initial deposit. If the rate is 2%, it will roughly take 35 years. This is only an approximation, but a useful one for quick use.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Present-Value,-Future-Value,-and-Discount-Factor">Present Value, Future Value, and Discount Factor<a class="anchor-link" href="#Present-Value,-Future-Value,-and-Discount-Factor"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An important related concept is the idea of present and future value. We have already discussed future value above. A $\$$100 deposit at bank 1 above has a future value of $\$$110.25 after 2 years. Conversely, an important question frequently asked in finance is given an amount of money in the future, what is its fair value today? In this example, what is the present value of $\$$110.25 at bank 1 2 years in the future? Well, from the table above, $\$$100! This idea of present value is essential to the pricing of assets. What is the fair price that one should pay today for an asset that has payments in the future? It is the present value of all future payments the asset gives. The formulae for future and present value should look related.</p>
+$$
+\text{FV} = 1 \left (1 + \dfrac{r}{n} \right)^{nt}
+$$$$
+\text{PV} = \dfrac{1}{\left (1 + \dfrac{r}{n} \right ) ^{nt}}
+$$<p>The formula for present value is technically a <em>discount factor</em> in the format it is in currently. It discounts any future price into a fair present-day price. It must be multiplied by face value to get the present price of the bond in our example.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Fixed-Income-Securities">Fixed Income Securities<a class="anchor-link" href="#Fixed-Income-Securities"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A fixed income security works similarly to a bank deposit, but with some slight differences. First, these securities are assets, and can be traded to someone else like any other asset, in contrast to a bank account, which cannot usually be transferred to someone else. Also, these securities represent an obligation to the owners of the assets from the company or organization that issues the asset. Unlike dividends on earnings, which a company can choose to whether or not to pay and how much, an issuer of these securities is legally obligated to pay them out according to the schedule agreed upon.</p>
+<p>Now we will go into examples of fixed-income securities. They have a few components:</p>
+<ul>
+<li>Price: The actual amount investors pay to own the asset - the present value of all future expected payments.</li>
+<li>Coupon: The fixed-amount payments. You may be familiar with bonds that pay some money each quarter or year. This is the coupon.</li>
+<li>Face Value: The dollar value of the security itself - what gets paid out at maturity. So if you own a 5-year bond of face value $\$$100, after 5 years you will receive $\$$100.</li>
+<li>Maturity: The length of time the security is active for. In the above example, the maturity would be 5 years.</li>
+<li>Coupon Rate: The percent of the security’s face value that is paid out as coupons. So if the face value is $\$$100 and the coupon rate is 5%, then the security pays coupons of $\$$5 every so often.</li>
+<li>Yield: The annualized rate of return of the security, considering all of the factors above. Do not confuse this with coupon rate; these are different things. Yield is a feature of the market, and is not something the investor typically has much control over. It is related to interest rates.</li>
+</ul>
+<p>As we mentioned before, these are assets where the investor purchases them at a certain price, and gets regular fixed-amount payments and/or their original investment at the securities’ maturity. The key idea with fixed-income securities is how they are priced. We are able to calculate the sum total of payments the investor will receive over the time when the security is active.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Yield-and-the-Zero-Coupon-Bond">Yield and the Zero-Coupon Bond<a class="anchor-link" href="#Yield-and-the-Zero-Coupon-Bond"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let’s begin our discussion with <em>zero-coupon bonds</em>. A zero-coupon bond is a very simple bond in which you pay an amount to own the bond, and after a specified period of time, you receive an amount of money in return. Thus, when the investor purchases the bond at the current time, they will just pay the present value of the zero-coupon bond’s face value. The question now becomes: what should the yield be?</p>
+<p>As a simplification, we will assume that the yield curve is flat. What this means is that the annualized yield for a bond or other fixed-income security is the same regardless of the timespan in which the asset pays. Thus, the rate of return at a given time t is just one universal, constant yield. If we know that we are to receive the face value at time t, then we can say the future value is the face value. As the price of a security is the present value of all future expected cash flows, and our only cash flow is the return of the face value, then the price we pay today would just be the present value of the face value, discounted at the current yield. Thus you can interpret the yield as an annualized rate of return that is a property of the market and changes over time, much like interest rates at a bank.</p>
+<p>Let's say we have a 1-year bond of face value $\$$100, with no coupons. And let's say the yield for this type of bond in the market is currently 5%. How much should the bond cost?</p>
+$$
+\text{PV} = \dfrac{1}{\left (1 + \dfrac{r}{n} \right ) ^{nt}} \\
+\text{Price} = \dfrac{\$100}{\left( 1 + 0.05 \right)} \\
+\text{Price} \approx \$95.24
+$$<p>So we would expect this bond to be trading at about $\$$95.24.</p>
+<p>Now let's discuss other types of fixed income.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Perpetuity">Perpetuity<a class="anchor-link" href="#Perpetuity"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A perpetuity is a security that pays a fixed coupon for an infinite time period. As it is active for an infinite time period, the initial investment is never repaid, in contrast to a bond which repays the face value at maturity. Once again, we need to find the present value of all future expected cash flows. Let’s first focus on finding how much we will earn - in other words, we need to find the sum of an infinite series, then discount that to present values.</p>
+<p>To keep our notation simple let's let $n = 1$, so we have annual compounting.</p>
+$$
+\text{Price} = \sum^{\infty}_{i=1} \dfrac{C}{\left( 1 + Y \right)^i}
+$$<p>where $C$ is the annual coupon that the perpetuity pays. Note that</p>
+$$
+\sum^{\infty}_{i=0} x^i = \dfrac{1}{1-x}
+$$<p>for $\lvert x \rvert &lt; 1$, so</p>
+$$
+\text{Price} = \dfrac{C}{Y}
+$$<p>for a perpetuity. The specific algebra to get here is left as an exercise for the reader.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Forward-Start-Perpetuity">Forward-Start Perpetuity<a class="anchor-link" href="#Forward-Start-Perpetuity"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From this, we can move to a forward-start perpetuity. As the name suggests, this is just a perpetuity that starts nt periods from now. How could we price this? We have already discussed how to find the price of a perpetuity, so let us just discount that price to present values.</p>
+$$
+\text{Price} = \dfrac{1}{\left( 1 + Y \right)^t} \dfrac{C}{Y}
+$$<p>where $t$ is the number of periods (years in our case) that the perpetuity is delayed.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Annuity">Annuity<a class="anchor-link" href="#Annuity"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The next security we will discuss is the annuity. This is a security that pays out a fixed coupon for nt-periods but does not repay the initial investment at the end. How would we price this? We have already derived the equation for a perpetuity and a forward-start perpetuity. How could we use these securities to create an annuity? How about if we purchase a perpetuity today and sell a forward-start perpetuity nt-periods from now? From present to nt-periods, the perpetuity will be active. We thus receive its coupons for that time period. At nt-periods on, as we have sold a forward-start perpetuity, we must pay out instead of receive coupons at every period. With this in mind, if we own a perpetuity that will pay a coupon forever, and we also have sold a forward-start perpetuity that will pay the same amount as our perpetuity coupon forever, but delayed by some time, then what do we have? We have a portfolio that first pays us a coupon for some time, then once the forward-start perpetuity kicks in, our portfolio has an asset that pays us a coupon, and an asset where we have to pay a coupon. These cancel out and we have effectively constructed an annuity. Our portfolio pays coupons for some time then stops, which is exactly what an annuity does.</p>
+$$
+\text{Price} = \dfrac{C}{Y} - \dfrac{1}{\left( 1 + Y \right)^t} \dfrac{C}{Y}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bonds">Bonds<a class="anchor-link" href="#Bonds"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This leads us to the bond. This is a security that pays regular (normally fixed-amount) coupons and returns the face value to the investor at its maturity. Using all of the securities we have introduced, how could we construct the formula for a bond’s price?</p>
+<p>As the bond is only active for a certain time period, we can treat the cash flows from coupons as an annuity. As for the repayment of the face value at maturity, this is just a zero-coupon bond! Thus, the price of a bond is the sum of an nt-period annuity and a zero-coupon bond.</p>
+$$
+\text{Price} = \dfrac{C}{Y}\left[ 1 - \dfrac{1}{\left( 1 + Y \right)^t} \right] + \dfrac{F}{\left( 1 + Y \right)^t} \\
+\text{Price} = \dfrac{C}{Y} + \dfrac{F - \dfrac{C}{Y}}{\left( 1 + Y \right)^t}
+$$<p>where $F$ is the face value of the bond, which will typically be $\$$100 in our examples and equations, but in reality can be millions of dollars.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Price-vs.-Yield:-The-Yield-Curve">Price vs. Yield: The Yield Curve<a class="anchor-link" href="#Price-vs.-Yield:-The-Yield-Curve"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One thing to note is the inverse relationship between a bond’s price and its yield. If the price of a bond decreases, its yield increases and vice versa. This is a simple property that arises from our pricing equations for bonds, and not some mystical law of nature. The best example to illustrate this uses a zero-coupon bond. Imagine a 1-year zero-coupon bond that has a face value of $\$$100, meaning it pays $\$$100 1 year from now. What is the present value of this bond, or in other words, what is its price? Well, that depends on the yield. Using annual compounding, if the yield were 10%, the price of the bond would be about $\$$90.91. With 20%, the price would be about $\$$83.33. With 30%, $\$$76.92. Notice this relationship, and how it intuitively makes sense with a zero-coupon bond. If the price of the bond today goes down, then the yield necessarily must increase, as you are essentially making a higher return on your purchase, since you are getting paid $\$$100 after one year no matter what. Similarly, if the yield goes down, the price of the bond must increase, as a decreased yield indicates less return will be made from the bond, which can only happen if the price of the bond increases.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">bond_price</span><span class="p">(</span><span class="n">yield_rate</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">yield_rate</span><span class="p">)</span>
+  
+<span class="n">yields</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">/</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">bond_price</span><span class="p">(</span><span class="n">yield_rate</span><span class="p">)</span> <span class="k">for</span> <span class="n">yield_rate</span> <span class="ow">in</span> <span class="n">yields</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yields</span><span class="p">,</span> <span class="n">prices</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Yield&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Price vs. Yield for a Simple 1-Year Zero-Coupon Bond w/ $100 Face Value&quot;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Yield is a bit more nuanced than what we have been discussing so far. We have made the assumption that yield is the same for all bond lengths, meaning that a 1-year bond has the same annual yield as a 20-year bond. In reality this is rarely true. Usually for longer term bonds the yield is higher, again from the time value of money we discussed earlier. Something called the <em>yield curve</em> depicts how yield changes with the timeframe of bonds. When our assumption of one prevailing yield holds in real life, the yield curve is said to be flat. We will not worry a great deal about the specific shape of the curve in the lesson or homework, but it is important to know the assumptions we make.</p>
+<p>Before we continue, let's gain some more intuition on the meaning of yield. Let's say we have a simple zero-coupon bond with some price $P$ having yield $Y$. How would the price of the bond change if the bond also paid coupons, keeping yield constant? If we draw a conceptual parallel between bond yields and bank interest rates, the bond has to pay a certain yield after one year, in one way or another. In the zero-coupon context, this yield manifests as a difference between the price you paid and the face value received. When the bond pays a coupon, some of this yield manifests as coupon payments. Therefore, in order for the bond to pay the same yield, the bond that pays coupons will have a higher price than the zero-coupon bond, as there is less of a need for that difference in price to account for the yield.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dollar-Duration-and-Convexity">Dollar Duration and Convexity<a class="anchor-link" href="#Dollar-Duration-and-Convexity"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Looking at the graph above that ties together price and yield, we can find two important metrics of bonds. The first is called <em>dollar duration</em>, which is a measure of how much the price of the bond changes with a change in yield. As yield is not something the bondholder usually controls and is a factor of the financial environment, the way a bond’s price behaves is important to investors, as a bond whose dollar duration is large, meaning its price changes dramatically for a change in yield, may be undesirable to an investor averse to risk. Dollar duration is simply just the negative derivative of the curve at a given point. We make the derivative negative so that the final result is a positive number, as lines tangent to the curve all have negative slope. One step further, <em>convexity</em> is a measure of how much the dollar duration changes with a change in yield, and is of course the second derivative of the curve at a given point.</p>
+<p>Computationally, it is possible to find the duration by applying a very small change in yield in both the positive and negative direction, finding what the price of the bond would be for these small changes, taking that difference, and dividing by twice the small change in yield. This method of approximating the duration generates the <em>effective duration</em>.</p>
+$$
+- \dfrac{P(Y+dY) - P(Y-dY)}{2dY}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today we discussed the time value of money, the concept of interest that arises from this, and the fixed-income assets that utilize the phenomenon of interest. We also discussed the properties of these assets, and how to price them.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+</main>
