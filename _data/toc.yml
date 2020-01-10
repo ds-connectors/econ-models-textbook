@@ -80,12 +80,12 @@
       url: /trade/trade
       not_numbered: true
 
-- title: Production and Cobb-Douglas
-  url: /topic-intros/production
-  sections:
-    - title: Production and Cobb-Douglas
-      url: /production/production
-      not_numbered: true
+# - title: Production and Cobb-Douglas
+#   url: /topic-intros/production
+#   sections:
+#     - title: Production and Cobb-Douglas
+#       url: /production/production
+#       not_numbered: true
 
 - title: "Economic Development: Africa"
   url: /topic-intros/development
