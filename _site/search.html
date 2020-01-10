@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Search the site</title>
-  <meta name="description" content="        ">
+  <meta name="description" content="This is the textbook for Data 88: Economic Models at UC Berkeley.">
 
   <link rel="canonical" href="https://ds-connectors.github.io/econ-models-textbook/search">
   <link rel="alternate" type="application/rss+xml" title="Data 88: Economic Models" href="https://ds-connectors.github.io/econ-models-textbook/feed.xml">
@@ -14,21 +26,24 @@
   <meta property="og:url"         content="https://ds-connectors.github.io/econ-models-textbook/search" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Search the site" />
-<meta property="og:description" content="        " />
-<meta property="og:image"       content="https://ds-connectors.github.io/econ-models-textbook/images/econ-models.png" />
-
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="This is the textbook for Data 88: Economic Models at UC Berkeley." />
+<meta property="og:image"       content="" />
 
 
   <script type="application/ld+json">
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://ds-connectors.github.io/econ-models-textbook/search",
-  "headline": "Search the site",
-  "datePublished": "2019-11-25T12:55:56-08:00",
-  "dateModified": "2019-11-25T12:55:56-08:00",
-  "description": "        ",
+  "mainEntityOfPage":
+    "https://ds-connectors.github.io/econ-models-textbook/search",
+  "headline":
+    "Search the site",
+  "datePublished":
+    "2020-01-09T16:59:14-08:00",
+  "dateModified":
+    "2020-01-09T16:59:14-08:00",
+  "description":
+    "This is the textbook for Data 88: Economic Models at UC Berkeley.",
   "author": {
     "@type": "Person",
     "name": "Eric Van Dusen et al."
@@ -53,8 +68,16 @@
 
   </script>
   <link rel="stylesheet" href="/econ-models-textbook/assets/css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/regular.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/solid.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
   <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
@@ -67,8 +90,6 @@
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
-<!-- (mostly) copied from nbconvert configuration -->
-<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -77,23 +98,35 @@ MathJax.Hub.Config({
         processEscapes: true,
         processEnvironments: true
     },
-    // Center justify equations in code and markdown cells. Elsewhere
-    // we use CSS to left justify single line equations in code cells.
-    displayAlign: 'center',
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}},
-        linebreaks: { automatic: true },
-    }
+    CommonHTML: {
+        linebreaks: {
+            automatic: true,
+        },
+    },
 });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
 
   <!-- DOM updating function -->
-  <script src="/econ-models-textbook/assets/js/dom-update.js"></script>
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
 
-  <!-- Selectors for elements on the page -->
-  <script src="/econ-models-textbook/assets/js/documentSelectors.js"></script>
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
 
   <!-- Define some javascript variables that will be useful in other javascript -->
   <script>
@@ -101,12 +134,18 @@ MathJax.Hub.Config({
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
-  <script src="/econ-models-textbook/assets/js/anchors.js" async></script>
+  <script src="/econ-models-textbook/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <script src="/econ-models-textbook/assets/js/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
 
   <!-- Load nbinteract for widgets -->
@@ -117,26 +156,177 @@ MathJax.Hub.Config({
 
 
 
-  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
-  <script src="/econ-models-textbook/assets/js/tocbot.js"></script>
+  <!-- Load the auto-generating TOC -->
+  <script src="/econ-models-textbook/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script>
+var initToc = function () {
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+  tocbot.refresh();
+}
+initFunction(initToc);
+</script>
 
   <!-- Google analytics -->
-  
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script src="/econ-models-textbook/assets/js/ga.js" async></script>
 
-  gtag('config', '');
+  <!-- Clipboard copy button -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/econ-models-textbook/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
 </script>
 
 
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
 
-  <!-- Clipboard copy button -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.hidecode input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        document.querySelectorAll('div.input_area').forEach(function (item, index) {
+            if (!item.classList.contains("hidecode")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = codeCellId(index)
+            item.setAttribute('id', id);
+            // Insert the button just inside the end of the next div
+            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.hidecode input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
 
   <!-- Load custom website scripts -->
   <script src="/econ-models-textbook/assets/js/scripts.js" async></script>
@@ -290,7 +480,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script src="/econ-models-textbook/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -376,45 +566,6 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 initFunction(initQuery);
 </script>
-
-  <!-- Load JS that depends on site variables -->
-  <script src="/econ-models-textbook/assets/js/copy-button.js" async></script>
-
-  <!-- Hide cell code -->
-  <script src="/econ-models-textbook/assets/js/hide-cell.js" async></script>
-
-  <!-- Printing the screen -->
-  <!-- Include nbinteract for interactive widgets -->
-<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
-<script>
-printContent = () => {
-    // MathJax displays a second version of any math for assistive devices etc.
-    // This prevents double-rendering in the PDF output.
-    var ignoreAssistList = [];
-    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
-        var thisId = 'MathJax-assistive-' + index.toString();
-        element.setAttribute('id', thisId);
-        ignoreAssistList.push(thisId)
-    });
-
-    // Print the actual content object
-    printJS({
-        printable: 'textbook_content',
-        type: 'html',
-        css: "/econ-models-textbook/assets/css/styles.css",
-        scanStyles: false,
-        targetStyles: ["*"],
-        ignoreElements: ignoreAssistList
-    })
-};
-
-initPrint = () => {
-    document.querySelector('#interact-button-print').addEventListener('click', printContent)
-}
-
-initFunction(initPrint)
-</script>
-
 </head>
 
   <body>
@@ -810,7 +961,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/econ-models-textbook/topic-intros/cobb-douglas.html"
+          href="/econ-models-textbook/topic-intros/production.html"
         >
           
             7.
@@ -834,7 +985,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/econ-models-textbook/cobb-douglas/cobb-douglas.html"
+                  href="/econ-models-textbook/production/production.html"
                 >
                   
                   Production and Cobb-Douglas
@@ -862,7 +1013,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/econ-models-textbook/topic-intros/economic-development.html"
+          href="/econ-models-textbook/topic-intros/development.html"
         >
           
             8.
@@ -886,7 +1037,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/econ-models-textbook/economic-development/economic-development.html"
+                  href="/econ-models-textbook/development/development.html"
                 >
                   
                   Economic Development: Africa
@@ -1134,40 +1285,24 @@ initFunction(initPrint)
 </nav>
 
       
-      <div class="c-topbar" id="top-navbar">
-  <!-- We show the sidebar by default so we use .is-active -->
-  <div class="c-topbar__buttons">
-    <button
-      id="js-sidebar-toggle"
-      class="hamburger hamburger--arrowalt is-active"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    <div class="buttons">
-<div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
-    <div class="download-buttons">
-        
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
-    </div>
-</div>
-
-</div>
-
-  </div>
-  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-  <aside class="sidebar__right">
-    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
-    <nav class="onthispage">
-    </nav>
-  </aside>
-  <a href="/econ-models-textbook/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
-</div>
-
       <main class="c-textbook__page" tabindex="-1">
-            <div class="c-textbook__content" id="textbook_content">
+          <div class="o-wrapper">
+            <div class="c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+            
+
+            <div class="c-textbook__content">
               <div class="search-content__inner-wrap">
     <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
     <div id="results" class="results"></div>
@@ -1179,15 +1314,71 @@ initFunction(initPrint)
         "title": "Demand and Market Equilibrium",
         
         "excerpt":
-            "Demand Curve and Inverse Demand Curve Last week, we learned about the supply curve. This week, we will learn about the demand curve and using both the supply and demand curve to find market equilibrium. The demand curve shows the graphical relationship between the price of a good or service and the quantity demanded for it over a given period of time. In other words, it shows the quantity of goods or services consumers are willing to buy at each market price. The quantity of goods or services demanded or supplied is a function of price, as in $$\\text{Quantity} =...",
+            "Demand Curve and Inverse Demand Curve Last week, we learned about the supply curve. This week, we will learn about the demand curve and using both the supply and demand curve to find market equilibrium. The demand curve shows the graphical relationship between the price of a good or service and the quantity demanded for it over a given period of time. In other words, it shows the quantity of goods or services consumers are willing to buy at each market price. The quantity of goods or services demanded or supplied is a function of price, as in The curve...",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/demand/demand.html",
         "teaser":null},{
+        "title": "Economic Development: Africa",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 8: Water Guard Promotion Study This lab is an adaptation from a set of notebooks developed for a full semester Data Science Connector Course taught in Fall 2017, entitled “Behind the Curtain in Economic Development”. This dataset come from a randomized controlled trial household survey carried out in Eastern Kenya in 2007 - 2008. The purpose of the study was to understand how to promote the use of WaterGuard, a dilute sodium hypochlorite solution that was promoted for Point-of-use household water disinfection. There were seven arms in the study - which...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/development/development.html",
+        "teaser":null},{
+        "title": "Dummy Variables",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lecture 12 - Dummy Variables from datascience import * import pandas as pd import numpy as np import statsmodels.api as sm from sklearn.metrics import mean_squared_error import matplotlib.pyplot as plt plt.style.use(\"seaborn-muted\") %matplotlib inline Why do we need dummary variables? Two cases: variable has non-numeric values, e.g. the sex, education, marital_status variables in defaults variable has categorical numeric values, e.g. a Likert scale (1 to $n$ are possible values) or the age variable In the first case, the reason is obvious: How can we model a variable that has text as its value? In...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/econometrics/dummy-variables.html",
+        "teaser":null},{
+        "title": "Econometrics and Data Science",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen from datascience import * Lab 12: Regression An Introduction to Regression and Econometrics A core practice within economics is econometrics, or the use of statistics concepts and economic interpretation to understand the underlying relationship between two or more variables - how one variable affects the other. The tool by which economists and statisticians do this is regression. We predict some variable Y, noted as the outcome or independent variable, using another variable X, known as the regressor or explanatory variable. As we have learned from Data 8, regression is simply the method...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/econometrics/econometrics.html",
+        "teaser":null},{
+        "title": "Welfare and Elasticities",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 5: Welfare and Elasticities import matplotlib.pyplot as plt import matplotlib.patches as patches import sympy from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from IPython.display import display import numpy as np import warnings warnings.filterwarnings('ignore') plt.style.use(\"seaborn-muted\") Consumer Surplus A competitive market is comprised of producers who make goods and services and the consumers who purchase and use them. Through market forces, these consumers and producers agree on a common price for the good or service in question. We will assume that there is no price discrimination and all consumers face...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/elasticities/elasticities.html",
+        "teaser":null},{
+        "title": "Environmental Economics",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 11: Environmental Economics In this lab, we will be exploring a dataset from an electricity strategy game that looks at porfolio of different power plants, companies, and their outputs. We will integrating data science into environmental economics. from datascience import * import pandas as pd import numpy as np from ipywidgets import interact, Dropdown, IntSlider import ipywidgets as widgets import matplotlib.pyplot as plt import matplotlib.patches as mpatches from utils import * %matplotlib inline plt.rcParams[\"figure.figsize\"] = [10,6] In the cell below, we load in the ESG table and sort it by the...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/envecon/envecon.html",
+        "teaser":null},{
+        "title": "Finance and Time Series Data",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 9: Financial Economics – Fixed-Income Securities import matplotlib.pyplot as plt import matplotlib.patches as patches import sympy from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from IPython.display import display import numpy as np import warnings warnings.filterwarnings('ignore') plt.style.use(\"seaborn-muted\") This notebook will aim to introduce Fixed Income securities to you, as an introduction to the larger field of Financial Economics. These are assets that pay a fixed amount of money at regular intervals according to a prescribed interest rate. We will focus on what interest means and how money changes value...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/finance/finance.html",
+        "teaser":null},{
+        "title": "Inequality and Tax Rates",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen Inequality Income inequality is a relevant issue that often comes up in the news. Today, we’ll go over measurements of inequality, trends in income inequality in the US, and compare income inequality measures across countries. import pandas as pd import numpy as np import matplotlib.pyplot as plt from datascience import * plt.style.use('seaborn-muted') Measurements of Inequality The Lorenz Curve The Lorenz Curve visually presents income inequality by plotting household percentile on the X-axis, and the cumulative income share that the bottom x percentile own on the Y-axis. The households are sorted by income,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/inequality/inequality.html",
+        "teaser":null},{
         "title": "Home",
         
         "excerpt":
-            "Data 88: Economic Models This is a textbook developed for UC Berkeley's course Data 88: Economic Models. Data 88 is a generic course listing for Data 8 connector courses. Course Description The idea for the class is to take students through a series of exercises to motivate and illustrate key concepts in Economics with examples in Python Jupyter notebooks. The class will cover concepts from Introductory Economics, MIcroeconomic Theory, Econometrics, Development Economics, Environmental Economics and Public Economics. The course will give data science students a pathway to apply python programming and data science concepts within the discipline of economics. The...",
+            "Data 88: Economic Models This is a textbook developed for UC Berkeley’s course Data 88: Economic Models. Data 88 is a generic course listing for Data 8 connector courses. Course Description The idea for the class is to take students through a series of exercises to motivate and illustrate key concepts in Economics with examples in Python Jupyter notebooks. The class will cover concepts from Introductory Economics, MIcroeconomic Theory, Econometrics, Development Economics, Environmental Economics and Public Economics. The course will give data science students a pathway to apply python programming and data science concepts within the discipline of economics. The...",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/intro.html",
@@ -1203,7 +1394,7 @@ initFunction(initPrint)
         "title": "Production",
         
         "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen import numpy as np import matplotlib.pyplot as plt %matplotlib inline from datascience import * Total Output Imagine that we have a production function is as follows: $$f(x) = -0.6x^3+20x^2+10x$$ Where $x$ is our production input and $f(x)$ is the units of output. For simplicity, we can think of both in dollar terms. def graph(formula, x_range, title): x = np.array(x_range) y = formula(x) # &lt;- note now we&#39;re calling the function &#39;formula&#39; with x plt.plot(x, y) plt.xlabel(&quot;Input units&quot;) plt.ylabel(&quot;Output units&quot;) plt.title(title) plt.show() def TPP(x): return -0.6*x**3+20*x**2+10*x graph(TPP, range(0, 30), &quot;Total output with respect...",
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen import numpy as np import matplotlib.pyplot as plt %matplotlib inline from datascience import * Total Output Imagine that we have a production function is as follows: Where $x$ is our production input and $f(x)$ is the units of output. For simplicity, we can think of both in dollar terms. def graph(formula, x_range, title): x = np.array(x_range) y = formula(x) # &lt;- note now we're calling the function 'formula' with x plt.plot(x, y) plt.xlabel(\"Input units\") plt.ylabel(\"Output units\") plt.title(title) plt.show() def TPP(x): return -0.6*x**3+20*x**2+10*x graph(TPP, range(0, 30), \"Total output with respect to inputs\") Here...",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/supply/production.html",
@@ -1211,7 +1402,7 @@ initFunction(initPrint)
         "title": "Supply and Firm Behavior",
         
         "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen from datascience import * import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd from utils import * plt.style.use(&#39;seaborn-muted&#39;) from __future__ import print_function from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from matplotlib import patches import csaps Welcome to Week 2 of Data 88. This week is about the Supply Curve and Firm Behaviour. Supply of a commodity refers to the quantity of a commodity which producers or sellers are willing produce and offer for sale at a particular price in some given period of...",
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen from datascience import * import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd from utils import * plt.style.use('seaborn-muted') from __future__ import print_function from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from matplotlib import patches import csaps Welcome to Week 2 of Data 88. This week is about the Supply Curve and Firm Behaviour. Supply of a commodity refers to the quantity of a commodity which producers or sellers are willing produce and offer for sale at a particular price in some given period of...",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/supply/supply.html",
@@ -1219,23 +1410,79 @@ initFunction(initPrint)
         "title": "SymPy and LaTeX",
         
         "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Welcome to Data 88: Data Science and Economics Connector Course! Week 1 - Introduction Economics is in the world around us, and so is Data Science! It's in our every day lives. As we connect Data Science with Economics, we will be exploring real life datasets to illustrate how Economics concepts are shaped and how decisions lead to real-life impacts. Today's Lab Some learning outcomes: Navigate and use tools, such as Jupyter notebooks Write and evaluate basic expressions in Python Represent formulas and expressions in LaTeX Write and evaluate functions, such as...",
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen Welcome to Data 88: Data Science and Economics Connector Course! Week 1 - Introduction Economics is in the world around us, and so is Data Science! It’s in our every day lives. As we connect Data Science with Economics, we will be exploring real life datasets to illustrate how Economics concepts are shaped and how decisions lead to real-life impacts. Today’s Lab Some learning outcomes: Navigate and use tools, such as Jupyter notebooks Write and evaluate basic expressions in Python Represent formulas and expressions in LaTeX Write and evaluate functions, such as...",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/sympy-latex/sympy-latex.html",
         "teaser":null},{
+        "title": "Econometrics and Data Science",
+        
+        "excerpt":
+            "Econometrics and Data Science  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/Econometrics.html",
+        "teaser":null},{
         "title": "Demand and Market Equilibrium",
         
         "excerpt":
-            "             Demand and Market Equilibrium                     ",
+            "Demand and Market Equilibrium  ",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/demand.html",
         "teaser":null},{
+        "title": "Economic Development: Africa",
+        
+        "excerpt":
+            "Economic Development: Africa  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/development.html",
+        "teaser":null},{
+        "title": "Welfare and Elasticities",
+        
+        "excerpt":
+            " ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/elasticities.html",
+        "teaser":null},{
+        "title": "Environmental Economics",
+        
+        "excerpt":
+            " ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/envecon.html",
+        "teaser":null},{
+        "title": "Finance and Time Series Data",
+        
+        "excerpt":
+            "Finanace and Time Series Data  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/finance.html",
+        "teaser":null},{
+        "title": "Inequality and Tax Rates",
+        
+        "excerpt":
+            "Inequality and Tax Rates  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/inequality.html",
+        "teaser":null},{
+        "title": "Production and Cobb-Douglas",
+        
+        "excerpt":
+            "Production and Cobb-Douglas  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/production.html",
+        "teaser":null},{
         "title": "Supply and Firm Behavior",
         
         "excerpt":
-            "             Supply and Firm Behavior                     ",
+            "Supply and Firm Behavior  ",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/supply.html",
@@ -1243,41 +1490,55 @@ initFunction(initPrint)
         "title": "SymPy and LaTeX",
         
         "excerpt":
-            "             SymPy and $\\LaTeX$                     ",
+            "SymPy and $\\LaTeX$  ",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/sympy-latex.html",
         "teaser":null},{
-        "title": "Utility Maximization",
+        "title": "Trade and Taxes",
         
         "excerpt":
-            "             Utility Maximization                     ",
+            "Trade and Taxes  ",
         "categories": [],
         "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/utility.html",
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/trade.html",
         "teaser":null},{
         "title": "Utility Maximization",
         
         "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen import pandas as pd import numpy as np import chart_studio.plotly as py import plotly.graph_objs as go from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from IPython.display import display import warnings warnings.filterwarnings(&#39;ignore&#39;) init_notebook_mode() Utility What is Utility? When we consume a good, we assume that the good will have some impact on our total utility. Utility is a fundamental measure that helps economists model how consumers make decisions. An assumed rule in economics is that consumers will always act rationally, which translates to...",
+            "Utility Maximization  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/utility.html",
+        "teaser":null},{
+        "title": "Trade and Taxes",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 4 - Supply Demand Trade with welfare effects and interactive sliders by Eric Van Dusen and Chris Pyles In this lab we will seek to combine many of the elements that we have learned in the first 4 labs, to add the equilibrium and welfare effects of a market in equilibrium and one out of equilibrium due to tariffs. from utils import * import numpy as np import sympy import matplotlib.pyplot as plt solve = lambda x,y: sympy.solve(x-y)[0] if len(sympy.solve(x-y))==1 else \"Not Single Solution\" import matplotlib.pyplot as plt plt.style.use(\"seaborn-muted\") %matplotlib inline...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/trade/trade.html",
+        "teaser":null},{
+        "title": "Utility Maximization",
+        
+        "excerpt":
+            "Economic Models, Fall 2019 Dr. Eric Van Dusen import pandas as pd import numpy as np import chart_studio.plotly as py import plotly.graph_objs as go from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from IPython.display import display import warnings warnings.filterwarnings('ignore') init_notebook_mode() Utility What is Utility? When we consume a good, we assume that the good will have some impact on our total utility. Utility is a fundamental measure that helps economists model how consumers make decisions. An assumed rule in economics is that consumers will always act rationally, which translates to...",
         "categories": [],
         "tags": [],
         "url": "https://ds-connectors.github.io/econ-models-textbook/utility/utility.html",
         "teaser":null},]
 </script>
-            </div>
-            <nav class="c-page__nav">
+              <nav class="c-page__nav">
   
 
   
 </nav>
 
-            <footer>
-  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
-</footer>
-
+            </div>
+          </div>
         </div>
       </main>
     </div>
+
   </body>
 </html>

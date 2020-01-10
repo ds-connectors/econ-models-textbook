@@ -27,7 +27,7 @@
   not_numbered: true
 
 - divider: true
-  header: "Part I: Foundation Economics"
+  header: "Part I: Foundational Economics"
 
 - title: SymPy and LaTeX
   url: /topic-intros/sympy-latex
@@ -81,17 +81,17 @@
       not_numbered: true
 
 - title: Production and Cobb-Douglas
-  url: /topic-intros/cobb-douglas
+  url: /topic-intros/production
   sections:
     - title: Production and Cobb-Douglas
-      url: /cobb-douglas/cobb-douglas
+      url: /production/production
       not_numbered: true
 
 - title: "Economic Development: Africa"
-  url: /topic-intros/economic-development
+  url: /topic-intros/development
   sections:
     - title: "Economic Development: Africa"
-      url: /economic-development/economic-development
+      url: /development/development
       not_numbered: true
 
 - title: Finance and Time Series Data
