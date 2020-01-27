@@ -15,7 +15,7 @@ install:
 	bundle install
 
 book:
-	jupyter-book build ./
+	jupyter-book build ./ --overwrite
 
 runall:
 	jupyter-book run ./content

@@ -7,8 +7,8 @@ prev_page:
   url: /topic-intros/sympy-latex.html
   title: 'SymPy and LaTeX'
 next_page:
-  url: /topic-intros/supply.html
-  title: 'Supply and Firm Behavior'
+  url: 
+  title: ''
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <table style="width: 100%;" id="nb-header">

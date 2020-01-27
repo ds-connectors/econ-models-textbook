@@ -36,91 +36,91 @@
       url: /sympy-latex/sympy-latex
       not_numbered: true
 
-- title: Supply and Firm Behavior
-  url: /topic-intros/supply
-  sections:
-    - title: Horizontal Sum Supply
-      url: /supply/horizontal-sum-supply
-      not_numbered: true
-    - title: Production
-      url: /supply/production
-      not_numbered: true
-    - title: Supply and Firm Behavior
-      url: /supply/supply
-      not_numbered: true
-
-- title: Demand and Market Equilibrium
-  url: /topic-intros/demand
-  sections:
-    # - title: Creating a Demand Curve
-    #   url: /demand/create-demand-curve
-    #   not_numbered: true
-    - title: Demand and Market Equilibrium
-      url: /demand/demand
-      not_numbered: true
-
-- title: Utility Maximization
-  url: /topic-intros/utility
-  sections:
-    - title: Utility Maximization
-      url: /utility/utility
-      not_numbered: true
-
-- title: Welfare and Elasticities
-  url: /topic-intros/elasticities
-  sections:
-    - title: Welfare and Elasticities
-      url: /elasticities/elasticities
-      not_numbered: true
-
-- title: Trade and Taxes
-  url: /topic-intros/trade
-  sections:
-    - title: Trade and Taxes
-      url: /trade/trade
-      not_numbered: true
-
-# - title: Production and Cobb-Douglas
-#   url: /topic-intros/production
+# - title: Supply and Firm Behavior
+#   url: /topic-intros/supply
 #   sections:
-#     - title: Production and Cobb-Douglas
-#       url: /production/production
+#     - title: Horizontal Sum Supply
+#       url: /supply/horizontal-sum-supply
+#       not_numbered: true
+#     - title: Production
+#       url: /supply/production
+#       not_numbered: true
+#     - title: Supply and Firm Behavior
+#       url: /supply/supply
 #       not_numbered: true
 
-- title: "Economic Development: Africa"
-  url: /topic-intros/development
-  sections:
-    - title: "Economic Development: Africa"
-      url: /development/development
-      not_numbered: true
+# - title: Demand and Market Equilibrium
+#   url: /topic-intros/demand
+#   sections:
+#     # - title: Creating a Demand Curve
+#     #   url: /demand/create-demand-curve
+#     #   not_numbered: true
+#     - title: Demand and Market Equilibrium
+#       url: /demand/demand
+#       not_numbered: true
 
-- title: Finance and Time Series Data
-  url: /topic-intros/finance
-  sections:
-    - title: Finance and Time Series Data
-      url: /finance/finance
-      not_numbered: true
+# - title: Utility Maximization
+#   url: /topic-intros/utility
+#   sections:
+#     - title: Utility Maximization
+#       url: /utility/utility
+#       not_numbered: true
 
-- title: Inequality and Tax Rates
-  url: /topic-intros/inequality
-  sections:
-    - title: Inequality and Tax Rates
-      url: /inequality/inequality
-      not_numbered: true
+# - title: Welfare and Elasticities
+#   url: /topic-intros/elasticities
+#   sections:
+#     - title: Welfare and Elasticities
+#       url: /elasticities/elasticities
+#       not_numbered: true
 
-- title: Environmental Economics
-  url: /topic-intros/envecon
-  sections:
-    - title: Environmental Economics
-      url: /envecon/envecon
-      not_numbered: true
+# - title: Trade and Taxes
+#   url: /topic-intros/trade
+#   sections:
+#     - title: Trade and Taxes
+#       url: /trade/trade
+#       not_numbered: true
 
-- title: Econometrics and Data Science
-  url: /topic-intros/Econometrics
-  sections:
-    - title: Econometrics and Data Science
-      url: /econometrics/econometrics
-      not_numbered: true
-    - title: Dummy Variables
-      url: /econometrics/dummy-variables
-      not_numbered: true
+# # - title: Production and Cobb-Douglas
+# #   url: /topic-intros/production
+# #   sections:
+# #     - title: Production and Cobb-Douglas
+# #       url: /production/production
+# #       not_numbered: true
+
+# - title: "Economic Development: Africa"
+#   url: /topic-intros/development
+#   sections:
+#     - title: "Economic Development: Africa"
+#       url: /development/development
+#       not_numbered: true
+
+# - title: Finance and Time Series Data
+#   url: /topic-intros/finance
+#   sections:
+#     - title: Finance and Time Series Data
+#       url: /finance/finance
+#       not_numbered: true
+
+# - title: Inequality and Tax Rates
+#   url: /topic-intros/inequality
+#   sections:
+#     - title: Inequality and Tax Rates
+#       url: /inequality/inequality
+#       not_numbered: true
+
+# - title: Environmental Economics
+#   url: /topic-intros/envecon
+#   sections:
+#     - title: Environmental Economics
+#       url: /envecon/envecon
+#       not_numbered: true
+
+# - title: Econometrics and Data Science
+#   url: /topic-intros/Econometrics
+#   sections:
+#     - title: Econometrics and Data Science
+#       url: /econometrics/econometrics
+#       not_numbered: true
+#     - title: Dummy Variables
+#       url: /econometrics/dummy-variables
+#       not_numbered: true
