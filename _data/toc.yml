@@ -30,10 +30,13 @@
   header: "Part I: Foundational Economics"
 
 - title: SymPy and LaTeX
-  url: /topic-intros/sympy-latex
+  url: /topic-intros/sympy
   sections:
-    - title: SymPy and LaTeX
-      url: /sympy-latex/sympy-latex
+    - title: SymPy
+      url: /sympy/sympy
+      not_numbered: true
+    - title: Calculus Review
+      url: /sympy/calculus-review
       not_numbered: true
 
 # - title: Supply and Firm Behavior

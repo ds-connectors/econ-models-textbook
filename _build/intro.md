@@ -4,13 +4,14 @@ prev_page:
   url: 
   title: ''
 next_page:
-  url: /topic-intros/sympy-latex.html
+  url: /topic-intros/sympy.html
   title: 'SymPy and LaTeX'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Data 88: Economic Models
 
-This is a textbook developed for UC Berkeley's course Data 88: Economic Models. [Data 88](https://ds-connectors.github.io) is a generic course listing for Data 8 connector courses.
+Economics is in the world around us, and so is Data Science! It's in our every day lives. As we connect Data Science with Economics, we will be exploring real life datasets to illustrate how Economics concepts are shaped and how decisions lead to real-life impacts. This is a textbook developed for UC Berkeley's course Data 88: Economic Models. [Data 88](https://ds-connectors.github.io) is a generic course listing for Data 8 connector courses.
+
 
 ## Course Description
 
