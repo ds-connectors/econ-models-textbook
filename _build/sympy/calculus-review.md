@@ -7,8 +7,8 @@ prev_page:
   url: /sympy/sympy.html
   title: 'SymPy'
 next_page:
-  url: 
-  title: ''
+  url: /topic-intros/demand.html
+  title: 'Demand and Market Equilibrium'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Calculus Review

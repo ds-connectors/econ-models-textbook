@@ -7,101 +7,64 @@ prev_page:
   url: /topic-intros/demand.html
   title: 'Demand and Market Equilibrium'
 next_page:
-  url: /topic-intros/utility.html
-  title: 'Utility Maximization'
+  url: 
+  title: ''
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-# Demand Curve and Inverse Demand Curve
+# Demand
 
 
 
-Last week, we learned about the supply curve. This week, we will learn about the demand curve and using both the supply and demand curve to find market equilibrium. 
+
+
+## Introduction
 
 
 
-The demand curve shows the graphical relationship between the price of a good or service and the quantity demanded for it over a given period of time. In other words, it shows the quantity of goods or services consumers are willing to buy at each market price. The quantity of goods or services demanded or supplied is a function of price, as in   
+In this chapter, we will explore one of the most foundational concepts in economics: demand curves. Supply and demand makes up markets, and understanding how demand works is important for future concepts. 
 
-$$\text{Quantity} = f(\text{Price})$$
+The demand curve shows the graphical relationship between the price of a good or service and the quantity demanded for it over a given period of time. In other words, it shows the quantity of goods or services consumers are willing to buy at each market price. The quantity of goods or services demanded or supplied is a function of price, as in   $$\text{Quantity} = f(\text{Price})$$
 
-The curve decreases because of the law of demand, which states that as the price of a good or service increases, the quantity demanded for it decreases, assuming all other factors are held constant. This makes intuitive sense: as prices increase, fewer people are willing to pay the higher price for the same good. Naturally, as prices decrease, more people are willing to pay the lower price for the same good. Hence, the demand of a good or service is based on the price. This relationship is usually somewhat linear and can be found as 
+The curve decreases because of the law of demand, which states that as the price of a good or service increases, the quantity demanded for it decreases, assuming all other factors are held constant. This makes intuitive sense: as prices increase, fewer people are willing to pay the higher price for the same good. Naturally, as prices decrease, more people are willing to pay the lower price for the same good. Hence, the demand of a good or service is based on the price. This relationship is usually somewhat linear and can be found as $$\text{Quantity}_{d}=a * \text{Price}_{d} + b$$
 
-$$\text{Quantity}_{d}=a \cdot \text{Price}_{d} + b$$
+This can be interpreted as: As the price unit increases by 1, there is an a unit increase/decrease in the quantity demanded. An example is $$\text{Quantity}_{d}=2 * \text{Price}_{d} + 3$$
 
-This can be interpreted as: As the price unit increases by 1, there is an a unit increase/decrease in the quantity demanded. An example is 
-
-$$\text{Quantity}_{d}=2 \cdot \text{Price}_{d} + 3$$
-
-Another concept is when price is dependent on quantity. In this case, we use an inverse demand function, as it is an inverse function of the demand function. Thus, price is a function of quantity, as shown by 
-
-$$\text{Price} = f(\text{Quantity})$$ 
-
-Because it is the inverse of a demand function, the inverse demand function for the example above will be 
-
-$$\text{Price}_{d}=\frac{1}{2}\cdot\text{Quantity}_{d}-3/2$$
+Another concept is when price is dependent on quantity. In this case, we use an inverse demand function, as it is an inverse function of the demand function. Thus, price is a function of quantity, as shown by $$\text{Price} = f(\text{Quantity})$$ Because it is the inverse of a demand function, the inverse demand function for the example above will be $$\text{Price}_{d}=1/2*\text{Quantity}_{d}-3/2$$
 
 
 
-## Shifts in Demand Curve
+### Shifts in Demand Curve
 
 
 
 The demand curve can shift out or in based on events happening in the real world. Some factors other than a change in price of the good/service are changes in 
 
-1. buyer's income
-
-2. consumer preferences
-
-3. expectation of future price/supply/demand/etc
-
-4. price of related goods
+*  buyer's income
+*  consumer preferences
+*  expectation of future price/supply/demand/etc.
+* price of related goods
 
 If any of these changes occur and causes the demand for the selected good/service to decrease, then the curve shifts to the left, as less of the good or service will be demanded at every price. During the 2008 recession, consumers' incomes decreased. Because their buying power decreased, they purchased fewer items even though the prices of the select goods stayed the same. 
 
 
 
-## Airfare Tickets and Market Equilibrium
+## Fruits Data
+
+
+
+We will now explore the relationship between price and quantity of oranges produced between 1924 and 1938. In this chapter, we will focus on oranges. It is important to remember that this data is from the 1920's and 1930's, so the prices are much lower than what they would be today because of inflation, competition, innovations, etc. For example, in 1924, 41,880 tons of oranges would have costed 6.63 dollars as of 1924-dollars. That same amount in 2019 is 100.78 dollars. 
+
+
+The source of this dataset is S. Hoos (1941). "An Investigation on Complementarity Relations Between
+Fresh Fruits," Journal of Farm Economics, Vol. 23, #2, pp. 421-433.
 
 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-# HIDDEN
-from datascience import *
-
-import sympy
-solve = lambda x,y: sympy.solve(x-y)[0] if len(sympy.solve(x-y))==1 else "Not Single Solution"
-import matplotlib.pyplot as plt
-plt.style.use('seaborn-muted')
-%matplotlib inline
-
-from ipywidgets import interact, interactive, fixed, interact_manual
-import ipywidgets as widgets
-from IPython.display import display
-import numpy as np
-import pandas as pd
-
-import warnings
-warnings.filterwarnings('ignore')
-from ipywidgets import interact
-
-
-```
-</div>
-
-</div>
-
-
-
-We will now apply what we learned about demand functions and market equilibrium onto a real world dataset. We want to answer the question "What is the market equilibrium for airline tickets?" We will use a dataset released by the U.S. Department of Transportation on about 1,000 U.S. domestic routes for the 4th quarter of 2002. 
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-airlines = Table.read_table('airlines.csv')
-airlines
+fruitprice = Table.read_table('fruitprice.csv')
+fruitprice
 
 ```
 </div>
@@ -115,43 +78,43 @@ airlines
 <table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>City 1</th> <th>City 2</th> <th>Average Fare</th> <th>Distance</th> <th>Average Weekly Passengers</th> <th>Market Leading Airline</th> <th>Market Share</th> <th>Average Fare.1</th> <th>Low Price Airline</th> <th>Market Share.1</th> <th>Price</th>
+            <th>Year</th> <th>Pear Price</th> <th>Pear Unloads (Tons)</th> <th>Plum Price</th> <th>Plum Unloads</th> <th>Peach Price</th> <th>Peach Unloads</th> <th>Orange Price</th> <th>Orange Unloads</th> <th>NY Factory Wages</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>CAK   </td> <td>ATL    </td> <td>114.47      </td> <td>528     </td> <td>424.56                   </td> <td>FL                    </td> <td>70.19       </td> <td>111.03        </td> <td>FL               </td> <td>70.19         </td> <td>111.03</td>
+            <td>1924</td> <td>8.04      </td> <td>18489              </td> <td>8.86      </td> <td>6582        </td> <td>4.96       </td> <td>41880        </td> <td>6.63        </td> <td>21258         </td> <td>27.22           </td>
         </tr>
         <tr>
-            <td>CAK   </td> <td>MCO    </td> <td>122.47      </td> <td>860     </td> <td>276.84                   </td> <td>FL                    </td> <td>75.1        </td> <td>123.09        </td> <td>DL               </td> <td>17.23         </td> <td>118.94</td>
+            <td>1925</td> <td>5.67      </td> <td>21919              </td> <td>7.27      </td> <td>5526        </td> <td>4.87       </td> <td>38772        </td> <td>9.19        </td> <td>15426         </td> <td>28.03           </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>ATL    </td> <td>214.42      </td> <td>852     </td> <td>215.76                   </td> <td>DL                    </td> <td>78.89       </td> <td>223.98        </td> <td>CO               </td> <td>2.77          </td> <td>167.12</td>
+            <td>1926</td> <td>5.44      </td> <td>29328              </td> <td>6.68      </td> <td>5742        </td> <td>3.35       </td> <td>46516        </td> <td>7.2         </td> <td>24762         </td> <td>28.89           </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>BWI    </td> <td>69.4        </td> <td>288     </td> <td>606.84                   </td> <td>WN                    </td> <td>96.97       </td> <td>68.86         </td> <td>WN               </td> <td>96.97         </td> <td>68.86 </td>
+            <td>1927</td> <td>7.15      </td> <td>17082              </td> <td>8.09      </td> <td>5758        </td> <td>5.7        </td> <td>32500        </td> <td>8.63        </td> <td>22766         </td> <td>29.14           </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>ORD    </td> <td>158.13      </td> <td>723     </td> <td>313.04                   </td> <td>UA                    </td> <td>39.79       </td> <td>161.36        </td> <td>WN               </td> <td>15.34         </td> <td>145.42</td>
+            <td>1928</td> <td>5.81      </td> <td>20708              </td> <td>7.41      </td> <td>6000        </td> <td>4.13       </td> <td>46820        </td> <td>10.71       </td> <td>18766         </td> <td>29.34           </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>FLL    </td> <td>135.17      </td> <td>1204    </td> <td>199.02                   </td> <td>WN                    </td> <td>40.68       </td> <td>137.97        </td> <td>DL               </td> <td>17.09         </td> <td>127.69</td>
+            <td>1929</td> <td>7.6       </td> <td>13071              </td> <td>10.86     </td> <td>3504        </td> <td>6.7        </td> <td>36990        </td> <td>6.36        </td> <td>35702         </td> <td>29.97           </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>LAS    </td> <td>152.85      </td> <td>2237    </td> <td>237.17                   </td> <td>WN                    </td> <td>59.94       </td> <td>148.59        </td> <td>WN               </td> <td>59.94         </td> <td>148.59</td>
+            <td>1930</td> <td>5.06      </td> <td>22068              </td> <td>6.23      </td> <td>7998        </td> <td>6.35       </td> <td>29680        </td> <td>10.5        </td> <td>23718         </td> <td>28.68           </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>LAX    </td> <td>190.73      </td> <td>2467    </td> <td>191.95                   </td> <td>DL                    </td> <td>17.89       </td> <td>205.06        </td> <td>US               </td> <td>16.59         </td> <td>174   </td>
+            <td>1931</td> <td>5.4       </td> <td>19255              </td> <td>6.86      </td> <td>5638        </td> <td>3.91       </td> <td>50940        </td> <td>5.81        </td> <td>39263         </td> <td>26.35           </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>MCO    </td> <td>129.35      </td> <td>1073    </td> <td>550.54                   </td> <td>WN                    </td> <td>76.84       </td> <td>127.69        </td> <td>WN               </td> <td>76.84         </td> <td>127.69</td>
+            <td>1932</td> <td>4.06      </td> <td>17293              </td> <td>6.09      </td> <td>7364        </td> <td>4.57       </td> <td>27642        </td> <td>4.71        </td> <td>38553         </td> <td>21.98           </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>TPA    </td> <td>134.17      </td> <td>1130    </td> <td>202.93                   </td> <td>US                    </td> <td>35.4        </td> <td>132.91        </td> <td>DL               </td> <td>26.4          </td> <td>124.78</td>
+            <td>1933</td> <td>4.78      </td> <td>11063              </td> <td>5.86      </td> <td>8136        </td> <td>3.57       </td> <td>35560        </td> <td>4.6         </td> <td>36540         </td> <td>22.26           </td>
         </tr>
     </tbody>
 </table>
-<p>... (990 rows omitted)</p>
+<p>... (5 rows omitted)</p>
 </div>
 
 
@@ -161,64 +124,15 @@ airlines
 
 
 
-Remember that at the end of the day, we want columns relating to price and quantity. Create a new table that does just that. 
+Because we are only examining the relationship between prices and quantity for oranges, we can create a new table with the relevant columns: Year, Orange Price, and Orange Unloads. 
 
 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-airlines = airlines.drop("Price")
-airlinesFiltered = airlines.relabeled(["Average Fare", "Average Weekly Passengers"], ["Price", "Quantity"])
-
-```
-</div>
-
-</div>
-
-
-
-Revenue Per Available Seat Mile (RASM) measures the efficiency of different airlines. It is found by dividing the average fare by the distance. The higher the RASM, the more profitable the airline is. 
-
-Create a scatter plot that displays the RASM of the dataset.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-rasm = Table().with_columns("RASM", airlinesFiltered.column("Price") / airlines.column("Distance"), "Quantity", airlines.column(4))
-rasm.scatter("Quantity", "RASM", fit_line = True, alpha = 0.3, color = "tab:blue")
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_12_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-That looks unconvincing. Let's segment the market based on distance into 3 categories. Make a scatter plot when you're done. 
-
-1. short (distance is less than 700)
-
-2. medium (distance is greater than or equal to 700 and less than 1900)
-
-3. long (distance is greater than or equal to 1900)
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-airlinesFiltered
+oranges = fruitprice.select(["Year", "Orange Price", "Orange Unloads"])
+oranges
 
 ```
 </div>
@@ -232,70 +146,130 @@ airlinesFiltered
 <table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>City 1</th> <th>City 2</th> <th>Price</th> <th>Distance</th> <th>Quantity</th> <th>Market Leading Airline</th> <th>Market Share</th> <th>Average Fare.1</th> <th>Low Price Airline</th> <th>Market Share.1</th>
+            <th>Year</th> <th>Orange Price</th> <th>Orange Unloads</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>CAK   </td> <td>ATL    </td> <td>114.47</td> <td>528     </td> <td>424.56  </td> <td>FL                    </td> <td>70.19       </td> <td>111.03        </td> <td>FL               </td> <td>70.19         </td>
+            <td>1924</td> <td>6.63        </td> <td>21258         </td>
         </tr>
         <tr>
-            <td>CAK   </td> <td>MCO    </td> <td>122.47</td> <td>860     </td> <td>276.84  </td> <td>FL                    </td> <td>75.1        </td> <td>123.09        </td> <td>DL               </td> <td>17.23         </td>
+            <td>1925</td> <td>9.19        </td> <td>15426         </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>ATL    </td> <td>214.42</td> <td>852     </td> <td>215.76  </td> <td>DL                    </td> <td>78.89       </td> <td>223.98        </td> <td>CO               </td> <td>2.77          </td>
+            <td>1926</td> <td>7.2         </td> <td>24762         </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>BWI    </td> <td>69.4  </td> <td>288     </td> <td>606.84  </td> <td>WN                    </td> <td>96.97       </td> <td>68.86         </td> <td>WN               </td> <td>96.97         </td>
+            <td>1927</td> <td>8.63        </td> <td>22766         </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>ORD    </td> <td>158.13</td> <td>723     </td> <td>313.04  </td> <td>UA                    </td> <td>39.79       </td> <td>161.36        </td> <td>WN               </td> <td>15.34         </td>
+            <td>1928</td> <td>10.71       </td> <td>18766         </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>FLL    </td> <td>135.17</td> <td>1204    </td> <td>199.02  </td> <td>WN                    </td> <td>40.68       </td> <td>137.97        </td> <td>DL               </td> <td>17.09         </td>
+            <td>1929</td> <td>6.36        </td> <td>35702         </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>LAS    </td> <td>152.85</td> <td>2237    </td> <td>237.17  </td> <td>WN                    </td> <td>59.94       </td> <td>148.59        </td> <td>WN               </td> <td>59.94         </td>
+            <td>1930</td> <td>10.5        </td> <td>23718         </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>LAX    </td> <td>190.73</td> <td>2467    </td> <td>191.95  </td> <td>DL                    </td> <td>17.89       </td> <td>205.06        </td> <td>US               </td> <td>16.59         </td>
+            <td>1931</td> <td>5.81        </td> <td>39263         </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>MCO    </td> <td>129.35</td> <td>1073    </td> <td>550.54  </td> <td>WN                    </td> <td>76.84       </td> <td>127.69        </td> <td>WN               </td> <td>76.84         </td>
+            <td>1932</td> <td>4.71        </td> <td>38553         </td>
         </tr>
         <tr>
-            <td>ALB   </td> <td>TPA    </td> <td>134.17</td> <td>1130    </td> <td>202.93  </td> <td>US                    </td> <td>35.4        </td> <td>132.91        </td> <td>DL               </td> <td>26.4          </td>
+            <td>1933</td> <td>4.6         </td> <td>36540         </td>
         </tr>
     </tbody>
 </table>
-<p>... (990 rows omitted)</p>
+<p>... (5 rows omitted)</p>
 </div>
 
 
 </div>
 </div>
 </div>
+
+
+
+We can also rename columns. In this case, let's rename "Orange Unloads" to "Orange Quantity" for simplicity and comprehensibility. 
 
 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-short = airlinesFiltered.where(airlinesFiltered.column("Distance") < 700)
-medium = airlinesFiltered.where(airlinesFiltered.column("Distance") >= 700 & (airlinesFiltered.column("Distance") < 1900))
-long = airlinesFiltered.where(airlinesFiltered.column("Distance") >= 1900)
+orangesRenamed = oranges.relabeled(["Orange Unloads", "Orange Price"], ["Quantity", "Price"])
+orangesRenamed
 
 ```
 </div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+
+
+
+<div markdown="0" class="output output_html">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Year</th> <th>Price</th> <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1924</td> <td>6.63 </td> <td>21258   </td>
+        </tr>
+        <tr>
+            <td>1925</td> <td>9.19 </td> <td>15426   </td>
+        </tr>
+        <tr>
+            <td>1926</td> <td>7.2  </td> <td>24762   </td>
+        </tr>
+        <tr>
+            <td>1927</td> <td>8.63 </td> <td>22766   </td>
+        </tr>
+        <tr>
+            <td>1928</td> <td>10.71</td> <td>18766   </td>
+        </tr>
+        <tr>
+            <td>1929</td> <td>6.36 </td> <td>35702   </td>
+        </tr>
+        <tr>
+            <td>1930</td> <td>10.5 </td> <td>23718   </td>
+        </tr>
+        <tr>
+            <td>1931</td> <td>5.81 </td> <td>39263   </td>
+        </tr>
+        <tr>
+            <td>1932</td> <td>4.71 </td> <td>38553   </td>
+        </tr>
+        <tr>
+            <td>1933</td> <td>4.6  </td> <td>36540   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (5 rows omitted)</p>
 </div>
+
+
+</div>
+</div>
+</div>
+
+
+
+To construct the demand curve, let's first see what the relationship between price and quantity is. We want a downward-sloping line between price and quantity, because the demand curve is a downward-sloping curve that shows that if a product's prices increase, consumers will purchase less, and if a product's prices decrease, then consumers will purchase more. 
+
+To find this, we will create a scatterplot and draw a regression line (`fit_line = True`) between the points. Regression lines are helpful because they consolidate all the datapoints into a single line, helping us better understand the relationship between the two variables. 
 
 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-short.scatter("Quantity" , "Price", fit_line = True, alpha = 0.4, color = "tab:blue")
+orangesRenamed.scatter("Quantity", "Price", fit_line = True)
 
 ```
 </div>
@@ -304,144 +278,26 @@ short.scatter("Quantity" , "Price", fit_line = True, alpha = 0.4, color = "tab:b
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../images/demand/demand_16_0.png)
+![png](../images/demand/demand_14_0.png)
 
 </div>
 </div>
 </div>
+
+
+
+We can see that there is a negative relationship between the two variables. Perfect! It is important to note that scatterplots only show positive, negative, or neutral correlations among two variables. If two variables have a positive correlation, then as one variable increases, the other increases too. If two variables have a negative correlation, then as one variable increass, the other decreases. If two variables have a neutral correlation, then if one varible increases, the other variable stays constant. Scatterplots do not show or prove causation between two variables-- it is up to the data scientists to prove any causation. 
+
+We will now quantify our demand curve using NumPy's polyfit function. `np.polyfit` returns an array of size 2, where the 0th index is the slope and 1st index is the $y$-intercept.
+
+The general template for the demand curve is $y = mx + b$, where $m$ is the slope and $b$ is $y$-intercept. In economic terms, $m$ is the demand curve's slope that shows how the good's price affects the quantity demanded, and $b$ encompasses the effects of all of the factors that are not price that affect demand. 
 
 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-medium.scatter("Quantity" , "Price", fit_line = True, alpha = 0.4, color = "tab:blue")
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_17_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-long.scatter("Quantity" , "Price", fit_line = True, alpha = 0.4, color = "tab:blue")
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_18_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-Most of the data seems to be scattered between 0 and 2000. Let's only look at that data for each of the market segments.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-short = short.where(short.column("Quantity") < 2000)
-medium = medium.where(medium.column("Quantity") < 2000)
-long = long.where(long.column("Quantity") < 2000)
-
-```
-</div>
-
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-short.scatter("Quantity" , "Price", fit_line = True, alpha = 0.4, color = "tab:blue")
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_21_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-medium.scatter("Quantity" , "Price", fit_line = True, alpha = 0.4, color = "tab:blue")
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_22_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-long.scatter("Quantity" , "Price", fit_line = True, alpha = 0.4, color = "tab:blue")
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_23_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-We can observe that "long" is different from "short" and "medium". This is due to a number of reasons (different supply curve, popularity of flights, etc). We will only focus on "short" and "medium" going forward.
-
-
-
-Let's find the mean of the price of tickets sold per market segment.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-np.mean(short.column("Price"))
+np.polyfit(orangesRenamed.column("Quantity"),orangesRenamed.column("Price"),1)
 
 ```
 </div>
@@ -452,7 +308,7 @@ np.mean(short.column("Price"))
 
 {:.output_data_text}
 ```
-129.70494152046786
+array([-2.14089690e-04,  1.33040264e+01])
 ```
 
 
@@ -462,137 +318,9 @@ np.mean(short.column("Price"))
 
 
 
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-np.mean(medium.column("Price"))
+This shows that the demand curve is $y = -0.000214x+ 13.3$. The slope is -0.000214 and $y$-intercept is 13.3. That means that as quantity increases by 1 unit (in this case, 1 ton), price decreases by 0.000214 units (in this case, \\$0.000214). 
 
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-164.0686778593914
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-Let's also find the mean of the quantity of tickets sold per market segment.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-np.mean(short.column("Quantity"))
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-622.004298245614
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-np.mean(medium.column("Quantity"))
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-544.6893913955929
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-Now you should see a linear relationship between price and quantity. Find and interpret an equation for each market segment. 
-
-The general template is $y = mx + b$, where $m$ is the slope and $b$ is $y$-intercept. In economic terms, $m$ is the demand curve's slope that shows how the good's price affects the quantity demanded, and $b$ encompasses the effects of all of the factors that are not price that affect demand. 
-
-We will use `np.polyfit` to find the slope and $y$-intercept. The first value in the array will be the slope, and the second value in the array will be the $y$-intercept.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-shortCoefficients = np.polyfit(short.column("Quantity"),short.column("Price"),1)
-shortCoefficients
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-array([-3.71445384e-02,  1.52809004e+02])
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-mediumCoefficients = np.polyfit(medium.column("Quantity"), medium.column("Price"),1)
-mediumCoefficients
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-array([-2.64947489e-02,  1.78500087e+02])
-```
-
-
-</div>
-</div>
-</div>
+We will now use SymPy to write out this demand curve. 
 
 
 
@@ -600,8 +328,8 @@ array([-2.64947489e-02,  1.78500087e+02])
 <div class="input_area" markdown="1">
 ```python
 Q = sympy.Symbol("Q")
-shortdemand = -.037 * Q + 152.8
-shortdemand
+demand = -0.000214 * Q + 13.3
+demand
 
 ```
 </div>
@@ -612,7 +340,7 @@ shortdemand
 
 {:.output_data_text}
 ```
--0.037*Q + 152.8
+-0.000214*Q + 13.3
 ```
 
 
@@ -622,11 +350,15 @@ shortdemand
 
 
 
+Let's now assume that the supply curve is given by $y = 0.00023x + 0.8$. The supply curve is not based on data. Supply curves show how much of a good suppliers are willing and able to supply at different prices.
+
+
+
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-mediumdemand = -.026 * Q + 178.5
-mediumdemand
+supply = 0.00023 * Q + 0.8
+supply
 
 ```
 </div>
@@ -637,7 +369,7 @@ mediumdemand
 
 {:.output_data_text}
 ```
--0.026*Q + 178.5
+0.00023*Q + 0.8
 ```
 
 
@@ -647,31 +379,19 @@ mediumdemand
 
 
 
-Let's assume the supply curve for airfare is $y = 0.0225x + 100$ for each. This is not based on any data; it is chosen out for the purpose of this exercise. Use SymPy to create an expression for supply and interpret what this means.
+Quantity equilibrium is the quantity at which the supply curve and demand curve intersect. The quantity of the good that consumers desire to purchase is equivalent to the quantity of the good that producers supply. There is no shortage or surplus of the product at this quantity. 
+
+Let's find the quantity equilibrium for this exercise.
 
 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-supply = 0.0225 * Q + 100
+solve = lambda x,y: sympy.solve(x-y)[0] if len(sympy.solve(x-y))==1 else "Not Single Solution"
 
-```
-</div>
-
-</div>
-
-
-
-Find the quantity equilibrium using the supply and demand curves for each market. Describe Q*. 
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-Q_star_short = solve(shortdemand, supply)
-Q_star_short
+Q_star = solve(demand, supply)
+Q_star
 
 ```
 </div>
@@ -682,7 +402,7 @@ Q_star_short
 
 {:.output_data_text}
 ```
-887.394957983193
+28153.1531531532
 ```
 
 
@@ -692,11 +412,21 @@ Q_star_short
 
 
 
+This means that the number of tons of oranges that consumers want to purchase and producers want to provide are about 28,153 tons of oranges. 
+
+
+
+Price equilibrium is the price at which the supply curve and demand curve intersect. The price of the good that consumers desire to purchase at is equivalent to the price of the good that producers want to sell at. There is no shortage of surplus of the product at this price.
+
+Let's find the price equilibrium. 
+
+
+
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-Q_star_medium = solve(mediumdemand, supply)
-Q_star_medium
+demand.subs(Q, Q_star)
+supply.subs(Q, Q_star)
 
 ```
 </div>
@@ -707,7 +437,7 @@ Q_star_medium
 
 {:.output_data_text}
 ```
-1618.55670103093
+7.27522522522523
 ```
 
 
@@ -717,69 +447,9 @@ Q_star_medium
 
 
 
-Why are the quantity equilibriums different from the mean of quantity of tickets sold different? Specifically, why is the quantity equilibrium so different from the average quantity for the medium market segment. 
+This means that the price of oranges in tons that consumers want to purchase at and producers want to provide is about \\$7.27. 
 
-
-
-Find the price equilibrium using the supply and demand curves for each market. Describe P*.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-shortdemand.subs(Q, Q_star_short)
-supply.subs(Q, Q_star_short)
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-119.966386554622
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-mediumdemand.subs(Q, Q_star_medium)
-supply.subs(Q, Q_star_medium)
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-136.417525773196
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-Why are the price equilibriums different from the mean of quantity of tickets sold different? 
-
-
-
-Visualize the market equilibrium on a graph. Describe the market equilibrium in this case.
+Now that we have our demand and supply curves and price and quantity equilibriums, we can visualize them on a graph to see what they look like. 
 
 
 
@@ -797,76 +467,13 @@ def plot_intercept(eq1, eq2):
     plt.scatter([ex], [why])
     return (ex, why)
     
-plot_equation(shortdemand, -2500, 5000)
-plot_equation(supply, -2500, 5000)
-plt.ylim(0,250)
-plt.title("Airfare Supply and Demand for Short Distance Market")
-plt.xlabel("Quantity")
+plot_equation(demand, 5000, 50000, label = "Demand")
+plot_equation(supply, 5000, 50000, label = "Supply")
+plt.ylim(0,13)
+plt.title("Orange Supply and Demand in 1920's and 1930's")
+plt.xlabel("Quantity (Tons)")
 plt.ylabel("Price")
-plot_intercept(supply, shortdemand)
-plt.show()
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_47_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-plot_equation(mediumdemand, -2500, 5000)
-plot_equation(supply, -2500, 5000)
-plt.ylim(0,250)
-plt.title("Airfare Supply and Demand for Medium Distance Market")
-plt.xlabel("Quantity")
-plt.ylabel("Price")
-plot_intercept(supply, mediumdemand)
-plt.show()
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_48_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-How do the two market segments compare against each other?
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-plot_equation(shortdemand, -1000, 3000, label = "Short Demand")
-plot_equation(supply, -1000, 3000)
-plt.ylim(50,220)
-plt.title("Airfare Supply and Demand Market Segments")
-plt.xlabel("Quantity")
-plt.ylabel("Price")
-plot_intercept(supply, shortdemand)
-
-plot_equation(mediumdemand, -1000, 3000, label = "Medium Demand")
-plot_equation(supply, -1000, 3000)
-plot_intercept(supply, mediumdemand)
-
+plot_intercept(supply, demand)
 plt.legend(loc = "upper right")
 plt.show()
 
@@ -877,7 +484,7 @@ plt.show()
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../images/demand/demand_50_0.png)
+![png](../images/demand/demand_27_0.png)
 
 </div>
 </div>
@@ -885,387 +492,5 @@ plt.show()
 
 
 
-Assume the economy boosted 4% last quarter and all consumers in the short distance airfare industry now have $40 more to spend on airfare. How will this impact the demand curve? Describe how this will change market equilibrium both algebraically and graphically.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-newDemand = shortdemand + 40
-Q_star = solve(newDemand, supply)
-newDemand.subs(Q, Q_star)
-supply.subs(Q, Q_star)
-
-plot_equation(newDemand, -1000, 3000, label = "Modified Demand")
-plot_equation(supply, -1000, 3000)
-plt.ylim(50,225)
-plt.title("Shift in Short Distance Industry")
-plt.xlabel("Quantity")
-plt.ylabel("Price")
-plot_intercept(supply, newDemand)
-
-plot_equation(shortdemand, -1000, 3000, label = "Original Demand")
-plot_equation(supply, -1000, 3000)
-plot_intercept(supply, shortdemand)
-
-plt.legend(loc = "upper right")
-
-xstmark=1200
-xenmark=2000
-ystmark=110
-an1=plt.annotate(s='',xy=(xstmark, ystmark), xycoords='data', xytext=(xenmark, ystmark),textcoords='data', arrowprops=dict(arrowstyle="<-"))
-plt.annotate(s='Shift',xy=(((xstmark+xenmark)/2), ystmark), xycoords='data',fontsize=12.0,textcoords='data',ha='center')
-
-plt.show()
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_52_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-# Delta's Innovations
-
-
-
-In 2002, Delta sponsored the 2002 Olympic Winter Games at its Salt Lake City hub. Different technological innovations, such as kiosks at check-in, expanded gate information systems and virtual check-in on websites improved customer experience. Because of these two factors, consumers believed Delta was a promising airline to fly on. Manipulate the original table to only assume Delta flights for Market Leading Airline and see if its demand curve is different from the general demand curve. Why do you think there is a difference or is not a difference?
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-airlines
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-
-<div markdown="0" class="output output_html">
-<table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>City 1</th> <th>City 2</th> <th>Average Fare</th> <th>Distance</th> <th>Average Weekly Passengers</th> <th>Market Leading Airline</th> <th>Market Share</th> <th>Average Fare.1</th> <th>Low Price Airline</th> <th>Market Share.1</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>CAK   </td> <td>ATL    </td> <td>114.47      </td> <td>528     </td> <td>424.56                   </td> <td>FL                    </td> <td>70.19       </td> <td>111.03        </td> <td>FL               </td> <td>70.19         </td>
-        </tr>
-        <tr>
-            <td>CAK   </td> <td>MCO    </td> <td>122.47      </td> <td>860     </td> <td>276.84                   </td> <td>FL                    </td> <td>75.1        </td> <td>123.09        </td> <td>DL               </td> <td>17.23         </td>
-        </tr>
-        <tr>
-            <td>ALB   </td> <td>ATL    </td> <td>214.42      </td> <td>852     </td> <td>215.76                   </td> <td>DL                    </td> <td>78.89       </td> <td>223.98        </td> <td>CO               </td> <td>2.77          </td>
-        </tr>
-        <tr>
-            <td>ALB   </td> <td>BWI    </td> <td>69.4        </td> <td>288     </td> <td>606.84                   </td> <td>WN                    </td> <td>96.97       </td> <td>68.86         </td> <td>WN               </td> <td>96.97         </td>
-        </tr>
-        <tr>
-            <td>ALB   </td> <td>ORD    </td> <td>158.13      </td> <td>723     </td> <td>313.04                   </td> <td>UA                    </td> <td>39.79       </td> <td>161.36        </td> <td>WN               </td> <td>15.34         </td>
-        </tr>
-        <tr>
-            <td>ALB   </td> <td>FLL    </td> <td>135.17      </td> <td>1204    </td> <td>199.02                   </td> <td>WN                    </td> <td>40.68       </td> <td>137.97        </td> <td>DL               </td> <td>17.09         </td>
-        </tr>
-        <tr>
-            <td>ALB   </td> <td>LAS    </td> <td>152.85      </td> <td>2237    </td> <td>237.17                   </td> <td>WN                    </td> <td>59.94       </td> <td>148.59        </td> <td>WN               </td> <td>59.94         </td>
-        </tr>
-        <tr>
-            <td>ALB   </td> <td>LAX    </td> <td>190.73      </td> <td>2467    </td> <td>191.95                   </td> <td>DL                    </td> <td>17.89       </td> <td>205.06        </td> <td>US               </td> <td>16.59         </td>
-        </tr>
-        <tr>
-            <td>ALB   </td> <td>MCO    </td> <td>129.35      </td> <td>1073    </td> <td>550.54                   </td> <td>WN                    </td> <td>76.84       </td> <td>127.69        </td> <td>WN               </td> <td>76.84         </td>
-        </tr>
-        <tr>
-            <td>ALB   </td> <td>TPA    </td> <td>134.17      </td> <td>1130    </td> <td>202.93                   </td> <td>US                    </td> <td>35.4        </td> <td>132.91        </td> <td>DL               </td> <td>26.4          </td>
-        </tr>
-    </tbody>
-</table>
-<p>... (990 rows omitted)</p>
-</div>
-
-
-</div>
-</div>
-</div>
-
-
-
-The following cell of code is provided.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-delta = airlines.where("Market Leading Airline", "DL")
-delta = delta.select(["Average Fare", "Average Weekly Passengers"])
-delta = delta.relabeled(["Average Weekly Passengers", "Average Fare"], ["Quantity", "Price"])
-delta = delta.where(delta.column("Quantity") < 2000)
-
-```
-</div>
-
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-delta.scatter("Quantity", "Price", fit_line = True, color = "tab:blue")
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_58_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-np.polyfit(delta.column("Quantity"),delta.column("Price"),1)
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-array([-3.49594506e-02,  1.89076806e+02])
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-deltademand = -0.035 * Q + 189.1
-
-```
-</div>
-
-</div>
-
-
-
-Suppose the supply curve is $\text{Supply} = 0.03 \cdot Q + 14$. This is not based on any data; it is chosen out for the purpose of this exercise. Write its expression. 
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-deltasupply = 0.03 * Q + 14
-
-```
-</div>
-
-</div>
-
-
-
-Find the quantity equilibrium.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-Q_star_delta = solve(deltademand, deltasupply)
-Q_star_delta
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-2693.84615384615
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-Find the price equilibrium.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-deltademand.subs(Q, Q_star_delta)
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-94.8153846153846
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-deltasupply.subs(Q, Q_star_delta)
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-94.8153846153846
-```
-
-
-</div>
-</div>
-</div>
-
-
-
-Find the market equilibrium. Visualize it.
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-plot_equation(deltademand, 0, 5000)
-plot_equation(deltasupply, 0, 5000)
-plt.ylim(0,200)
-plt.title("Delta Supply and Demand")
-plt.xlabel("Quantity")
-plt.ylabel("Price")
-plot_intercept(deltasupply, deltademand)
-plt.show()
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_69_0.png)
-
-</div>
-</div>
-</div>
-
-
-
-In this week's homework, one of the exercises you will work on is to compare Delta vs non-Delta flights' demand. Until then, let's suppose that Delta's innovations did influence the demand of Delta tickets. How would the demand curve shift? 
-
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-# NO CODE
-def shift_demand():
-    equation = deltademand
-    def shift_helper(shift):
-        plot_equation(equation, 0, 10000, "Original")
-        plot_equation(deltasupply, 0, 10000)
-        old = plot_intercept(equation, deltasupply)
-        print('Original Intercept:', old)
-        
-        if shift != 0:
-            plot_equation(equation + shift, -10, 10000, 'Shifted')
-            new = plot_intercept(equation + shift, supply)
-            print('New intercept:', new)
-            print('Change in Price:', round(float(new[1]-old[1]), 2))
-        else:
-            print('Nothing shifted yet, use the slider to move the line!')
-        plt.xlim(0,5000)
-        plt.ylim(0,200)
-        plt.legend()
-        plt.ylabel("Price")
-        plt.xlabel("Quantity")
-        plt.title("Shift in Customer Preference Impact on Delta Ticket Sales")
-    interact(shift_helper, shift=(-50, 40, 2))
-
-shift_demand()
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Original Intercept: (2693.84615384615, 94.8153846153846)
-New intercept: (1445.21739130435, 132.517391304348)
-Change in Price: 37.7
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-{:.output_png}
-![png](../images/demand/demand_71_1.png)
-
-</div>
-</div>
-</div>
-
-
-
- 
+You can also practice on your own and download additional data sets here: http://users.stat.ufl.edu/~winner/datasets.html, courtesy of the University of Flordia's Statistics Department. 
 

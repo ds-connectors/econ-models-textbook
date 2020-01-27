@@ -39,6 +39,13 @@
       url: /sympy/calculus-review
       not_numbered: true
 
+- title: Demand and Market Equilibrium
+  url: /topic-intros/demand
+  sections:
+    - title: Demand and Market Equilibrium
+      url: /demand/demand
+      not_numbered: true
+
 # - title: Supply and Firm Behavior
 #   url: /topic-intros/supply
 #   sections:
@@ -52,15 +59,7 @@
 #       url: /supply/supply
 #       not_numbered: true
 
-# - title: Demand and Market Equilibrium
-#   url: /topic-intros/demand
-#   sections:
-#     # - title: Creating a Demand Curve
-#     #   url: /demand/create-demand-curve
-#     #   not_numbered: true
-#     - title: Demand and Market Equilibrium
-#       url: /demand/demand
-#       not_numbered: true
+
 
 # - title: Utility Maximization
 #   url: /topic-intros/utility

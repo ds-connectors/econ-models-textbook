@@ -15,22 +15,6 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-# HIDDEN
-from datascience import *
-import numpy as np
-from sympy import *
-init_printing()
-import matplotlib.pyplot as plt
-%matplotlib inline
-
-```
-</div>
-
-</div>
-
 
 
 ## SymPy
