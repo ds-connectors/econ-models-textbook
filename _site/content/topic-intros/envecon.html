@@ -17,15 +17,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Search the site</title>
+  <title>Data 88: Economic Models</title>
   <meta name="description" content="This is the textbook for Data 88: Economic Models at UC Berkeley.">
 
-  <link rel="canonical" href="https://ds-connectors.github.io/econ-models-textbook/search">
+  <link rel="canonical" href="https://ds-connectors.github.io/econ-models-textbook/content/topic-intros/envecon.html">
   <link rel="alternate" type="application/rss+xml" title="Data 88: Economic Models" href="https://ds-connectors.github.io/econ-models-textbook/feed.xml">
 
-  <meta property="og:url"         content="https://ds-connectors.github.io/econ-models-textbook/search" />
+  <meta property="og:url"         content="https://ds-connectors.github.io/econ-models-textbook/content/topic-intros/envecon.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Search the site" />
+<meta property="og:title"       content="Data 88: Economic Models" />
 <meta property="og:description" content="This is the textbook for Data 88: Economic Models at UC Berkeley." />
 <meta property="og:image"       content="" />
 
@@ -35,9 +35,9 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://ds-connectors.github.io/econ-models-textbook/search",
+    "https://ds-connectors.github.io/econ-models-textbook/content/topic-intros/envecon.html",
   "headline":
-    "Search the site",
+    "Data 88: Economic Models",
   "datePublished":
     "2020-01-27T10:29:11-08:00",
   "dateModified":
@@ -731,6 +731,13 @@ initFunction(initQuery);
 </nav>
 
       
+      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+      <aside class="sidebar__right">
+          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+          <nav class="onthispage">
+          </nav>
+      </aside>
+      
       <main class="c-textbook__page" tabindex="-1">
           <div class="o-wrapper">
             <div class="c-sidebar-toggle">
@@ -749,255 +756,8 @@ initFunction(initQuery);
             
 
             <div class="c-textbook__content">
-              <div class="search-content__inner-wrap">
-    <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
-    <div id="results" class="results"></div>
-</div>
+              
 
-<script>
-    // Add the lunr store since we will now search it
-    var store = [{
-        "title": "Demand and Market Equilibrium",
-        
-        "excerpt":
-            "Demand Introduction In this chapter, we will explore one of the most foundational concepts in economics: demand curves. Supply and demand makes up markets, and understanding how demand works is important for future concepts. The demand curve shows the graphical relationship between the price of a good or service and the quantity demanded for it over a given period of time. In other words, it shows the quantity of goods or services consumers are willing to buy at each market price. The quantity of goods or services demanded or supplied is a function of price, as in The curve decreases...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/demand/demand.html",
-        "teaser":null},{
-        "title": "Economic Development: Africa",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 8: Water Guard Promotion Study This lab is an adaptation from a set of notebooks developed for a full semester Data Science Connector Course taught in Fall 2017, entitled “Behind the Curtain in Economic Development”. This dataset come from a randomized controlled trial household survey carried out in Eastern Kenya in 2007 - 2008. The purpose of the study was to understand how to promote the use of WaterGuard, a dilute sodium hypochlorite solution that was promoted for Point-of-use household water disinfection. There were seven arms in the study - which...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/development/development.html",
-        "teaser":null},{
-        "title": "Dummy Variables",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lecture 12 - Dummy Variables from datascience import * import pandas as pd import numpy as np import statsmodels.api as sm from sklearn.metrics import mean_squared_error import matplotlib.pyplot as plt plt.style.use(\"seaborn-muted\") %matplotlib inline Why do we need dummary variables? Two cases: variable has non-numeric values, e.g. the sex, education, marital_status variables in defaults variable has categorical numeric values, e.g. a Likert scale (1 to $n$ are possible values) or the age variable In the first case, the reason is obvious: How can we model a variable that has text as its value? In...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/econometrics/dummy-variables.html",
-        "teaser":null},{
-        "title": "Econometrics and Data Science",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen from datascience import * Lab 12: Regression An Introduction to Regression and Econometrics A core practice within economics is econometrics, or the use of statistics concepts and economic interpretation to understand the underlying relationship between two or more variables - how one variable affects the other. The tool by which economists and statisticians do this is regression. We predict some variable Y, noted as the outcome or independent variable, using another variable X, known as the regressor or explanatory variable. As we have learned from Data 8, regression is simply the method...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/econometrics/econometrics.html",
-        "teaser":null},{
-        "title": "Welfare and Elasticities",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 5: Welfare and Elasticities import matplotlib.pyplot as plt import matplotlib.patches as patches import sympy from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from IPython.display import display import numpy as np import warnings warnings.filterwarnings('ignore') plt.style.use(\"seaborn-muted\") Consumer Surplus A competitive market is comprised of producers who make goods and services and the consumers who purchase and use them. Through market forces, these consumers and producers agree on a common price for the good or service in question. We will assume that there is no price discrimination and all consumers face...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/elasticities/elasticities.html",
-        "teaser":null},{
-        "title": "Environmental Economics",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 11: Environmental Economics In this lab, we will be exploring a dataset from an electricity strategy game that looks at porfolio of different power plants, companies, and their outputs. We will integrating data science into environmental economics. from datascience import * import pandas as pd import numpy as np from ipywidgets import interact, Dropdown, IntSlider import ipywidgets as widgets import matplotlib.pyplot as plt import matplotlib.patches as mpatches from utils import * %matplotlib inline plt.rcParams[\"figure.figsize\"] = [10,6] In the cell below, we load in the ESG table and sort it by the...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/envecon/envecon.html",
-        "teaser":null},{
-        "title": "Finance and Time Series Data",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 9: Financial Economics – Fixed-Income Securities import matplotlib.pyplot as plt import matplotlib.patches as patches import sympy from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from IPython.display import display import numpy as np import warnings warnings.filterwarnings('ignore') plt.style.use(\"seaborn-muted\") This notebook will aim to introduce Fixed Income securities to you, as an introduction to the larger field of Financial Economics. These are assets that pay a fixed amount of money at regular intervals according to a prescribed interest rate. We will focus on what interest means and how money changes value...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/finance/finance.html",
-        "teaser":null},{
-        "title": "Inequality and Tax Rates",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Inequality Income inequality is a relevant issue that often comes up in the news. Today, we’ll go over measurements of inequality, trends in income inequality in the US, and compare income inequality measures across countries. import pandas as pd import numpy as np import matplotlib.pyplot as plt from datascience import * plt.style.use('seaborn-muted') Measurements of Inequality The Lorenz Curve The Lorenz Curve visually presents income inequality by plotting household percentile on the X-axis, and the cumulative income share that the bottom x percentile own on the Y-axis. The households are sorted by income,...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/inequality/inequality.html",
-        "teaser":null},{
-        "title": "Home",
-        
-        "excerpt":
-            "Data 88: Economic Models Economics is in the world around us, and so is Data Science! It’s in our every day lives. As we connect Data Science with Economics, we will be exploring real life datasets to illustrate how Economics concepts are shaped and how decisions lead to real-life impacts. This is a textbook developed for UC Berkeley’s course Data 88: Economic Models. Data 88 is a generic course listing for Data 8 connector courses. Course Description The idea for the class is to take students through a series of exercises to motivate and illustrate key concepts in Economics with...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/intro.html",
-        "teaser":null},{
-        "title": "Horizontal Sum Supply",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen import qgrid import numpy as np import pandas as pd import matplotlib.pyplot as plt %matplotlib inline This Notebook will demonstrate using QGrid - a way to interact with the data in a table. Unfortunately Qgrid works with Pandas, so this Notebook uses a pandas Dataframe as its data source. (I used the naming convention df for dataframe) First we will read in a dataframe with some Supply functions for 3 firms, they have 3 quantities they will supply at three possible prices In the first part Firm C is not producing anything...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/supply/horizontal-sum-supply.html",
-        "teaser":null},{
-        "title": "Production",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen import numpy as np import matplotlib.pyplot as plt %matplotlib inline from datascience import * Total Output Imagine that we have a production function is as follows: Where $x$ is our production input and $f(x)$ is the units of output. For simplicity, we can think of both in dollar terms. def graph(formula, x_range, title): x = np.array(x_range) y = formula(x) # &lt;- note now we're calling the function 'formula' with x plt.plot(x, y) plt.xlabel(\"Input units\") plt.ylabel(\"Output units\") plt.title(title) plt.show() def TPP(x): return -0.6*x**3+20*x**2+10*x graph(TPP, range(0, 30), \"Total output with respect to inputs\") Here...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/supply/production.html",
-        "teaser":null},{
-        "title": "Supply and Firm Behavior",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen from datascience import * import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd from utils import * plt.style.use('seaborn-muted') from __future__ import print_function from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from matplotlib import patches import csaps Welcome to Week 2 of Data 88. This week is about the Supply Curve and Firm Behaviour. Supply of a commodity refers to the quantity of a commodity which producers or sellers are willing produce and offer for sale at a particular price in some given period of...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/supply/supply.html",
-        "teaser":null},{
-        "title": "SymPy and LaTeX",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Welcome to Data 88: Data Science and Economics Connector Course! Week 1 - Introduction Economics is in the world around us, and so is Data Science! It’s in our every day lives. As we connect Data Science with Economics, we will be exploring real life datasets to illustrate how Economics concepts are shaped and how decisions lead to real-life impacts. Today’s Lab Some learning outcomes: Navigate and use tools, such as Jupyter notebooks Write and evaluate basic expressions in Python Represent formulas and expressions in LaTeX Write and evaluate functions, such as...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/sympy-latex/sympy-latex.html",
-        "teaser":null},{
-        "title": "Calculus Review",
-        
-        "excerpt":
-            "Calculus Review   Let’s review partial derivatives, which is simplying taking derivatives with respect to the variable specified in the partial derivative. All other variables are treated as constants.   For example, the partial derivative, with respect to $x$, of $2xy$ is $2y$.  Here, $y$ is treated as a constant.       ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/sympy/calculus-review.html",
-        "teaser":null},{
-        "title": "SymPy",
-        
-        "excerpt":
-            "Sympy SymPy Python has many tools, such as the SymPy library that we can use for expressing and evaluating formulas and functions in economics. Since SymPy helps with symbolic math, we start out by create a symbol using Symbol, which we assign to a variable name. Then, we can use the symbols for constructing symbolic expressions. # Run this cell x = Symbol('x') x Now let’s try using SymPy for creating a symbolic expression for some hypothetical supply and demand curves. Let’s start out with an upward sloping supply curve, where $P_S$ is price and $Q_S$ is quantity supplied. Q_S...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/sympy/sympy.html",
-        "teaser":null},{
-        "title": "Econometrics and Data Science",
-        
-        "excerpt":
-            "Econometrics and Data Science  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/Econometrics.html",
-        "teaser":null},{
-        "title": "Demand and Market Equilibrium",
-        
-        "excerpt":
-            "Demand and Market Equilibrium   Student Learning Outcomes:      Use SymPy to solve systems of supply and demand equations   Calculuate the price equilibrium   Use np.polyfit to create a demand curve from provided data  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/demand.html",
-        "teaser":null},{
-        "title": "Economic Development: Africa",
-        
-        "excerpt":
-            "Economic Development: Africa  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/development.html",
-        "teaser":null},{
-        "title": "Welfare and Elasticities",
-        
-        "excerpt":
-            " ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/elasticities.html",
-        "teaser":null},{
-        "title": "Environmental Economics",
-        
-        "excerpt":
-            " ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/envecon.html",
-        "teaser":null},{
-        "title": "Finance and Time Series Data",
-        
-        "excerpt":
-            "Finanace and Time Series Data  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/finance.html",
-        "teaser":null},{
-        "title": "Inequality and Tax Rates",
-        
-        "excerpt":
-            "Inequality and Tax Rates  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/inequality.html",
-        "teaser":null},{
-        "title": "Production and Cobb-Douglas",
-        
-        "excerpt":
-            "Production and Cobb-Douglas  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/production.html",
-        "teaser":null},{
-        "title": "Supply and Firm Behavior",
-        
-        "excerpt":
-            "Supply and Firm Behavior  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/supply.html",
-        "teaser":null},{
-        "title": "SymPy and LaTeX",
-        
-        "excerpt":
-            "SymPy and $\\LaTeX$   Student Learning Outcomes:      Navigate and use tools, such as Jupyter notebooks   Write and evaluate basic expressions in Python   Represent formulas and expressions in LaTeX   Write and evaluate functions, such as Supply and Demand, in SymPy   Calculus review  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/sympy-latex.html",
-        "teaser":null},{
-        "title": "SymPy and LaTeX",
-        
-        "excerpt":
-            "SymPy and $\\LaTeX$   Student Learning Outcomes:      Navigate and use tools, such as Jupyter notebooks   Write and evaluate basic expressions in Python   Write and evaluate functions, such as Supply and Demand, in SymPy   Calculus review  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/sympy.html",
-        "teaser":null},{
-        "title": "Trade and Taxes",
-        
-        "excerpt":
-            "Trade and Taxes  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/trade.html",
-        "teaser":null},{
-        "title": "Utility Maximization",
-        
-        "excerpt":
-            "Utility Maximization  ",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/utility.html",
-        "teaser":null},{
-        "title": "Trade and Taxes",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen Lab 4 - Supply Demand Trade with welfare effects and interactive sliders by Eric Van Dusen and Chris Pyles In this lab we will seek to combine many of the elements that we have learned in the first 4 labs, to add the equilibrium and welfare effects of a market in equilibrium and one out of equilibrium due to tariffs. from utils import * import numpy as np import sympy import matplotlib.pyplot as plt solve = lambda x,y: sympy.solve(x-y)[0] if len(sympy.solve(x-y))==1 else \"Not Single Solution\" import matplotlib.pyplot as plt plt.style.use(\"seaborn-muted\") %matplotlib inline...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/trade/trade.html",
-        "teaser":null},{
-        "title": "Utility Maximization",
-        
-        "excerpt":
-            "Economic Models, Fall 2019 Dr. Eric Van Dusen import pandas as pd import numpy as np import chart_studio.plotly as py import plotly.graph_objs as go from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot from ipywidgets import interact, interactive, fixed, interact_manual import ipywidgets as widgets from IPython.display import display import warnings warnings.filterwarnings('ignore') init_notebook_mode() Utility What is Utility? When we consume a good, we assume that the good will have some impact on our total utility. Utility is a fundamental measure that helps economists model how consumers make decisions. An assumed rule in economics is that consumers will always act rationally, which translates to...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ds-connectors.github.io/econ-models-textbook/utility/utility.html",
-        "teaser":null},]
-</script>
               <nav class="c-page__nav">
   
 
