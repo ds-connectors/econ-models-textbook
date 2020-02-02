@@ -39,25 +39,25 @@
       url: /sympy/calculus-review
       not_numbered: true
 
-- title: Demand and Market Equilibrium
+- title: Demand and Consumer Surplus
   url: /topic-intros/demand
   sections:
-    - title: Demand and Market Equilibrium
+    - title: The Demand Curve
       url: /demand/demand
       not_numbered: true
+    - title: Consumer Surplus
+      url: /demand/surplus
+      not_numbered: true
 
-# - title: Supply and Firm Behavior
-#   url: /topic-intros/supply
-#   sections:
-#     - title: Horizontal Sum Supply
-#       url: /supply/horizontal-sum-supply
-#       not_numbered: true
-#     - title: Production
-#       url: /supply/production
-#       not_numbered: true
-#     - title: Supply and Firm Behavior
-#       url: /supply/supply
-#       not_numbered: true
+- title: Supply and Elasticity
+  url: /topic-intros/supply
+  sections:
+    - title: Supply and Firm Behavior
+      url: /supply/supply
+      not_numbered: true
+    - title: Elasticity
+      url: /supply/elasticity
+      not_numbered: true
 
 
 

@@ -3,19 +3,28 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib import patches
+import csaps
 
 def firm_behaviour(price, individual_firm_costs):
     fig = plt.figure()
     ax = fig.add_axes([0,0,1,1])
+    
+    output = individual_firm_costs.column("Output")[1:]
+    mc = individual_firm_costs.column("Marginal Cost")[1:]
+    sp_mc = csaps.UnivariateCubicSmoothingSpline(output, mc, smooth=0.85)
+    output_s = np.linspace(output.min(), output.max(), 150)
+    mc_s = sp_mc(output_s)
 
     plt.plot(individual_firm_costs.column("Output")[1:], individual_firm_costs.column("Average Variable Cost")[1:],marker='o')
     plt.plot(individual_firm_costs.column("Output")[1:], individual_firm_costs.column("Average Total Cost")[1:], marker='o')
+    plt.plot(output, mc, 's', color = 'tab:red')
+    plt.plot(output_s, mc_s, alpha=0.7, lw = 2, label='_nolegend_', color = 'tab:red')
     plt.xlabel('Quantity')
     plt.ylabel('Cost')
     plt.title('Production')
     plt.ylim(15, 105)
     plt.axhline(y=price, color='k', linewidth = 2)
-    plt.legend(make_array("Average Variable Cost", "Average Total Cost", "price"))
+    plt.legend(make_array("Average Variable Cost", "Average Total Cost", "Marginal Cost", "Price"))
 
     min_avc = min(individual_firm_costs.column("Average Variable Cost")[1:])
     min_atc = min(individual_firm_costs.column("Average Total Cost")[1:])
