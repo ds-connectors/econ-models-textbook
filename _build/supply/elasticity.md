@@ -7,8 +7,8 @@ prev_page:
   url: /supply/supply.html
   title: 'Supply and Firm Behavior'
 next_page:
-  url: 
-  title: ''
+  url: /topic-intros/public.html
+  title: 'Surplus, Equilibrium, and Government Intervention'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 ## Elasticity

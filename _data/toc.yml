@@ -45,9 +45,9 @@
     - title: The Demand Curve
       url: /demand/demand
       not_numbered: true
-    - title: Consumer Surplus
-      url: /demand/surplus
-      not_numbered: true
+    # - title: Consumer Surplus
+    #   url: /demand/surplus
+    #   not_numbered: true
 
 - title: Supply and Elasticity
   url: /topic-intros/supply
@@ -59,14 +59,22 @@
       url: /supply/elasticity
       not_numbered: true
 
+- title: Surplus, Equilibrium, and Government Intervention
+  url: /topic-intros/public
+  sections:
+    - title: Consumer Surplus
+      url: /public/surplus
+      not_numbered: true
+    # - title: Equilibrium and Intervention
+    #   url: /public/public
+    #   not_numbered: true
 
-
-# - title: Utility Maximization
-#   url: /topic-intros/utility
-#   sections:
-#     - title: Utility Maximization
-#       url: /utility/utility
-#       not_numbered: true
+- title: Utility Maximization
+  url: /topic-intros/utility
+  sections:
+    - title: Utility Maximization
+      url: /utility/utility
+      not_numbered: true
 
 # - title: Welfare and Elasticities
 #   url: /topic-intros/elasticities

@@ -7,8 +7,8 @@ prev_page:
   url: /topic-intros/demand.html
   title: 'Demand and Consumer Surplus'
 next_page:
-  url: /demand/surplus.html
-  title: 'Consumer Surplus'
+  url: /topic-intros/supply.html
+  title: 'Supply and Elasticity'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Demand

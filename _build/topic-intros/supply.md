@@ -1,8 +1,8 @@
 ---
 title: 'Supply and Elasticity'
 prev_page:
-  url: /demand/surplus.html
-  title: 'Consumer Surplus'
+  url: /demand/demand.html
+  title: 'The Demand Curve'
 next_page:
   url: /supply/supply.html
   title: 'Supply and Firm Behavior'
