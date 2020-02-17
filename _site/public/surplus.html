@@ -18,15 +18,15 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Consumer Surplus</title>
-  <meta name="description" content="Consumer Surplus">
+  <meta name="description" content="Surplus">
 
-  <link rel="canonical" href="https://ds-connectors.github.io/econ-models-textbook/demand/surplus.html">
+  <link rel="canonical" href="https://ds-connectors.github.io/econ-models-textbook/public/surplus.html">
   <link rel="alternate" type="application/rss+xml" title="Data 88: Economic Models" href="https://ds-connectors.github.io/econ-models-textbook/feed.xml">
 
-  <meta property="og:url"         content="https://ds-connectors.github.io/econ-models-textbook/demand/surplus.html" />
+  <meta property="og:url"         content="https://ds-connectors.github.io/econ-models-textbook/public/surplus.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Consumer Surplus" />
-<meta property="og:description" content="Consumer Surplus" />
+<meta property="og:description" content="Surplus" />
 <meta property="og:image"       content="" />
 
 
@@ -35,7 +35,7 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://ds-connectors.github.io/econ-models-textbook/demand/surplus.html",
+    "https://ds-connectors.github.io/econ-models-textbook/public/surplus.html",
   "headline":
     "Consumer Surplus",
   "datePublished":
@@ -43,7 +43,7 @@
   "dateModified":
     "2020-02-17T11:33:39-08:00",
   "description":
-    "Consumer Surplus",
+    "Surplus",
   "author": {
     "@type": "Person",
     "name": "Eric Van Dusen et al."
@@ -822,13 +822,13 @@ initFunction(initQuery);
 
           
 
-          <ul class="c-sidebar__sections u-hidden-visually">
+          <ul class="c-sidebar__sections ">
             
               
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/econ-models-textbook/public/surplus.html"
                 >
                   
@@ -938,14 +938,14 @@ initFunction(initQuery);
 
 
 
-<a href="https://mybinder.org/v2/gh/ds-connectors/econ-models-textbook/master?filepath=content%2Fdemand%2Fsurplus.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/econ-models-textbook/assets/images/logo_binder.svg" alt="Interact" />Binder</button></a>
+<a href="https://mybinder.org/v2/gh/ds-connectors/econ-models-textbook/master?filepath=content%2Fpublic%2Fsurplus.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/econ-models-textbook/assets/images/logo_binder.svg" alt="Interact" />Binder</button></a>
 
 
 
 
 
 
-<a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com//ds-connectors/econ-models-textbook&amp;branch=master&amp;subPath=content%2Fdemand%2Fsurplus.ipynb&amp;app=notebook"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/econ-models-textbook/assets/images/logo_jupyterhub.svg" alt="Interact" />UCB Datahub</button></a>
+<a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com//ds-connectors/econ-models-textbook&amp;branch=master&amp;subPath=content%2Fpublic%2Fsurplus.ipynb&amp;app=notebook"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/econ-models-textbook/assets/images/logo_jupyterhub.svg" alt="Interact" />UCB Datahub</button></a>
 
 
 
@@ -953,7 +953,9 @@ initFunction(initQuery);
 
 
             <div class="c-textbook__content">
-              <h2 id="consumer-surplus">Consumer Surplus</h2>
+              <h1 id="surplus">Surplus</h1>
+
+<h2 id="consumer-surplus">Consumer Surplus</h2>
 
 <p>A competitive market is comprised of producers who make goods and services and the consumers who purchase and use them. Through market forces, these consumers and producers agree on a common price for the good or service in question. We will assume that there is no price discrimination and all consumers face the same price. This is typical but not always the case in the real world. Although all consumers face the same market price, consumers are different in how much they individually value a good. We say that consumers have a maximum price that they are willing to pay for a good, and any price marginally higher than this price will dissuade the consumer from participating in the market. This max WTP (willingness to pay) price varies among entities based on their desire for the good, which in turn can be based on how much of the good they already have.</p>
 
@@ -1175,19 +1177,62 @@ initFunction(initQuery);
 
 <p>However, what would the equivalent be for the consumer side of things? We’ve discussed the idea of willingness to pay, and initially it might seem that in our perfectly-competitive market environment, only the consumers who most need a good or service will be the first to get it, as their WTP is the highest. We might think that resources are efficiently allocated in this way. Most of the time this is likely the case, but we’ve made an assumption while reaching this conclusion; an assumption that doesn’t necessarily hold. We have assumed that a person with high willingness to pay also has at least an equally high <em>ability</em> to pay. In reality, this might not be the case. A hungry person might have high WTP for a serving of food, but if this person lacks the means to pay for this food, his willingness to pay won’t do him much good. In this scenario, our earlier exercise reflects willingness to pay with a simultaneous ability to pay as well. While this week isn’t about the ethics of certain types of markets and whether they achieve their goals, it’s important to keep in mind that in these ideal exercises, an efficient economy with rational pricing should reflect consumers’ willingness to pay, whereas in reality this might not actually be the case.</p>
 
+<h2 id="note-on-the-demand-and-supply-curves">Note on the Demand and Supply Curves</h2>
+
+<p>As pointed out above, the matrix we saw with rows of surpluses and columns of prices resembles the demand curve in the sense that we can see a diagonal line separating participants from non-participants. This is no coincidence. This idea is essentially what the demand and supply curves depict, except that due to there usually being many participants in a market, we simplify the concept to a continuous curve as opposed to a set of discrete values. This is helpful not only for visualization, but as we will soon see we can use these curves to find rates of change, which will prove to be useful as well.</p>
+
+<p>Earlier we had a matrix of each individual’s surplus at each price point, and the overall surplus at each price point. Notice how as the price decreased, surplus increased. Let’s see this exact same concept illustrated on a familiar demand curve. Take a few moments to adjust the slider controlling the market price to see how consumer surplus behaves.</p>
+
+<div class="cell code_cell">
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interactive(children=(IntSlider(value=5, description='price', max=10, min=1), Output()), _dom_classes=('widget…
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<p>Producer surplus with the supply curve works exactly the same way but mirrored to reflect the fact that producers gain surplus from higher prices instead of lower.</p>
+
+<div class="cell code_cell">
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interactive(children=(IntSlider(value=5, description='price', max=10, min=1), Output()), _dom_classes=('widget…
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<p>Here we used a demand curve of $10-P$ and a supply curve of $P$. Now explore how the surplus changes with shifts in the curves below. <code class="highlighter-rouge">demandParam</code> adjusts the intercept of the demand curve, <code class="highlighter-rouge">supplyParam</code> adjusts the slope of the supply curve.</p>
+
+<div class="cell code_cell">
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interactive(children=(IntSlider(value=10, description='demandParam', max=15, min=5), IntSlider(value=10, descr…
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
 
               <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/econ-models-textbook/demand/demand.html">
-      〈 <span class="u-margin-right-tiny"></span> The Demand Curve
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/econ-models-textbook/topic-intros/public.html">
+      〈 <span class="u-margin-right-tiny"></span> Surplus, Equilibrium, and Governme...
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/econ-models-textbook/topic-intros/supply.html">
-      Supply and Elasticity <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/econ-models-textbook/topic-intros/utility.html">
+      Utility Maximization <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
