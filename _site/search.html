@@ -39,9 +39,9 @@
   "headline":
     "Search the site",
   "datePublished":
-    "2020-02-18T11:42:06-08:00",
+    "2020-02-18T11:43:59-08:00",
   "dateModified":
-    "2020-02-18T11:42:06-08:00",
+    "2020-02-18T11:43:59-08:00",
   "description":
     "This is the textbook for Data 88: Economic Models at UC Berkeley.",
   "author": {
@@ -929,7 +929,111 @@ initFunction(initQuery);
 
 <script>
     // Add the lunr store since we will now search it
-    var store = []
+    var store = [{
+        "title": "The Demand Curve",
+        
+        "excerpt":
+            "Demand Introduction In this chapter, we will explore one of the most foundational concepts in economics: demand curves. Supply and demand makes up markets, and understanding how demand works is important for future concepts. The demand curve shows the graphical relationship between the price of a good or service and the quantity demanded for it over a given period of time. In other words, it shows the quantity of goods or services consumers are willing to buy at each market price. The quantity of goods or services demanded or supplied is a function of price, as in The curve decreases...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/demand/demand.html",
+        "teaser":null},{
+        "title": "Home",
+        
+        "excerpt":
+            "Data 88: Economic Models Economics is in the world around us, and so is Data Science! It’s in our every day lives. As we connect Data Science with Economics, we will be exploring real life datasets to illustrate how Economics concepts are shaped and how decisions lead to real-life impacts. This is a textbook developed for UC Berkeley’s course Data 88: Economic Models. Data 88 is a generic course listing for Data 8 connector courses. Course Description The idea for the class is to take students through a series of exercises to motivate and illustrate key concepts in Economics with...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/intro.html",
+        "teaser":null},{
+        "title": "Consumer Surplus",
+        
+        "excerpt":
+            "Lab 5: Welfare and Elasticities Consumer Surplus A competitive market is comprised of producers who make goods and services and the consumers who purchase and use them. Through market forces, these consumers and producers agree on a common price for the good or service in question. We will assume that there is no price discrimination and all consumers face the same price. This is typical but not always the case in the real world. Although all consumers face the same market price, consumers are different in how much they individually value a good. We say that consumers have a maximum...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/public/surplus.html",
+        "teaser":null},{
+        "title": "Elasticity",
+        
+        "excerpt":
+            "Elasticity Suppose you own a business but you find yourself struggling to make a profit lately. How would you resolve this? You might consider raising your prices. But surely if you were to raise your prices too much you might lose some of your customers. To relate to our discussions above regarding surplus, maybe some of your customers are already at their highest willingness to pay, and raising prices would push them away from your business. Depending on the situation, you might lose so many customers that the increased revenue from raising your prices are completely offset by a decline...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/supply/elasticity.html",
+        "teaser":null},{
+        "title": "Supply and Firm Behavior",
+        
+        "excerpt":
+            "The Supply Curve The supply of a commodity refers to the quantity for which producers or sellers are willing produce and offer for sale, at a particular price in some given period of time. To answer questions like \"at a given price, what will be the supply of a good in the market?\", we need to know the market supply curve. A supply curve is simply a curve (or graph) which shows the quantites of a good that can be produced and the prices they will be sold at. It is good to discern between individual and market supply. Individual...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/supply/supply.html",
+        "teaser":null},{
+        "title": "Calculus Review",
+        
+        "excerpt":
+            "Calculus Review   Let’s review partial derivatives, which is simplying taking derivatives with respect to the variable specified in the partial derivative. All other variables are treated as constants.   For example, the partial derivative, with respect to $x$, of $2xy$ is $2y$.  Here, $y$ is treated as a constant.       ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/sympy/calculus-review.html",
+        "teaser":null},{
+        "title": "SymPy",
+        
+        "excerpt":
+            "Sympy SymPy Python has many tools, such as the SymPy library that we can use for expressing and evaluating formulas and functions in economics. Since SymPy helps with symbolic math, we start out by create a symbol using Symbol, which we assign to a variable name. Then, we can use the symbols for constructing symbolic expressions. # Run this cell x = Symbol('x') x Now let’s try using SymPy for creating a symbolic expression for some hypothetical supply and demand curves. Let’s start out with an upward sloping supply curve, where $P_S$ is price and $Q_S$ is quantity supplied. Q_S...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/sympy/sympy.html",
+        "teaser":null},{
+        "title": "Demand and Consumer Surplus",
+        
+        "excerpt":
+            "Demand and Market Equilibrium   Student Learning Outcomes:      Use SymPy to solve systems of supply and demand equations   Calculuate the price equilibrium   Use np.polyfit to create a demand curve from provided data  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/demand.html",
+        "teaser":null},{
+        "title": "Surplus, Equilibrium, and Government Intervention",
+        
+        "excerpt":
+            "Surplus, Equilibrium, &amp; Government Intervention  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/public.html",
+        "teaser":null},{
+        "title": "Supply and Elasticity",
+        
+        "excerpt":
+            "Supply and Firm Behavior   Student Learning Outcomes:      Know how a supply curve is formed   Understand when and how much a firm decided to produce   Understand demand and price elasticities of goods  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/supply.html",
+        "teaser":null},{
+        "title": "SymPy and LaTeX",
+        
+        "excerpt":
+            "SymPy and $\\LaTeX$   Student Learning Outcomes:      Navigate and use tools, such as Jupyter notebooks   Write and evaluate basic expressions in Python   Write and evaluate functions, such as Supply and Demand, in SymPy   Calculus review  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/sympy.html",
+        "teaser":null},{
+        "title": "Utility Maximization",
+        
+        "excerpt":
+            "Utility Maximization  ",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/topic-intros/utility.html",
+        "teaser":null},{
+        "title": "Utility Maximization",
+        
+        "excerpt":
+            "Utility What is Utility? When we consume a good, we assume that the good will have some impact on our total utility. Utility is a fundamental measure that helps economists model how consumers make decisions. An assumed rule in economics is that consumers will always act rationally, which translates to the assumption that consumers will always attempt to maximize their own utility. It is important to note that utility doesn’t have specified units and even the face value of utility doesn’t have any meaning. What does an apple providing 5 utility units even mean? What is valuable, however, is that...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ds-connectors.github.io/econ-models-textbook/utility/utility.html",
+        "teaser":null},]
 </script>
               <nav class="c-page__nav">
   
