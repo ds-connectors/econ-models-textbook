@@ -40,6 +40,8 @@ This is known as the Cobb Douglas Utility Function. To visualize this function, 
 
 
 
+
+
 ![Cobb Douglas Utility Function](cobb-douglas.png)
 
 
@@ -80,6 +82,8 @@ To represent utility levels, we plot a set of indifference curves on the 2D grap
 
 
 
+
+
 ![Indifference Curves](indifference-curves.png)
 
 
@@ -98,6 +102,8 @@ This means that any bundle of goods $(x_1,x_2)$ that consumers choose to consume
 
 
 
+
+
 ![Indifference Curves with Budget Constraint](budget-constraint.png)
 
 
@@ -112,17 +118,21 @@ Hence, the maximizing amount of utility in this budget constraint is the rightmo
 
 
 
-![Indifference Curves with Budget Constraint and Maximized Utility](maximized-utility.png)
+
+
+![Maximized Utility](maximized-utility.png)
 
 
 
 Notice that as the price of one good increases, the indifference curve that represents the maximum attainable utility shifts towards the left (i.e. the max utility decreases). Intuitively, this makes sense. As the price of one good increases, consumers have to make adjustments to their consumption bundles and buy less of one, or both, goods. Hence, their maximum utility will decrease.
 
-Let's revisualize the budget constraint in 3D where $M=32, p_1=2, p_2=4$. Here, any point along the curve in which the 2 planes intersect represents an amount of utility in which the budget constraint holds true (i.e. where we've spent all our income). The utility maximizing quantity is a point on this intersecting curve at which the utility level is the highest.
+Let's visualize the budget constraint in 3D where $M=30, p_1=3, p_2=3$. Here, any point along the curve in which the 2 planes intersect represents an amount of utility in which the budget constraint holds true (i.e. where we've spent all our income). The utility maximizing quantity is a point on this intersecting curve at which the utility level is the highest.
 
 
 
-![3D Cobb Douglas with Budget Constraint](cobb-douglas-budget-contraint.png)
+
+
+![Cobb Douglas with Budget Constraint](cobb-douglas-budget-constraint.png)
 
 
 
