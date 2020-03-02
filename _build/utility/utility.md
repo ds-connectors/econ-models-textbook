@@ -7,8 +7,8 @@ prev_page:
   url: /topic-intros/utility.html
   title: 'Utility Maximization'
 next_page:
-  url: 
-  title: ''
+  url: /topic-intros/production.html
+  title: 'Production'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Utility

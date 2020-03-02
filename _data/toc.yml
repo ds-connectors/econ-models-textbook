@@ -76,6 +76,13 @@
       url: /utility/utility
       not_numbered: true
 
+- title: Production
+  url: /topic-intros/production
+  sections:
+    - title: The Cobb-Douglas Production Function
+      url: /production/production
+      not_numbered: true
+
 # - title: Welfare and Elasticities
 #   url: /topic-intros/elasticities
 #   sections:
@@ -90,12 +97,7 @@
 #       url: /trade/trade
 #       not_numbered: true
 
-# # - title: Production and Cobb-Douglas
-# #   url: /topic-intros/production
-# #   sections:
-# #     - title: Production and Cobb-Douglas
-# #       url: /production/production
-# #       not_numbered: true
+
 
 # - title: "Economic Development: Africa"
 #   url: /topic-intros/development
