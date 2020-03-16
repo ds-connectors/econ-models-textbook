@@ -7,8 +7,8 @@ prev_page:
   url: /topic-intros/production.html
   title: 'Production'
 next_page:
-  url: 
-  title: ''
+  url: /topic-intros/finance.html
+  title: 'Finance'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Production and Cobb-Douglas Functions in Macroeconomics

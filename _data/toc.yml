@@ -83,6 +83,13 @@
       url: /production/production
       not_numbered: true
 
+- title: Finance
+  url: /topic-intros/finance
+  sections:
+    - title: Finance
+      url: /finance/finance
+      not_numbered: true
+
 # - title: Welfare and Elasticities
 #   url: /topic-intros/elasticities
 #   sections:
@@ -106,12 +113,7 @@
 #       url: /development/development
 #       not_numbered: true
 
-# - title: Finance and Time Series Data
-#   url: /topic-intros/finance
-#   sections:
-#     - title: Finance and Time Series Data
-#       url: /finance/finance
-#       not_numbered: true
+
 
 # - title: Inequality and Tax Rates
 #   url: /topic-intros/inequality
