@@ -90,6 +90,13 @@
       url: /finance/finance
       not_numbered: true
 
+- title: Inequality and Tax Rates
+  url: /topic-intros/inequality
+  sections:
+    - title: Inequality and Tax Rates
+      url: /inequality/inequality
+      not_numbered: true
+
 # - title: Welfare and Elasticities
 #   url: /topic-intros/elasticities
 #   sections:
@@ -115,12 +122,7 @@
 
 
 
-# - title: Inequality and Tax Rates
-#   url: /topic-intros/inequality
-#   sections:
-#     - title: Inequality and Tax Rates
-#       url: /inequality/inequality
-#       not_numbered: true
+
 
 # - title: Environmental Economics
 #   url: /topic-intros/envecon

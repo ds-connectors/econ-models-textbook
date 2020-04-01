@@ -7,8 +7,8 @@ prev_page:
   url: /topic-intros/finance.html
   title: 'Finance'
 next_page:
-  url: 
-  title: ''
+  url: /topic-intros/inequality.html
+  title: 'Inequality and Tax Rates'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Finance
