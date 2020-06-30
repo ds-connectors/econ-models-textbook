@@ -10,22 +10,22 @@ help:
 	@echo "  build       to build the site HTML locally with Jekyll and store in _site/"
 
 
-install:
-	gem install bundler
-	bundle install
+# install:
+# 	gem install bundler
+# 	bundle install
 
 book:
 	jupyter-book build ./ --overwrite
 
-runall:
-	jupyter-book run ./content
+# runall:
+# 	jupyter-book run ./content
 
-clean:
-	python scripts/clean.py
+# clean:
+# 	python scripts/clean.py
 
-serve:
-	bundle exec guard
+# serve:
+# 	bundle exec guard
 
-build:
-	bundle exec jekyll build
-	touch _site/.nojekyll
+# build:
+# 	bundle exec jekyll build
+# 	touch _site/.nojekyll
