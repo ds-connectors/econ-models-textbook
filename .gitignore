@@ -1,2 +1,4 @@
 .ipynb_checkpoints
 __pycache__
+.sass-cache
+.DS_Store
