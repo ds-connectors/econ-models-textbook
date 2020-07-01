@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cournot Competition &#8212; Data 88: Economic Models Textbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.13.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bertrand Competition" href="bertrand.html" />
+    <link rel="prev" title="Equilibria &amp; Oligopolies" href="equilibria-oligopolies.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/econ-models.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data 88: Economic Models Textbook</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="active">
+    <a href="index.html">Game Theory</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="equilibria-oligopolies.html">Equilibria & Oligopolies</a>
+    </li>
+    <li class="active">
+      <a href="">Cournot Competition</a>
+    </li>
+    <li class="">
+      <a href="bertrand.html">Bertrand Competition</a>
+    </li>
+    <li class="">
+      <a href="python-classes.html">Python Classes</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/07-game-theory/cournot.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/ds-connectors/econ-models-Textbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/ds-connectors/econ-models-Textbook/?urlpath=tree/content/07-game-theory/cournot.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/ds-connectors/econ-models-Textbook&urlpath=tree/econ-models-Textbook/content/07-game-theory/cournot.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip" data-placement="left"><img class="jupyterhub-button-logo" src="../../_static/images/logo_jupyterhub.svg" alt="Interact on JupyterHub">JupyterHub</button></a>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#cournot-equilibrium" class="nav-link">Cournot Equilibrium</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#implications" class="nav-link">Implications</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="cournot-competition">
+<h1>Cournot Competition<a class="headerlink" href="#cournot-competition" title="Permalink to this headline">¶</a></h1>
+<p>One model of understanding oligopolies comes in <strong>Cournot competition</strong>, a model describing a market in which firms compete by changing their output first proposed by Antoine Augustin Cournot. In Cournot competition, there are a fixed number of firms in a market that produce the same product. Firms do not collude and have <em>market power</em> (i.e. each firm’s output decisions affect the price of the good). Each firm knows the number of firms in the market and has its own cost function that it uses to determine its level of output.</p>
+<p>OPEC is a good example of a Cournot oligopoly: its participants affect prices by changing their output. OPEC also demonstrates a flaw in the reasoning behind Cournot competition: the equilibrium state of a Cournot oligoply suggests that collusion by market participants is the rational policy, but in reality game theory shows us this cannot be the “true” equilibrium because cartel members undercut one another in a bid for market share.</p>
+<div class="section" id="cournot-equilibrium">
+<h2>Cournot Equilibrium<a class="headerlink" href="#cournot-equilibrium" title="Permalink to this headline">¶</a></h2>
+<p>To find the equilibrium state of a Cournot duopoly, let <span class="math notranslate nohighlight">\(c\)</span> be the (constant) marginal cost of both firms (i.e. each additional good costs the same amount to produce regardless of the number currently being produced), <span class="math notranslate nohighlight">\(p_1\)</span> and <span class="math notranslate nohighlight">\(p_2\)</span> be the prices of firms 1 and 2, resp., and <span class="math notranslate nohighlight">\(q_1\)</span> and <span class="math notranslate nohighlight">\(q_2\)</span> their quantities. Let <span class="math notranslate nohighlight">\(P\)</span> be the price function for a given level of production. We know that the equilibrium price is <span class="math notranslate nohighlight">\(p_1 = p_2 = P(q_1 + q_2)\)</span>, and therefore firm 1’s profit is <span class="math notranslate nohighlight">\(q_1(P(q_1 + q_2) - c)\)</span> (since <span class="math notranslate nohighlight">\(c\)</span> is constant).</p>
+<p>The first step is to calculate firm 1’s residual demand. If firm 1 believes that firm 2 is going to produce <span class="math notranslate nohighlight">\(q_2\)</span> units of output, we can draw a <strong>residual demand curve</strong> for firm 1. If firm 1 decides to produce 0 units of output, then the price of the good is <span class="math notranslate nohighlight">\(P(0 + q_2) = P(q_2)\)</span>. If they produce <span class="math notranslate nohighlight">\(q_1\)</span> units, it’s <span class="math notranslate nohighlight">\(P(q_1 + q_2)\)</span>. Using this information, we can draw the residual demand curve. This curve will be called <span class="math notranslate nohighlight">\(d_1\)</span>.</p>
+<p>Now we need to determine firm 1’s optimal output, which occurs where the <strong>marginal revenue</strong> (the additional revenue gained by increasing production by one unit) intersects the marginal cost <span class="math notranslate nohighlight">\(c\)</span>. Because we hold <span class="math notranslate nohighlight">\(c\)</span> constant, the marginal revenue curve is the line with twice the slope of the residual demand and the same <span class="math notranslate nohighlight">\(y\)</span>-intercept. The marginal revenue of firm 1 is denoted <span class="math notranslate nohighlight">\(r_1\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(q'_1\)</span> be the optimum output for firm 1, such that <span class="math notranslate nohighlight">\(r_1(q'_1) = c\)</span>. The graph below shows the curves and their relationships to one another.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/cournot_3_0.png" src="../../_images/cournot_3_0.png" />
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(q'_1\)</span> is a function of <span class="math notranslate nohighlight">\(q_2\)</span> as firm 1’s optimal output depends on what it thinks firm 2 is going to produce. To find the equilibrium, we must define <span class="math notranslate nohighlight">\(q'_1\)</span> for all possible values of <span class="math notranslate nohighlight">\(q_2\)</span>. Consider the case when <span class="math notranslate nohighlight">\(q_2=0\)</span>; then firm 1’s residual demand is the same as the market demand, since <span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(D\)</span> are separated horizontally by a difference of <span class="math notranslate nohighlight">\(q_2\)</span>. Firm 1 then produces the monopoly quantity <span class="math notranslate nohighlight">\(q_m\)</span>, since that is where its marginal revenue equals its marginal cost. If, however, firm 2 chooses to produce at a level of perfect competition, <span class="math notranslate nohighlight">\(q_c\)</span>, the optimum for firm 1 is to produce 0 output units, since their marginal revenue will intersect <span class="math notranslate nohighlight">\(c\)</span> at <span class="math notranslate nohighlight">\(q_1 = 0\)</span>. The graph below shows both of these cases.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/cournot_5_0.png" src="../../_images/cournot_5_0.png" />
+</div>
+</div>
+<p>When demand is linear and marginal cost is constant, the function <span class="math notranslate nohighlight">\(q'_1\)</span> is also linear. Because we have two points, <span class="math notranslate nohighlight">\(q'_1(0) = q_m\)</span> and <span class="math notranslate nohighlight">\(q'_1(q_c) = 0\)</span>, we can draw the curve <span class="math notranslate nohighlight">\(q'_1\)</span>. Remember that <span class="math notranslate nohighlight">\(q'_1\)</span> is a function of what firm 1 <em>thinks</em> firm 2 is going to produce.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/cournot_7_0.png" src="../../_images/cournot_7_0.png" />
+</div>
+</div>
+<p>Finally, we need to know firm 2’s reaction to firm 1’s production. Because both firms have the same cost function, firm 2’s optimum output <span class="math notranslate nohighlight">\(q'_2\)</span> given firm 1’s output <span class="math notranslate nohighlight">\(q_1\)</span> is the inverse of firm 1’s. The equilibrium of the model is at the intersection of these reaction functions.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/cournot_9_0.png" src="../../_images/cournot_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="implications">
+<h2>Implications<a class="headerlink" href="#implications" title="Permalink to this headline">¶</a></h2>
+<p>The Cournot model implies that output is greater in a Cournot duopoly than in a monopoly, but still lower than perfect competition. Prices are also lower in a Cournot duopoly, but higher than perfect competition. Cournot equilibria are also a subset of Nash equilibria, and so the equilibrium we just derived is one from which neither player will likely deviate. As noted earlier, Cournot also indicates that members of a duopoly could form a cartel and raise profits by colluding.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="equilibria-oligopolies.html" title="previous page">Equilibria &amp; Oligopolies</a>
+    <a class='right-next' id="next-link" href="bertrand.html" title="next page">Bertrand Competition</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Data 88 Course Staff<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

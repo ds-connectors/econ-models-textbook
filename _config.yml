@@ -1,7 +1,10 @@
 title: 'Data 88: Economic Models Textbook'
-author: Eric Van Dusen, Chris Pyles, Angela Guan, Shashank Dalmia, Amal Bhatnagar, Andrei Caprau, Alan Liang, Umar Maniku, Alex McMurry
+author: Data 88 Course Staff
 logo: content/images/econ-models.png
-copyright: 2020
+copyright: '2020'
+
+execute:
+  execute_notebooks: off
 
 repository:
   url: https://github.com/ds-connectors/econ-models-Textbook

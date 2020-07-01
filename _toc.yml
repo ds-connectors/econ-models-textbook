@@ -22,13 +22,19 @@
 
 # Top-level page
 - title: Home
-  path: content/intro
+  file: content/intro
 
-- divider: true
-  header: "Part I: Foundational Economics"
+# # - divider: true
+# - header: "Part I: Foundational Economics"
 
-- divider: true
-  header: "Part II: Economic Applications"
+# # - divider: true
+# - header: "Part II: Economic Applications"
 
 - title: Game Theory
-  file: content/game-theory/
+  file: content/07-game-theory/index
+  sections:
+    # - title: Equilibria & Oligopolies
+    - file: content/07-game-theory/equilibria-oligopolies
+    - file: content/07-game-theory/cournot
+    - file: content/07-game-theory/bertrand
+    - file: content/07-game-theory/python-classes
