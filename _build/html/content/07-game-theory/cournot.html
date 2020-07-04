@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -71,6 +72,9 @@
   <li class="active">
     <a href="index.html">Game Theory</a>
   <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="utility.html">Expected Utility Theory</a>
+    </li>
     <li class="">
       <a href="equilibria-oligopolies.html">Equilibria & Oligopolies</a>
     </li>
@@ -172,6 +176,10 @@
             <a href="#implications" class="nav-link">Implications</a>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#applying-cournot" class="nav-link">Applying Cournot</a>
+        </li>
+    
     </ul>
 </nav>
 
@@ -220,6 +228,128 @@
 <div class="section" id="implications">
 <h2>Implications<a class="headerlink" href="#implications" title="Permalink to this headline">¶</a></h2>
 <p>The Cournot model implies that output is greater in a Cournot duopoly than in a monopoly, but still lower than perfect competition. Prices are also lower in a Cournot duopoly, but higher than perfect competition. Cournot equilibria are also a subset of Nash equilibria, and so the equilibrium we just derived is one from which neither player will likely deviate. As noted earlier, Cournot also indicates that members of a duopoly could form a cartel and raise profits by colluding.</p>
+</div>
+<div class="section" id="applying-cournot">
+<h2>Applying Cournot<a class="headerlink" href="#applying-cournot" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have shown how to derive the Cournot equilibrium, let’s apply this to a problem. Consider the industry of airline manufacturing: there are two main competitors, Boeing and Airbus, and for this problem we will think of this market as a Cournot duopoly. Suppose the market demand curve is given by <span class="math notranslate nohighlight">\(P = -1.89 Q + 148.89\)</span> where the price is in millions of \$ and that the marginal cost of both firms is constant at $c = $100$ million.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/cournot_12_0.png" src="../../_images/cournot_12_0.png" />
+</div>
+</div>
+<p>Now suppose we want to find the equilibrium and that Boeing beleives that Airbus will produce at quanitity <span class="math notranslate nohighlight">\(q_2 = 20\)</span>. To find the equilibrium, we need to start by finding Boeing’s residual demand curve. This is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+d_1(q_1) &amp;= P(q_1 + q_2) \\
+&amp;= -1.89(q_1 + q_2) + 148.89 \\
+&amp;= -1.89(q_1 + 20) + 148.89 \\
+&amp;= -1.89 q_1 + 111.09
+\end{aligned}\end{split}\]</div>
+<p>Now we need the marginal revenue <span class="math notranslate nohighlight">\(r_1\)</span> of Boeing, which is the line with the same <span class="math notranslate nohighlight">\(y\)</span>-intercept but twice the slope:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+r_1(q_1) &amp;= 2 \cdot d_1(q_1) - q_1(0) \\
+&amp;= -3.78 + 111.09
+\end{aligned}\end{split}\]</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/cournot_14_0.png" src="../../_images/cournot_14_0.png" />
+</div>
+</div>
+<p>Based on this graph, if Boeing’s prediction that Airbus will produce 20 units of output is correct, we can already tell what Boeing’s optimal output is; but instead, let’s use SymPy to calculate it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">q_1</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;q_1&quot;</span><span class="p">)</span>
+<span class="n">r_1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.78</span> <span class="o">*</span> <span class="n">q_1</span> <span class="o">+</span> <span class="mf">111.09</span>
+
+<span class="n">solve</span><span class="p">(</span><span class="n">r_1</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.93386243386243
+</pre></div>
+</div>
+</div>
+</div>
+<p>Therefore, if Boeing thinks that Airbus will produce 20 planes, they should produce 3.</p>
+<p>Now, however, let’s say that Boeing is unsure of it’s guess for <span class="math notranslate nohighlight">\(q_2\)</span>. How can we arrive at the <em>actual</em> Cournot equilibrium, the quantities at which both Boeing and Airbus should produce? We need to start by finding the monopoly quantity <span class="math notranslate nohighlight">\(q_m\)</span> and the perfect competition quantity <span class="math notranslate nohighlight">\(q_c\)</span>. We can find <span class="math notranslate nohighlight">\(q_m\)</span> by looking at Boeing’s marginal revenue when Airbus is assumed to produce 0 planes. In this case, <span class="math notranslate nohighlight">\(d_1 = P(q_1 + 0) = -1.89 q_1 + 148.89\)</span> and therefore <span class="math notranslate nohighlight">\(r_1 = -3.78 q_1 + 148.89\)</span>. We find <span class="math notranslate nohighlight">\(q_m\)</span> as the point at which this new marginal revenue curve intersects the marginal cost curve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r_1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.78</span> <span class="o">*</span> <span class="n">q_1</span> <span class="o">+</span> <span class="mf">148.89</span>
+<span class="n">q_m</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">r_1</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">q_m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>12.9338624338624
+</pre></div>
+</div>
+</div>
+</div>
+<p>So the monopoly quantity is <span class="math notranslate nohighlight">\(q_m = 12.934\)</span>. To find the perfect competition quantity <span class="math notranslate nohighlight">\(q_c\)</span>, we need to find the point at which the market demand curve <span class="math notranslate nohighlight">\(P\)</span> intersects the marginal cost.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;Q&quot;</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.89</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mf">148.89</span>
+<span class="n">q_c</span> <span class="o">=</span>  <span class="n">solve</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">q_c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>25.8677248677249
+</pre></div>
+</div>
+</div>
+</div>
+<p>And thus we get <span class="math notranslate nohighlight">\(q_c = 25.868\)</span>. Now, we know that when Airbus is producing at <span class="math notranslate nohighlight">\(q_c\)</span>, Boeing is producing 0 planes because their marginal revenue is below the marginal cost for every value above 0. When Airbus is producting 0 planes, Boeing produces at <span class="math notranslate nohighlight">\(p_m\)</span>. From this, we have two points with which we can draw Boeing’s reaction curve to Airbus’s quantity choice <span class="math notranslate nohighlight">\(q'_1(q_2)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">q_m</span>
+<span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">q_c</span><span class="p">,</span> <span class="mi">0</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y = </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2"> * x + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>y = -0.500000000000000 * x + 12.9338624338624
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because the marginal cost is constant and the same for both Boeing and Airbus, Airbus’s reaction function <span class="math notranslate nohighlight">\(q'_2(q_1)\)</span> is symmetrical to Boeing’s:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/cournot_24_0.png" src="../../_images/cournot_24_0.png" />
+</div>
+</div>
+<p>To get the exact values, let’s use SymPy one last time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">q_2</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;q_2&quot;</span><span class="p">)</span>
+<span class="n">q_1_prime</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">q_2</span> <span class="o">+</span> <span class="n">q_m</span>
+<span class="n">q_2_prime</span> <span class="o">=</span> <span class="p">(</span><span class="n">q_2</span> <span class="o">-</span> <span class="n">q_m</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">q_2_star</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">q_1_prime</span><span class="p">,</span> <span class="n">q_2_prime</span><span class="p">)</span>
+<span class="n">q_1_star</span> <span class="o">=</span> <span class="n">q_1_prime</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">q_2</span><span class="p">,</span> <span class="n">q_2_star</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;q_1_star = </span><span class="si">{</span><span class="n">q_1_star</span><span class="si">}</span><span class="se">\n</span><span class="s2">q_2_star = </span><span class="si">{</span><span class="n">q_2_star</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>q_1_star = 8.62257495590830
+q_2_star = 8.62257495590827
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

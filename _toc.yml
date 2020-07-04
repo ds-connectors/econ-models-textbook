@@ -34,6 +34,7 @@
   file: content/07-game-theory/index
   sections:
     # - title: Equilibria & Oligopolies
+    - file: content/07-game-theory/utility
     - file: content/07-game-theory/equilibria-oligopolies
     - file: content/07-game-theory/cournot
     - file: content/07-game-theory/bertrand

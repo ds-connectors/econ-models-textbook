@@ -1,8 +1,15 @@
 # Python Classes
 
-Because Python is an **object-oriented** programming language, you can create custom structures for storing data and methods called **classes**. A class represents an object and stores variables related to and functions that operate on that object. You're already familiar with Python classes, even if you don't know it: the `Table`s you work with in Data 8 are Python classes, as are NumPy arrays.
+Because Python is an [**object-oriented** programming language](https://en.wikipedia.org/wiki/Object-oriented_programming), you can create custom structures for storing data and methods called **classes**. A class represents an object and stores variables related to and functions that operate on that object. You're already familiar with Python classes, even if you don't know it: the `Table`s you work with in Data 8 are Python classes, as are NumPy arrays.
 
-We use classes because...
+We use classes because they allow us to store data in a rigorously structured way and provide standardized methods of accessing and interacting with that data. For example, let's say you want to create a program that manages a person's banking information. You need to store their name, account number, and balance. You might do something like create an array for each individual, where the first element is their name, the second is their account number, and the third is their balance:
+
+```python
+account1 = make_array("Jane Doe", 123456, 100)
+account2 = make_array("John Doe", 234567, 80)
+```
+
+But what happens if you need to track more data? Or suppose the structure of this data changes? Then you need to go to _every_ place where you access an element of the array and update it! It's really easy to forget things like this or to have instances fall through the cracks. Instead, we might create an `Account` class, so that whenever we need to update the structure, we need only do so once. (This is a very simplified version of a complex topic called [data abstraction](http://composingprograms.com/pages/22-data-abstraction.html) that demonstrates the need for complex, templated data structures and methods of accessing their data without violating [abstraction barriers](http://composingprograms.com/pages/22-data-abstraction.html#abstraction-barriers).)
 
 Some terminology: a **class** is the abstract definition of one such data structure, the definition from which class instances are created. When refer to an **instance**, we mean a single copy of one of these objects. It's kind-of like cookies and cookie cutters: the class is the cookie cutter, the template from which we make instances, the cookies. Think about tables: `Table` is the class from which we create table instances:
 

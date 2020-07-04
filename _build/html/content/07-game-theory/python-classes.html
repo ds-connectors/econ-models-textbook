@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -70,6 +71,9 @@
   <li class="active">
     <a href="index.html">Game Theory</a>
   <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="utility.html">Expected Utility Theory</a>
+    </li>
     <li class="">
       <a href="equilibria-oligopolies.html">Equilibria & Oligopolies</a>
     </li>
@@ -202,8 +206,13 @@
                 
   <div class="section" id="python-classes">
 <h1>Python Classes<a class="headerlink" href="#python-classes" title="Permalink to this headline">¶</a></h1>
-<p>Because Python is an <strong>object-oriented</strong> programming language, you can create custom structures for storing data and methods called <strong>classes</strong>. A class represents an object and stores variables related to and functions that operate on that object. You’re already familiar with Python classes, even if you don’t know it: the <code class="docutils literal notranslate"><span class="pre">Table</span></code>s you work with in Data 8 are Python classes, as are NumPy arrays.</p>
-<p>We use classes because…</p>
+<p>Because Python is an <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming"><strong>object-oriented</strong> programming language</a>, you can create custom structures for storing data and methods called <strong>classes</strong>. A class represents an object and stores variables related to and functions that operate on that object. You’re already familiar with Python classes, even if you don’t know it: the <code class="docutils literal notranslate"><span class="pre">Table</span></code>s you work with in Data 8 are Python classes, as are NumPy arrays.</p>
+<p>We use classes because they allow us to store data in a rigorously structured way and provide standardized methods of accessing and interacting with that data. For example, let’s say you want to create a program that manages a person’s banking information. You need to store their name, account number, and balance. You might do something like create an array for each individual, where the first element is their name, the second is their account number, and the third is their balance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">account1</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span> <span class="mi">123456</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">account2</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span> <span class="mi">234567</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But what happens if you need to track more data? Or suppose the structure of this data changes? Then you need to go to <em>every</em> place where you access an element of the array and update it! It’s really easy to forget things like this or to have instances fall through the cracks. Instead, we might create an <code class="docutils literal notranslate"><span class="pre">Account</span></code> class, so that whenever we need to update the structure, we need only do so once. (This is a very simplified version of a complex topic called <a class="reference external" href="http://composingprograms.com/pages/22-data-abstraction.html">data abstraction</a> that demonstrates the need for complex, templated data structures and methods of accessing their data without violating <a class="reference external" href="http://composingprograms.com/pages/22-data-abstraction.html#abstraction-barriers">abstraction barriers</a>.)</p>
 <p>Some terminology: a <strong>class</strong> is the abstract definition of one such data structure, the definition from which class instances are created. When refer to an <strong>instance</strong>, we mean a single copy of one of these objects. It’s kind-of like cookies and cookie cutters: the class is the cookie cutter, the template from which we make instances, the cookies. Think about tables: <code class="docutils literal notranslate"><span class="pre">Table</span></code> is the class from which we create table instances:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span> <span class="c1"># this is the class</span>
 <span class="n">tbl</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span> <span class="c1"># this is an instance</span>

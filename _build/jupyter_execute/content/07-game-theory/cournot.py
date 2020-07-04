@@ -1,4 +1,6 @@
 from datascience import *
+import sympy
+solve = lambda x,y: sympy.solve(x-y)[0] if len(sympy.solve(x-y))==1 else "Not Single Solution"
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -203,5 +205,119 @@ plt.yticks([y_star], [r"$q_1$"], size=14);
 ## Implications
 
 The Cournot model implies that output is greater in a Cournot duopoly than in a monopoly, but still lower than perfect competition. Prices are also lower in a Cournot duopoly, but higher than perfect competition. Cournot equilibria are also a subset of Nash equilibria, and so the equilibrium we just derived is one from which neither player will likely deviate. As noted earlier, Cournot also indicates that members of a duopoly could form a cartel and raise profits by colluding.
+
+## Applying Cournot
+
+Now that we have shown how to derive the Cournot equilibrium, let's apply this to a problem. Consider the industry of airline manufacturing: there are two main competitors, Boeing and Airbus, and for this problem we will think of this market as a Cournot duopoly. Suppose the market demand curve is given by $P = -1.89 Q + 148.89$ where the price is in millions of \\$ and that the marginal cost of both firms is constant at $c = \$100$ million.
+
+def P_fn(Q):
+    return -1.89 * Q + 148.89
+
+Qs = np.linspace(-100, 100, 1000)
+Ps = P_fn(Qs)
+
+plt.figure(figsize=[7,7])
+plt.plot(Qs, Ps, label=r"$P(Q)$")
+plt.hlines(100, -1, 100, color="r", label=r"$c$")
+plt.xlim(0, 81)
+plt.ylim(0, 150)
+plt.xlabel(r"Quantity $Q$", size=16)
+plt.ylabel(r"Price $P$", size=16)
+plt.legend();
+
+Now suppose we want to find the equilibrium and that Boeing beleives that Airbus will produce at quanitity $q_2 = 20$. To find the equilibrium, we need to start by finding Boeing's residual demand curve. This is given by 
+
+$$\begin{aligned}
+d_1(q_1) &= P(q_1 + q_2) \\
+&= -1.89(q_1 + q_2) + 148.89 \\
+&= -1.89(q_1 + 20) + 148.89 \\
+&= -1.89 q_1 + 111.09
+\end{aligned}$$ 
+
+Now we need the marginal revenue $r_1$ of Boeing, which is the line with the same $y$-intercept but twice the slope:
+
+$$\begin{aligned}
+r_1(q_1) &= 2 \cdot d_1(q_1) - q_1(0) \\
+&= -3.78 + 111.09
+\end{aligned}$$
+
+def P_fn(Q):
+    return -1.89 * Q + 148.89
+
+q_2 =  20
+
+Qs = np.linspace(-100, 100, 1000)
+Ps = P_fn(Qs)
+d_1 = P_fn(Qs + q_2)
+r_1 =  2 * P_fn(Qs + q_2) - P_fn(q_2)
+
+plt.figure(figsize=[7,7])
+plt.plot(Qs, Ps, label=r"$P(Q)$")
+plt.plot(Qs, d_1, label=r"$d_1(Q)$")
+plt.plot(Qs, r_1, label=r"$r_1(Q)$")
+plt.hlines(100, -1, 100, color="r", label=r"$c$")
+plt.xlim(0, 35)
+plt.ylim(95, 150)
+plt.xlabel(r"Quantity $Q$", size=16)
+plt.ylabel(r"Price $P$", size=16)
+plt.legend();
+
+Based on this graph, if Boeing's prediction that Airbus will produce 20 units of output is correct, we can already tell what Boeing's optimal output is; but instead, let's use SymPy to calculate it.
+
+c = 100
+q_1 = sympy.Symbol("q_1")
+r_1 = -3.78 * q_1 + 111.09
+
+solve(r_1, c)
+
+Therefore, if Boeing thinks that Airbus will produce 20 planes, they should produce 3.
+
+Now, however, let's say that Boeing is unsure of it's guess for $q_2$. How can we arrive at the _actual_ Cournot equilibrium, the quantities at which both Boeing and Airbus should produce? We need to start by finding the monopoly quantity $q_m$ and the perfect competition quantity $q_c$. We can find $q_m$ by looking at Boeing's marginal revenue when Airbus is assumed to produce 0 planes. In this case, $d_1 = P(q_1 + 0) = -1.89 q_1 + 148.89$ and therefore $r_1 = -3.78 q_1 + 148.89$. We find $q_m$ as the point at which this new marginal revenue curve intersects the marginal cost curve.
+
+r_1 = -3.78 * q_1 + 148.89
+q_m = solve(r_1, c)
+q_m
+
+So the monopoly quantity is $q_m = 12.934$. To find the perfect competition quantity $q_c$, we need to find the point at which the market demand curve $P$ intersects the marginal cost.
+
+Q = sympy.Symbol("Q")
+P = -1.89 * Q + 148.89
+q_c =  solve(P, c)
+q_c
+
+And thus we get $q_c = 25.868$. Now, we know that when Airbus is producing at $q_c$, Boeing is producing 0 planes because their marginal revenue is below the marginal cost for every value above 0. When Airbus is producting 0 planes, Boeing produces at $p_m$. From this, we have two points with which we can draw Boeing's reaction curve to Airbus's quantity choice $q'_1(q_2)$:
+
+x1, y1 = 0, q_m
+x2, y2 = q_c, 0
+
+m = (y2 - y1) / (x2 - x1)
+b = y1 - m * x1
+
+print(f"y = {m} * x + {b}")
+
+Because the marginal cost is constant and the same for both Boeing and Airbus, Airbus's reaction function $q'_2(q_1)$ is symmetrical to Boeing's:
+
+xs = np.linspace(-10, 30, 100)
+ys1 = m * xs + b
+ys2 = (xs - b) / m
+
+plt.figure(figsize=[7,7])
+plt.plot(xs, ys, label=r"$q'_1(q_2)$")
+plt.plot(xs, ys2, label=r"$q'_2(q_1)$")
+plt.xlim([0, 27])
+plt.ylim([0, 27])
+plt.xlabel(r"$q_2$", size=16)
+plt.ylabel(r"$q_1$", size=16)
+plt.legend();
+
+To get the exact values, let's use SymPy one last time:
+
+q_2 = sympy.Symbol("q_2")
+q_1_prime = -.5 * q_2 + q_m
+q_2_prime = (q_2 - q_m) / (-.5)
+
+q_2_star = solve(q_1_prime, q_2_prime)
+q_1_star = q_1_prime.subs([(q_2, q_2_star)])
+print(f"q_1_star = {q_1_star}\nq_2_star = {q_2_star}")
 
  

@@ -15,12 +15,27 @@ This section introduces the concept of equilibria in games, the paradigm of the 
 
 The [prisoner's dilemma](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma) is a classic game first discussed by Merrill Flood and Melvin Dresher in 1950. In this game, there are two prisoners who have been captured and are being interrogated. The prisoners cannot contact each other in any way. They have two options: they can **defect** (betray the other prisoner to the police) or they can **cooperate** (maintain their silence). If both defect, both receive 4 years in prison. If one defects and the other does not, the defector goes free and the cooperator receives 5 years in prison. If both cooperate (meaning neither talks to the police), then they each receive 2 years in prison. We define **mutual defection** as the case when both prisoners defect and **mutual cooperation** as the case when both cooperate. The purpose of this game is to consider how a completely rational person would be best advised to proceed, and how different strategies for playing this game can be more or less effective.
 
-<table>
+<table class="payoff-matrix" style="text-align: center; table-layout: fixed;">
     
-<tr style="background-color: white;"><td></td><td></td><td colspan="2">Prisoner A</td></tr>
-<tr><td></td><td></td><td>Cooperate</td><td>Defect</td></tr>
-<tr style="background-color: white;"><td rowspan="2">Prisoner B</td><td>Cooperate</td><td style="background-color: #F5F5F5;">A: 2, B: 2</td><td>A: 0, B: 5</td></tr>
-<tr><td>Defect</td><td>A: 5, B: 0</td><td style="background-color: #F5F5F5;">A: 4, B: 4</td></tr>
+<tr>
+    <td colspan="2" rowspan="2" width="170" style="border-width: 0 1px 1px 0;"></td>
+    <td colspan="2">Prisoner B</td>
+</tr>
+<tr>
+    <td width="85">Cooperate</td>
+    <td width="85">Defect</td>
+</tr>
+<tr>
+    <td rowspan="2">Prisoner A</td>
+    <td>Cooperate</td>
+    <td>(2, 2)</td>
+    <td>(5, 0)</td>
+</tr>
+<tr>
+    <td>Defect</td>
+    <td>(0, 5)</td>
+    <td>(4, 4)</td>
+</tr>
     
 </table>
 

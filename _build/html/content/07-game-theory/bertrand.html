@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -71,6 +72,9 @@
   <li class="active">
     <a href="index.html">Game Theory</a>
   <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="utility.html">Expected Utility Theory</a>
+    </li>
     <li class="">
       <a href="equilibria-oligopolies.html">Equilibria & Oligopolies</a>
     </li>
@@ -172,6 +176,10 @@
             <a href="#implications" class="nav-link">Implications</a>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#applying-bertrand" class="nav-link">Applying Bertrand</a>
+        </li>
+    
     </ul>
 </nav>
 
@@ -190,13 +198,22 @@
 <div class="section" id="bertrand-equilibrium">
 <h2>Bertrand Equilibrium<a class="headerlink" href="#bertrand-equilibrium" title="Permalink to this headline">¶</a></h2>
 <p>To find the Bertrand equilibrium, let <span class="math notranslate nohighlight">\(c\)</span> be the (constant) marginal cost, <span class="math notranslate nohighlight">\(p_1\)</span> be firm 1’s price level, <span class="math notranslate nohighlight">\(p_2\)</span> be firm 2’s price level, and <span class="math notranslate nohighlight">\(p_m\)</span> be the monopoly price level. Firm 1’s price depends on what it believes firm 2 will set its prices to be. Because consumers always buy at the lowest price and the firm will fulfill any level of demand, pricing just below firm 2 will obtain full market demand for firm 1. Why might this not be a good idea? If firm 2 is pricing below the level of marginal cost, then firm 1 will incur losses because they would need to sell at a price lower than the cost of production.</p>
-<p>Let <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span> be firm 1’s optimal price based on price <span class="math notranslate nohighlight">\(p_2\)</span> set by firm 2. The graph below shows <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span>. Note that when <span class="math notranslate nohighlight">\(p_2 &lt; c\)</span>, <span class="math notranslate nohighlight">\(p'_1\)</span> is equal to <span class="math notranslate nohighlight">\(c\)</span>, that <span class="math notranslate nohighlight">\(p'_1\)</span> rises linearly along but <em>just below</em> the line <span class="math notranslate nohighlight">\(y=x\)</span> with <span class="math notranslate nohighlight">\(p_2\)</span> until <span class="math notranslate nohighlight">\(p_2\)</span> reaches <span class="math notranslate nohighlight">\(p_m\)</span>, and that it then levels off at <span class="math notranslate nohighlight">\(p_m\)</span>. In this way, firm 1’s price stays below firm 2’s price when it is not operating at a loss and does not exceed <span class="math notranslate nohighlight">\(p_m\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span> be firm 1’s optimal price based on price <span class="math notranslate nohighlight">\(p_2\)</span> set by firm 2. The graph below shows <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span>. Note that when <span class="math notranslate nohighlight">\(p_2 &lt; c\)</span>, <span class="math notranslate nohighlight">\(p'_1\)</span> is equal to <span class="math notranslate nohighlight">\(c\)</span>, that <span class="math notranslate nohighlight">\(p'_1\)</span> rises linearly along but <em>just below</em> the line <span class="math notranslate nohighlight">\(p_1 = p_2\)</span> with <span class="math notranslate nohighlight">\(p_2\)</span> until <span class="math notranslate nohighlight">\(p_2\)</span> reaches <span class="math notranslate nohighlight">\(p_m\)</span>, and that it then levels off at <span class="math notranslate nohighlight">\(p_m\)</span>. In this way, firm 1’s price stays below firm 2’s price when it is not operating at a loss and does not exceed <span class="math notranslate nohighlight">\(p_m\)</span>. This piecewise function has the formula</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+p'_1(p_2) = \begin{cases}
+c &amp; \text{if } p_2 &lt; c + h \\
+p_2 - h &amp; \text{if } c + h \le p_2 &lt; p_m + h \\
+p_m &amp; \text{otherwise}
+\end{cases}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> is a small positive value and indicates the vertical distance between <span class="math notranslate nohighlight">\(p'_1\)</span> and the line <span class="math notranslate nohighlight">\(p_1 = p_2\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/bertrand_3_0.png" src="../../_images/bertrand_3_0.png" />
 </div>
 </div>
-<p>Because firm 2 has the same marginal cost <span class="math notranslate nohighlight">\(c\)</span> as firm 1, its reaction function <span class="math notranslate nohighlight">\(p'_2(p_1)\)</span> is symmetrical to firm 1’s about the line <span class="math notranslate nohighlight">\(y=x\)</span>:</p>
+<p>Because firm 2 has the same marginal cost <span class="math notranslate nohighlight">\(c\)</span> as firm 1, its reaction function <span class="math notranslate nohighlight">\(p'_2(p_1)\)</span> is symmetrical to firm 1’s about the line <span class="math notranslate nohighlight">\(p_1 = p_2\)</span>:</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/bertrand_5_0.png" src="../../_images/bertrand_5_0.png" />
@@ -208,6 +225,87 @@
 <div class="section" id="implications">
 <h2>Implications<a class="headerlink" href="#implications" title="Permalink to this headline">¶</a></h2>
 <p>The Bertrand model implies that even a duopoly in a market is enough to push prices down to the level of perfect competition. It does, however, rely on some serious assumptions. For example, there are many reasons why consumers might not buy the lowest-priced item (e.g. non-price competition, search costs). When these factors are included in the Bertrand model, the same result is no longer reached. It also ignores the fact that firms may not be able to supply the entire market demand; include these capacity constraints in the model can result in the system having no Nash equilibrium. Lastly, the Bertrand model demonstrates big incentives to cooperate and raise prices to the monopoly level; however, this state is not a Nash equilibrium, and in fact, the only Nash equilibrium of this model is the non-cooperative one with prices at marginal cost.</p>
+</div>
+<div class="section" id="applying-bertrand">
+<h2>Applying Bertrand<a class="headerlink" href="#applying-bertrand" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have derived the Bertrand equilibrium, let’s apply it to a problem. Consider the Coke-Pepsi duopoly we mentioned above. Suppose that the only product in the soft-drink market is the 12-oz. can, that the market demand for cans is given by <span class="math notranslate nohighlight">\(P = -0.05 Q + 5.05\)</span>, and that the marginal cost for Coke and Pepsi is constant at <span class="math notranslate nohighlight">\(c = 0.25\)</span>. To find the equilibrium price for Coke based in it’s belief that Pepsi will sell at $p_2 = $1$, we need to start by findining the monopoly price level <span class="math notranslate nohighlight">\(p_m\)</span>; recall from Cournot that this occurs when the marginal revenue curve of the market demand intersects the marginal cost. The marginal revenue is <span class="math notranslate nohighlight">\(r(q) = -0.1 q + 5.05\)</span>:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/bertrand_9_0.png" src="../../_images/bertrand_9_0.png" />
+</div>
+</div>
+<p>Using SymPy, we can find the quantity <span class="math notranslate nohighlight">\(q\)</span> at which <span class="math notranslate nohighlight">\(r(q) = c\)</span>. This value, denoted <span class="math notranslate nohighlight">\(q_m\)</span>, is the monopoly quantity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;q&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">1</span> <span class="o">*</span> <span class="n">q</span> <span class="o">+</span> <span class="mf">5.05</span>
+
+<span class="n">q_m</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">q_m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>48.0000000000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>The monopoly price <span class="math notranslate nohighlight">\(p_m\)</span> is the price from the market demand curve that this level of output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;Q&quot;</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">05</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mf">5.05</span>
+
+<span class="n">p_m</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">Q</span><span class="p">,</span> <span class="n">q_m</span><span class="p">)])</span>
+<span class="n">p_m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.65000000000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have found <span class="math notranslate nohighlight">\(p_m\)</span>, we can use this to construct Coke’s reaction function <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span> to Pepsi’s choice of price. Assuming <span class="math notranslate nohighlight">\(h=0.1\)</span>, the formula for <span class="math notranslate nohighlight">\(p'_1\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+p'_1(p_2) = \begin{cases}
+0.25 &amp; \text{if } p_2 &lt; 0.25 + 0.1 \\
+p_2 - 0.1 &amp; \text{if } 0.25 + 0.1 \le p_2 &lt; 2.65 + 0.1 \\
+2.65 &amp; \text{otherwise}
+\end{cases}
+\end{split}\]</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/bertrand_15_0.png" src="../../_images/bertrand_15_0.png" />
+</div>
+</div>
+<p>Finally, to find Coke’s selling price, we find <span class="math notranslate nohighlight">\(p'_1(1)\)</span>, since Coke believes Pepsi will sell at \$1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">p_2</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;p_2&quot;</span><span class="p">)</span>
+<span class="n">p_1_prime</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Piecewise</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">p_2</span> <span class="o">&lt;</span> <span class="n">c</span> <span class="o">+</span> <span class="n">h</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">p_2</span> <span class="o">-</span> <span class="n">h</span><span class="p">,</span> <span class="n">p_2</span> <span class="o">&lt;</span> <span class="n">p_m</span> <span class="o">+</span> <span class="n">h</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">p_m</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">p_1_prime</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">p_2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.900000000000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus, if Coke believes that Pepsi will sell cans at \$1, it should sell at \$0.90. This should make intuitive sense: we showed that <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span> was below the line <span class="math notranslate nohighlight">\(p_1=p_2\)</span> by a vertical distance of <span class="math notranslate nohighlight">\(h=0.1\)</span>, so it makes sense that Coke would sell at \$0.10 below Pepsi. If Coke had believed that Pepsi was going to sell at, say, \$2.70, then it would have been better for them to sell at the monopoly price level $p_m = $2.65$. If Pepsi was selling below margin cost, at \$0.20 maybe, then Coke’s best bet would have been to sell at $c = $0.25$, although they would have sold 0 units of output because consumers buy from the lowest-priced vendor.</p>
 </div>
 </div>
 

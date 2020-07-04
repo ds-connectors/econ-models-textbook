@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Iterated Prisoner’s Dilemma Players &#8212; Data 88: Economic Models Textbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.13.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/econ-models.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data 88: Economic Models Textbook</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="index.html">Game Theory</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/07-game-theory/player-definitions.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/ds-connectors/econ-models-Textbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/ds-connectors/econ-models-Textbook/?urlpath=tree/content/07-game-theory/player-definitions.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/ds-connectors/econ-models-Textbook&urlpath=tree/econ-models-Textbook/content/07-game-theory/player-definitions.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip" data-placement="left"><img class="jupyterhub-button-logo" src="../../_static/images/logo_jupyterhub.svg" alt="Interact on JupyterHub">JupyterHub</button></a>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#defector" class="nav-link">Defector</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#cooperator" class="nav-link">Cooperator</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#random" class="nav-link">Random</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#alternator" class="nav-link">Alternator</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#backstabber" class="nav-link">Backstabber</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#bully" class="nav-link">Bully</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#desperate" class="nav-link">Desperate</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#fool-me-once" class="nav-link">Fool-Me-Once</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#forgiver" class="nav-link">Forgiver</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#once-bitten" class="nav-link">Once-Bitten</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#grudger" class="nav-link">Grudger</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="iterated-prisoner-s-dilemma-players">
+<h1>Iterated Prisoner’s Dilemma Players<a class="headerlink" href="#iterated-prisoner-s-dilemma-players" title="Permalink to this headline">¶</a></h1>
+<p>This section provides the class definitions for the strategies used for the iterated prisoner’s dilemma.</p>
+<p>We create these classes using the <code class="docutils literal notranslate"><span class="pre">create_player_class</span></code> function which creates the class and returns it for us using a provided player name and play method (a method which takes players and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the player defects and <code class="docutils literal notranslate"><span class="pre">False</span></code> if they cooperate. The classes include:</p>
+<ul class="simple">
+<li><p>an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method for creating instances and instance variables</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">play</span></code> method that takes an opponent and returns the player’s decision at a single turn</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">reset_history</span></code> method that clears the player’s history for use between matches</p></li>
+<li><p>an <code class="docutils literal notranslate"><span class="pre">update_history</span></code> method that adds the player’s last move to their history</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method that returns the player’s name</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> method that returns an integer <a class="reference external" href="https://en.wikipedia.org/wiki/Hash_function">hash</a> of the player</p></li>
+<li><p>an <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> method that defines the comparison of a player using <code class="docutils literal notranslate"><span class="pre">==</span></code></p></li>
+<li><p>an <code class="docutils literal notranslate"><span class="pre">__lt__</span></code> method that defines the comparison of a player using <code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></li>
+</ul>
+<p>A couple of notes on the class:</p>
+<ul class="simple">
+<li><p>The instance variable <code class="docutils literal notranslate"><span class="pre">last_move</span></code> is used to store the player’s last move so that it can later be appended to the history using <code class="docutils literal notranslate"><span class="pre">update_history</span></code>. This helps define strategies that rely on using the histories for calculations, so we don’t need to take into account whether the player is player 1 or player 2.</p></li>
+<li><p>The <a class="reference external" href="https://wiki.python.org/moin/PythonDecorators">decorator</a> <code class="docutils literal notranslate"><span class="pre">functools.total_ordering</span></code> defines all comparison dunders not defined (<code class="docutils literal notranslate"><span class="pre">__neq__</span></code>, <code class="docutils literal notranslate"><span class="pre">__gt__</span></code>, <code class="docutils literal notranslate"><span class="pre">__gtq__</span></code>, and <code class="docutils literal notranslate"><span class="pre">__lte__</span></code>) in the class for us using the two provided (<code class="docutils literal notranslate"><span class="pre">__eq__</span></code> and <code class="docutils literal notranslate"><span class="pre">__lt__</span></code>).</p></li>
+<li><p>We define <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> so that the players are <strong>hashable</strong>, allowing them to be used in dictionaries.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_player_class</span><span class="p">(</span><span class="n">player_name</span><span class="p">,</span> <span class="n">play_method</span><span class="p">):</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">total_ordering</span>
+    <span class="k">class</span> <span class="nc">Player</span><span class="p">:</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prob</span> <span class="o">=</span> <span class="n">p</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">player_name</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_move</span> <span class="o">=</span> <span class="kc">None</span>
+        
+        <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Returns True if player defects, False otherwise&quot;&quot;&quot;</span>
+            <span class="n">defect</span> <span class="o">=</span> <span class="n">play_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_move</span> <span class="o">=</span> <span class="n">defect</span>
+            <span class="k">return</span> <span class="n">defect</span>
+        
+        <span class="k">def</span> <span class="nf">reset_history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+        
+        <span class="k">def</span> <span class="nf">update_history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_move</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_move</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_move</span> <span class="o">=</span> <span class="kc">None</span>
+        
+        <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">player_name</span> <span class="o">==</span> <span class="s2">&quot;Random&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">player_name</span> <span class="o">+</span> <span class="s2">&quot;(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prob</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">player_name</span>
+        
+        <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        
+        <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span>
+        
+        <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span>
+    
+    <span class="k">return</span> <span class="n">Player</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="defector">
+<h2>Defector<a class="headerlink" href="#defector" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">defector_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">Defector</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Defector&quot;</span><span class="p">,</span> <span class="n">defector_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cooperator">
+<h2>Cooperator<a class="headerlink" href="#cooperator" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cooperator_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">Cooperator</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Cooperator&quot;</span><span class="p">,</span> <span class="n">cooperator_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="random">
+<h2>Random<a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">prob</span>
+
+<span class="n">Random</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Random&quot;</span><span class="p">,</span> <span class="n">random_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="alternator">
+<h2>Alternator<a class="headerlink" href="#alternator" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alternator_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">Alternator</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Alternator&quot;</span><span class="p">,</span> <span class="n">alternator_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="backstabber">
+<h2>Backstabber<a class="headerlink" href="#backstabber" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">backstabber_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span>
+
+<span class="n">Backstabber</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Backstabber&quot;</span><span class="p">,</span> <span class="n">backstabber_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bully">
+<h2>Bully<a class="headerlink" href="#bully" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bully_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">Bully</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Bully&quot;</span><span class="p">,</span> <span class="n">bully_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="desperate">
+<h2>Desperate<a class="headerlink" href="#desperate" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">desperate_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">,</span> <span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">1</span>
+
+<span class="n">Desperate</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Desperate&quot;</span><span class="p">,</span> <span class="n">desperate_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fool-me-once">
+<h2>Fool-Me-Once<a class="headerlink" href="#fool-me-once" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fool_me_once_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+
+<span class="n">FoolMeOnce</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;FoolMeOnce&quot;</span><span class="p">,</span> <span class="n">fool_me_once_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="forgiver">
+<h2>Forgiver<a class="headerlink" href="#forgiver" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forgiver_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.1</span>
+
+<span class="n">Forgiver</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Forgiver&quot;</span><span class="p">,</span> <span class="n">forgiver_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="once-bitten">
+<h2>Once-Bitten<a class="headerlink" href="#once-bitten" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">once_bitten_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;defects_left&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defects_left</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">defects_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defects_left</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">defects_left</span> <span class="o">=</span> <span class="mi">9</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">OnceBitten</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;OnceBitten&quot;</span><span class="p">,</span> <span class="n">once_bitten_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="grudger">
+<h2>Grudger<a class="headerlink" href="#grudger" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grudger_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opponent</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">opponent</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="n">Grudger</span> <span class="o">=</span> <span class="n">create_player_class</span><span class="p">(</span><span class="s2">&quot;Grudger&quot;</span><span class="p">,</span> <span class="n">grudger_play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Data 88 Course Staff<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

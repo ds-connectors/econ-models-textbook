@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -33,7 +34,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Cournot Competition" href="cournot.html" />
-    <link rel="prev" title="Game Theory" href="index.html" />
+    <link rel="prev" title="Expected Utility Theory" href="utility.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -71,6 +72,9 @@
   <li class="active">
     <a href="index.html">Game Theory</a>
   <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="utility.html">Expected Utility Theory</a>
+    </li>
     <li class="active">
       <a href="">Equilibria & Oligopolies</a>
     </li>
@@ -189,11 +193,26 @@
 <div class="section" id="equilibrium">
 <h2>Equilibrium<a class="headerlink" href="#equilibrium" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma">prisoner’s dilemma</a> is a classic game first discussed by Merrill Flood and Melvin Dresher in 1950. In this game, there are two prisoners who have been captured and are being interrogated. The prisoners cannot contact each other in any way. They have two options: they can <strong>defect</strong> (betray the other prisoner to the police) or they can <strong>cooperate</strong> (maintain their silence). If both defect, both receive 4 years in prison. If one defects and the other does not, the defector goes free and the cooperator receives 5 years in prison. If both cooperate (meaning neither talks to the police), then they each receive 2 years in prison. We define <strong>mutual defection</strong> as the case when both prisoners defect and <strong>mutual cooperation</strong> as the case when both cooperate. The purpose of this game is to consider how a completely rational person would be best advised to proceed, and how different strategies for playing this game can be more or less effective.</p>
-<table>
-<tr style="background-color: white;"><td></td><td></td><td colspan="2">Prisoner A</td></tr>
-<tr><td></td><td></td><td>Cooperate</td><td>Defect</td></tr>
-<tr style="background-color: white;"><td rowspan="2">Prisoner B</td><td>Cooperate</td><td style="background-color: #F5F5F5;">A: 2, B: 2</td><td>A: 0, B: 5</td></tr>
-<tr><td>Defect</td><td>A: 5, B: 0</td><td style="background-color: #F5F5F5;">A: 4, B: 4</td></tr>
+<table class="payoff-matrix" style="text-align: center; table-layout: fixed;">
+<tr>
+    <td colspan="2" rowspan="2" width="170" style="border-width: 0 1px 1px 0;"></td>
+    <td colspan="2">Prisoner B</td>
+</tr>
+<tr>
+    <td width="85">Cooperate</td>
+    <td width="85">Defect</td>
+</tr>
+<tr>
+    <td rowspan="2">Prisoner A</td>
+    <td>Cooperate</td>
+    <td>(2, 2)</td>
+    <td>(5, 0)</td>
+</tr>
+<tr>
+    <td>Defect</td>
+    <td>(0, 5)</td>
+    <td>(4, 4)</td>
+</tr>
 </table>
 <p>The table above is called a <strong>payoff matrix</strong> and describes the results of a game for each participant given their choice and their opponent’s choice. We see that if Prisoner A cooperates and Prisoner B defects, then Prisoner A gets 5 years in prisoner and Prisoner B gets none.</p>
 <p>An import concept in game theory is finding the equilibrium of a game. There are different types of equilibria, but the most common one considered is the <strong>Nash equilibrium</strong>, named for the mathematician John Forbes Nash, Jr., (who you may remember as a character played by Russel Crowe in <a class="reference external" href="https://en.wikipedia.org/wiki/A_Beautiful_Mind_(film)"><em>A Beautiful Mind</em></a>. A state of a game is said to be a Nash equilibrium if each player has chosen a strategy and no player can increase its own payoff by changing its strategy, assuming the other player’s strategy is unchanged.</p>
@@ -230,7 +249,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Game Theory</a>
+    <a class='left-prev' id="prev-link" href="utility.html" title="previous page">Expected Utility Theory</a>
     <a class='right-next' id="next-link" href="cournot.html" title="next page">Cournot Competition</a>
 
     </div>

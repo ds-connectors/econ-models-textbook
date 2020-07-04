@@ -15,31 +15,35 @@ The idea that individuals, when making a gamble, will choose the option that max
 
 The expected utility is a calculated value based on two pieces of information: an individual's preferences for different outcomes and the probability of those outcomes occurring. Let's illustrate this with an example: Suppose Alice is deciding whether to attend lecture today and her professor is deciding whether to take attendance today. If Alice goes to lecture, she will be bored but get her attendance counted if it's taken. If she doesn't, she won't be bored, but she  won't get her attendance point. We must define the utilities for Alice and her professor in order to construct a payoff matrix.
 
-<table style="margin: 25px auto;">
-    
-<tr style="background-color: white;">
-    <td></td>
-    <td></td>
+<table class="payoff-matrix" style="text-align: center; table-layout: fixed;">
+
+<tr>
+    <td colspan="2" rowspan="2" width="200" style="border-width: 0 1px 1px 0;"></td>
     <td colspan="2">Professor</td>
 </tr>
 <tr>
-    <td></td>
-    <td></td>
-    <td>Take Attendance</td>
-    <td>No Attendance</td>
+    <td width="125">Take Attendance</td>
+    <td width="125">No Attendance</td>
 </tr>
-<tr style="background-color: white;">
-    <td rowspan="2">Alice</td><td>Attend</td>
-    <td style="background-color: #F5F5F5;">(0, 5)</td>
+<tr>
+    <td rowspan="2" width="100">Alice</td>
+    <td>Attend</td>
+    <td>(0, 5)</td>
     <td>(-2, 0)</td>
 </tr>
 <tr>
     <td>Don't Attend</td>
     <td>(-5, 5)</td>
-    <td style="background-color: #F5F5F5;">(5, 0)</td>
+    <td>(5, 0)</td>
 </tr>
-    
+
 </table>
+
+```{admonition} Reading a payoff matrix
+:class: tip
+
+A payoff matrix specifies the payoffs of two players. The 2-tuples in each cell define the payoff for both players according to the combination of strategies corresponding to the row and column. For example, the bottom right cell above corresponds to the payoffs for Alice not attending and the professor not taking attendance. The tuples are formatted as `(row player, column player)`, so the first element is Alice's payoff and the second is the professor's. The payoff of (5, 0) indicates that that outcome has a utility of 5 for Alice and 0 for the professor.
+```
 
 Let's say that we know the professor's strategy: he will take attendance randomly with probability 0.7. Then we can calculate the expected utility of Alice's two options (attending and not attending) by taking the expected utility of each:
 
@@ -52,7 +56,7 @@ E[\text{not attending}] &= 0.7 (-5) + 0.3 (5) \\
 
 By calculating out Alice's expected utilities, we see that her utility is maximized by attending, given that the professor's strategy is to take attendance with probability 0.7.
 
-An important point here is that we rely on the professor's strategy for playing the game to determine how to maximize Alice's expected utility. If the professor had a different strategy, then it could be the cast that not attending would be the better option.
+An important point here is that we rely on the professor's strategy for playing the game to determine how to maximize Alice's expected utility. If the professor had a different strategy, then it could be the case that not attending would be the better option.
 
 Let's formalize our definition of the expected utility.
 
@@ -68,6 +72,6 @@ $$
 
 One of the underpinnings of game theory is the idea of **strategies**, systematic methods of playing games. There are many different ways to conceptualize strategies, some of which we've already seen. The professor's randomness strategy from the last example is one such, maximizing expected utility is another. Strategies tell the players of a game what move to make based on available information, and can be conceived of as a probability distribution over a player's choices. 
 
-There are many different types of strategies. Any strategy that puts probability 1 on a single choice is called a **pure** strategy; all others are called **mixed** strategies. If Alice's strategy had been "never attend class," this would have been a pure strategy, because the probability of not attending was always 1. The professor's strategy was a mixed strategy, since there wasn't a single option with probability 1.
+There are many different types of strategies. Any strategy that puts probability 1 on a single choice is called a **pure** strategy; all others are called **mixed** strategies. If Alice's strategy had been "never attend class," this would have been a pure strategy, because the probability of not attending was always 1. The professor's strategy was a mixed strategy, since there wasn't a single option with probability 1. 
 
  
