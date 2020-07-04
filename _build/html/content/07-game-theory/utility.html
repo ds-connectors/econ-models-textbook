@@ -70,22 +70,22 @@
   
   <ul class="nav sidenav_l1">
   <li class="active">
-    <a href="index.html">Game Theory</a>
+    <a href="index.html">1. Game Theory</a>
   <ul class="nav sidenav_l2">
     <li class="active">
-      <a href="">Expected Utility Theory</a>
+      <a href="">1.1 Expected Utility Theory</a>
     </li>
     <li class="">
-      <a href="equilibria-oligopolies.html">Equilibria & Oligopolies</a>
+      <a href="equilibria-oligopolies.html">1.2 Equilibria & Oligopolies</a>
     </li>
     <li class="">
-      <a href="cournot.html">Cournot Competition</a>
+      <a href="cournot.html">1.3 Cournot Competition</a>
     </li>
     <li class="">
-      <a href="bertrand.html">Bertrand Competition</a>
+      <a href="bertrand.html">1.4 Bertrand Competition</a>
     </li>
     <li class="">
-      <a href="python-classes.html">Python Classes</a>
+      <a href="python-classes.html">1.5 Python Classes</a>
     </li>
   </ul>
   </li>
@@ -169,11 +169,13 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#expected-utility" class="nav-link">Expected Utility</a>
+            <a href="#expected-utility" class="nav-link">Expected Utility</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#strategies" class="nav-link">Strategies</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#strategies" class="nav-link">Strategies</a>
+            </ul>
         </li>
     
     </ul>
@@ -243,11 +245,11 @@ E[\text{not attending}] &amp;= 0.7 (-5) + 0.3 (5) \\
 E[u(x)] = \sum_{i=1}^n p_i u(x_i)
 \]</div>
 </div>
-</div>
 <div class="section" id="strategies">
-<h2>Strategies<a class="headerlink" href="#strategies" title="Permalink to this headline">¶</a></h2>
+<h3>Strategies<a class="headerlink" href="#strategies" title="Permalink to this headline">¶</a></h3>
 <p>One of the underpinnings of game theory is the idea of <strong>strategies</strong>, systematic methods of playing games. There are many different ways to conceptualize strategies, some of which we’ve already seen. The professor’s randomness strategy from the last example is one such, maximizing expected utility is another. Strategies tell the players of a game what move to make based on available information, and can be conceived of as a probability distribution over a player’s choices.</p>
 <p>There are many different types of strategies. Any strategy that puts probability 1 on a single choice is called a <strong>pure</strong> strategy; all others are called <strong>mixed</strong> strategies. If Alice’s strategy had been “never attend class,” this would have been a pure strategy, because the probability of not attending was always 1. The professor’s strategy was a mixed strategy, since there wasn’t a single option with probability 1.</p>
+</div>
 </div>
 </div>
 

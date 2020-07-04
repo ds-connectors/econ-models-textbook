@@ -68,7 +68,7 @@ E[u(x)] = \sum_{i=1}^n p_i u(x_i)
 $$
 ```
 
-## Strategies
+### Strategies
 
 One of the underpinnings of game theory is the idea of **strategies**, systematic methods of playing games. There are many different ways to conceptualize strategies, some of which we've already seen. The professor's randomness strategy from the last example is one such, maximizing expected utility is another. Strategies tell the players of a game what move to make based on available information, and can be conceived of as a probability distribution over a player's choices. 
 

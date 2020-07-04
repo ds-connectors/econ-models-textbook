@@ -126,7 +126,7 @@ plt.xticks([c, p_m], [r"$c$", r"$p_m$"], size=14)
 plt.yticks([c, p_m], [r"$c$", r"$p_m$"], size=14)
 plt.legend();
 
-These two strategies form a Nash equilibrium because neither firm can increase profits by changing their own strategy unilaterally. The equilibrium occurs where $p_1 = p'_1(p_2)$ and $p_2 = p'_2(p_1)$, at the intersection of the two reaction curves. Notably, this means that the Bertrand equilibrium occurs when both firms are producting _at marginal cost_. 
+These two strategies form a Nash equilibrium because neither firm can increase profits by changing their own strategy unilaterally. The equilibrium occurs where $p_1 = p'_1(p_2)$ and $p_2 = p'_2(p_1)$, at the intersection of the two reaction curves. Notably, this means that the Bertrand equilibrium occurs when both firms are producing _at marginal cost_. 
 
 This makes intuitive sense: say that the two firms both set equal prices at a price above $c$ where they split demand equally. Then both firms have incentive to reduce their price slightly and take the other half of the market share from their competitor. Thus, both firms are tempted to lower prices as much as possible, but lowering below the level of marginal cost makes no sense because then they're operating at a loss. Thus, both firms sell at the price level $c$.
 
@@ -136,7 +136,7 @@ The Bertrand model implies that even a duopoly in a market is enough to push pri
 
 ## Applying Bertrand
 
-Now that we have derived the Bertrand equilibrium, let's apply it to a problem. Consider the Coke-Pepsi duopoly we mentioned above. Suppose that the only product in the soft-drink market is the 12-oz. can, that the market demand for cans is given by $P = -0.05 Q + 5.05$, and that the marginal cost for Coke and Pepsi is constant at $c = 0.25$. To find the equilibrium price for Coke based in it's belief that Pepsi will sell at $p_2 = \$1$, we need to start by findining the monopoly price level $p_m$; recall from Cournot that this occurs when the marginal revenue curve of the market demand intersects the marginal cost. The marginal revenue is $r(q) = -0.1 q + 5.05$:
+Now that we have derived the Bertrand equilibrium, let's apply it to a problem. Consider the Coke-Pepsi duopoly we mentioned above. Suppose that the only product in the soft-drink market is the 12-oz. can, that the market demand for cans is given by $P = -0.05 Q + 5.05$, and that the marginal cost for Coke and Pepsi is constant at $c = 0.25$. To find the equilibrium price for Coke based in it's belief that Pepsi will sell at $p_2 = \$1$, we need to start by finding the monopoly price level $p_m$; recall from Cournot that this occurs when the marginal revenue curve of the market demand intersects the marginal cost. The marginal revenue is $r(q) = -0.1 q + 5.05$:
 
 P_fn = lambda x: -0.05 * x + 5.05
 r_fn = lambda x: 2 * P_fn(x) - P_fn(0)
