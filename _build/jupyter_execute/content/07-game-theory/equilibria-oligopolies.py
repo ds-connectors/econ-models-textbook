@@ -41,7 +41,11 @@ The [prisoner's dilemma](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma) is 
 
 The table above is called a **payoff matrix** and describes the results of a game for each participant given their choice and their opponent's choice. We see that if Prisoner A cooperates and Prisoner B defects, then Prisoner A gets 5 years in prisoner and Prisoner B gets none.
 
-An import concept in game theory is finding the equilibrium of a game. There are different types of equilibria, but the most common one considered is the **Nash equilibrium**, named for the mathematician John Forbes Nash, Jr., (who you may remember as a character played by Russel Crowe in [_A Beautiful Mind_](https://en.wikipedia.org/wiki/A_Beautiful_Mind_(film)). A state of a game is said to be a Nash equilibrium if each player has chosen a strategy and no player can increase its own payoff by changing its strategy, assuming the other player's strategy is unchanged.
+An important concept in game theory is finding the equilibrium of a game. There are different types of equilibria, but the most common one considered is the **Nash equilibrium**, named for the mathematician John Forbes Nash, Jr. (who you may remember as a character played by Russel Crowe in [_A Beautiful Mind_](https://en.wikipedia.org/wiki/A_Beautiful_Mind_(film))). A Nash equilibrium occurs when no player can increase their own payoff by changing only their own strategy.
+
+```{admonition} Definition
+A **Nash equilibrium** is a set of strategy choices in a non-cooperative game in which each player, assumed to know the equilibrium strategies of the other players, has a chosen strategy and no player can increase their own payoff by unilaterally changing their strategy.
+```
 
 Using this definition, what constitutes a Nash equilibrium for the prisoner's dilemma? Well let's consider the four possible combinations of strategies. (We use "D" as shorthand for "defect" and "C" for "cooperate" below.)
 
@@ -54,7 +58,7 @@ By describing the four states of the game, we see that only mutual defection is 
 
 ## Oligopolies
 
-One of the most common applications of game theory in economics is the study of **oligopolies**, markets where competition is limited due to the number of participants. There are several examples of oligopolies that we experience without knowing in daily life: airlines, soft drinks, and cell-service providers, to name a few. Oligopolies are different from regular markets in that they allow their participants to function similar to a monopoly by setting prices as a group; groups of participants conspiring on this kind of illicit activity are referred to as **cartels**. 
+One of the most common applications of game theory in economics is the study of **oligopolies**, markets where competition is limited due to the number of participants. There are several examples of oligopolies that we experience without knowing in daily life: airlines, soft drinks, and telecom providers, to name a few. Oligopolies are different from regular markets in that they allow their participants to function similar to a monopoly by setting prices as a group; groups of participants conspiring on this kind of illicit activity are referred to as **cartels**. 
 
 Within oligopolies, however, we can observe competition more like a normal market as firms attempt to take market share from one another. When cartels set prices (by limiting the production of the good or service provided by their market), a firm can make a bid for market share by ignoring the agreed-upon production level and producing more. This has the effect of lowering the price of the good but the increase in production by the renegade firm will allow them to make up for the lost marginal revenue through increased sales volume. In this way, oligopoly members can compete against each other, making the market more and more competitive.
 
