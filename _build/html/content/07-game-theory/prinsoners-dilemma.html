@@ -68,7 +68,40 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="index.html">1. Game Theory</a>
+    <a href="../01-demand/index.html">1. Demand</a>
+  </li>
+  <li class="">
+    <a href="../02-supply/index.html">2. Supply</a>
+  </li>
+  <li class="">
+    <a href="../03-public/index.html">3. Public Economics</a>
+  </li>
+  <li class="">
+    <a href="../04-production/index.html">4. Production</a>
+  </li>
+  <li class="">
+    <a href="../05-utility/index.html">5. Utility</a>
+  </li>
+  <li class="">
+    <a href="../06-development/index.html">6. Development</a>
+  </li>
+  <li class="">
+    <a href="index.html">7. Game Theory</a>
+  </li>
+  <li class="">
+    <a href="../08-behavioral/index.html">8. Behavioral Economics</a>
+  </li>
+  <li class="">
+    <a href="../09-finance/index.html">9. Finance</a>
+  </li>
+  <li class="">
+    <a href="../10-inequality/index.html">10. Inequality</a>
+  </li>
+  <li class="">
+    <a href="../11-econometrics/index.html">11. Econometrics</a>
+  </li>
+  <li class="">
+    <a href="../12-macro/index.html">12. Macroeconomic Policy</a>
   </li>
 </ul>
 </nav>
@@ -89,57 +122,79 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/content/07-game-theory/prinsoners-dilemma.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/07-game-theory/prinsoners-dilemma.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
         <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ds-connectors/econ-models-Textbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-            <div class="dropdown-buttons sourcebuttons">
-                <a class="repository-button" href="https://github.com/ds-connectors/econ-models-Textbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
-                
-                
-            </div>
-        </div>
         
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-            <div class="dropdown-buttons">
-                
-                <a class="binder-button" href="https://mybinder.org/v2/gh/ds-connectors/econ-models-Textbook/?urlpath=tree/content/07-game-theory/prinsoners-dilemma.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
-                
-                
-                <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/ds-connectors/econ-models-Textbook&urlpath=tree/econ-models-Textbook/content/07-game-theory/prinsoners-dilemma.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip" data-placement="left"><img class="jupyterhub-button-logo" src="../../_static/images/logo_jupyterhub.svg" alt="Interact on JupyterHub">JupyterHub</button></a>
-                
-                
-            </div>
-        </div>
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ds-connectors/econ-models-Textbook/master?urlpath=tree/content/07-game-theory/prinsoners-dilemma.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
         
+        
+        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/ds-connectors/econ-models-Textbook&urlpath=tree/econ-models-Textbook/content/07-game-theory/prinsoners-dilemma.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
 <div class="tocsection onthispage pt-5 pb-3">

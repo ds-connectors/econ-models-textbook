@@ -30,8 +30,19 @@
 # # - divider: true
 # - header: "Part II: Economic Applications"
 
-- title: Game Theory
-  file: content/07-game-theory/index
+- file: content/01-demand/index.md
+
+- file: content/02-supply/index.md
+
+- file: content/03-public/index.md
+
+- file: content/04-production/index.md
+
+- file: content/05-utility/index.md
+
+- file: content/06-development/index.md
+
+- file: content/07-game-theory/index
   sections:
     # - title: Equilibria & Oligopolies
     - file: content/07-game-theory/utility
@@ -39,3 +50,13 @@
     - file: content/07-game-theory/cournot
     - file: content/07-game-theory/bertrand
     - file: content/07-game-theory/python-classes
+
+- file: content/08-behavioral/index.md
+
+- file: content/09-finance/index.md
+
+- file: content/10-inequality/index.md
+
+- file: content/11-econometrics/index.md
+
+- file: content/12-macro/index.md
