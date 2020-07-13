@@ -15,8 +15,9 @@ help:
 # 	bundle install
 
 book:
-	jupyter-book clean ./
+	rm -r docs
 	jupyter-book build ./
+	mv _build docs
 
 # runall:
 # 	jupyter-book run ./content
