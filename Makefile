@@ -17,7 +17,8 @@ help:
 book:
 	rm -r docs
 	jupyter-book build ./
-	mv _build docs
+	mv _build/html docs
+	rm -r _build
 
 # runall:
 # 	jupyter-book run ./content
