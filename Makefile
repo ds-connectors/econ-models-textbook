@@ -19,6 +19,7 @@ book:
 	jupyter-book build ./
 	mv _build/html docs
 	rm -r _build
+	touch docs/.nojekyll
 
 # runall:
 # 	jupyter-book run ./content
