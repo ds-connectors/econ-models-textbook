@@ -31,8 +31,16 @@
 # - header: "Part II: Economic Applications"
 
 - file: content/01-demand/index.md
+  sections:
+    - file: content/01-demand/demand.ipynb
+    - file: content/01-demand/market-equilibria.ipynb
+    - file: content/01-demand/sympy.ipynb
 
 - file: content/02-supply/index.md
+  sections:
+    - file: content/02-supply/supply.ipynb
+    - file: content/02-supply/eep147-example.ipynb
+    - file: content/02-supply/elasticity.ipynb
 
 - file: content/03-public/index.md
 
@@ -42,21 +50,27 @@
 
 - file: content/06-development/index.md
 
-- file: content/07-game-theory/index
+- file: content/07-game-theory/index.md
   sections:
     # - title: Equilibria & Oligopolies
-    - file: content/07-game-theory/utility
-    - file: content/07-game-theory/equilibria-oligopolies
-    - file: content/07-game-theory/cournot
-    - file: content/07-game-theory/bertrand
-    - file: content/07-game-theory/python-classes
+    - file: content/07-game-theory/utility.ipynb
+    - file: content/07-game-theory/equilibria-oligopolies.ipynb
+    - file: content/07-game-theory/cournot.ipynb
+    - file: content/07-game-theory/bertrand.ipynb
+    - file: content/07-game-theory/python-classes.ipynb
 
 - file: content/08-behavioral/index.md
 
 - file: content/09-finance/index.md
 
 - file: content/10-inequality/index.md
+  sections:
+    - file: content/10-inequality/inequality.ipynb
+    - file: content/10-inequality/historical-inequality.ipynb
 
 - file: content/11-econometrics/index.md
 
+
 - file: content/12-macro/index.md
+
+- file: content/references.md
