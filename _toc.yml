@@ -45,8 +45,16 @@
 - file: content/03-public/index.md
 
 - file: content/04-production/index.md
+  sections:
+    - file: content/04-production/production.ipynb
+    - file: content/04-production/shifts.ipynb
 
 - file: content/05-utility/index.md
+  sections:
+    - file: content/05-utility/utility.ipynb
+    - file: content/05-utility/budget-constraints.ipynb
+    - url: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
+      title: $\LaTeX$
 
 - file: content/06-development/index.md
 
