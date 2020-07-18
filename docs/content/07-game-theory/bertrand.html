@@ -71,60 +71,60 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="../01-demand/index.html">1. Demand and Market Equilibrium</a>
+    <a href="../01-demand/index.html">Demand and Market Equilibrium</a>
   </li>
   <li class="">
-    <a href="../02-supply/index.html">2. Supply & Elasticity</a>
+    <a href="../02-supply/index.html">Supply & Elasticity</a>
   </li>
   <li class="">
-    <a href="../03-public/index.html">3. Public Economics</a>
+    <a href="../03-public/index.html">Public Economics</a>
   </li>
   <li class="">
-    <a href="../04-production/index.html">4. Production</a>
+    <a href="../04-production/index.html">Production</a>
   </li>
   <li class="">
-    <a href="../05-utility/index.html">5. Utility</a>
+    <a href="../05-utility/index.html">Utility</a>
   </li>
   <li class="">
-    <a href="../06-development/index.html">6. Development</a>
+    <a href="../06-development/index.html">Development</a>
   </li>
   <li class="active">
-    <a href="index.html">7. Game Theory</a>
+    <a href="index.html">Game Theory</a>
   <ul class="nav sidenav_l2">
     <li class="">
-      <a href="utility.html">7.1 Expected Utility Theory</a>
+      <a href="expected-utility.html">Expected Utility Theory</a>
     </li>
     <li class="">
-      <a href="equilibria-oligopolies.html">7.2 Equilibria & Oligopolies</a>
+      <a href="equilibria-oligopolies.html">Equilibria & Oligopolies</a>
     </li>
     <li class="">
-      <a href="cournot.html">7.3 Cournot Competition</a>
+      <a href="cournot.html">Cournot Competition</a>
     </li>
     <li class="active">
-      <a href="">7.4 Bertrand Competition</a>
+      <a href="">Bertrand Competition</a>
     </li>
     <li class="">
-      <a href="python-classes.html">7.5 Python Classes</a>
+      <a href="python-classes.html">Python Classes</a>
     </li>
   </ul>
   </li>
   <li class="">
-    <a href="../08-behavioral/index.html">8. Behavioral Economics</a>
+    <a href="../08-behavioral/index.html">Behavioral Economics</a>
   </li>
   <li class="">
-    <a href="../09-finance/index.html">9. Finance</a>
+    <a href="../09-finance/index.html">Finance</a>
   </li>
   <li class="">
-    <a href="../10-inequality/index.html">10. Inequality</a>
+    <a href="../10-inequality/index.html">Inequality</a>
   </li>
   <li class="">
-    <a href="../11-econometrics/index.html">11. Econometrics</a>
+    <a href="../11-econometrics/index.html">Econometrics</a>
   </li>
   <li class="">
-    <a href="../12-macro/index.html">12. Macroeconomic Policy</a>
+    <a href="../12-macro/index.html">Macroeconomic Policy</a>
   </li>
   <li class="">
-    <a href="../references.html">13. Bibliography</a>
+    <a href="../references.html">Bibliography</a>
   </li>
 </ul>
 </nav>
@@ -287,7 +287,7 @@ p_m &amp; \text{otherwise}
 </div>
 <div class="section" id="applying-bertrand">
 <h2>Applying Bertrand<a class="headerlink" href="#applying-bertrand" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have derived the Bertrand equilibrium, let’s apply it to a problem. Consider the Coke-Pepsi duopoly we mentioned above. Suppose that the only product in the soft-drink market is the 12-oz. can, that the market demand for cans is given by <span class="math notranslate nohighlight">\(P = -0.05 Q + 5.05\)</span>, and that the marginal cost for Coke and Pepsi is constant at <span class="math notranslate nohighlight">\(c = 0.25\)</span>. To find the equilibrium price for Coke based in it’s belief that Pepsi will sell at $p_2 = $1$, we need to start by finding the monopoly price level <span class="math notranslate nohighlight">\(p_m\)</span>; recall from Cournot that this occurs when the marginal revenue curve of the market demand intersects the marginal cost. The marginal revenue is <span class="math notranslate nohighlight">\(r(q) = -0.1 q + 5.05\)</span>:</p>
+<p>Now that we have derived the Bertrand equilibrium, let’s apply it to a problem. Consider the Coke-Pepsi duopoly we mentioned above. Suppose that the only product in the soft-drink market is the 12-oz. can, that the market demand for cans is given by <span class="math notranslate nohighlight">\(P = -0.05 Q + 5.05\)</span>, and that the marginal cost for Coke and Pepsi is constant at <span class="math notranslate nohighlight">\(c = 0.25\)</span>. To find the equilibrium price for Coke based in it’s belief that Pepsi will sell at <span class="math notranslate nohighlight">\(p_2 = 1\)</span>, we need to start by finding the monopoly price level <span class="math notranslate nohighlight">\(p_m\)</span>; recall from Cournot that this occurs when the marginal revenue curve of the market demand intersects the marginal cost. The marginal revenue is <span class="math notranslate nohighlight">\(r(q) = -0.1 q + 5.05\)</span>:</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/bertrand_9_0.png" src="../../_images/bertrand_9_0.png" />
@@ -317,7 +317,7 @@ p_m &amp; \text{otherwise}
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;Q&quot;</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">05</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mf">5.05</span>
 
-<span class="n">p_m</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">Q</span><span class="p">,</span> <span class="n">q_m</span><span class="p">)])</span>
+<span class="n">p_m</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">q_m</span><span class="p">)</span>
 <span class="n">p_m</span>
 </pre></div>
 </div>
@@ -328,7 +328,7 @@ p_m &amp; \text{otherwise}
 </div>
 </div>
 </div>
-<p>Now that we have found <span class="math notranslate nohighlight">\(p_m\)</span>, we can use this to construct Coke’s reaction function <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span> to Pepsi’s choice of price. Assuming Coke selects <span class="math notranslate nohighlight">\(h=0.1\)</span> (that is, Coke will sell \$0.10 below Pepsi as long as they operate at a profit), the formula for <span class="math notranslate nohighlight">\(p'_1\)</span> is</p>
+<p>Now that we have found <span class="math notranslate nohighlight">\(p_m\)</span>, we can use this to construct Coke’s reaction function <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span> to Pepsi’s choice of price. Assuming Coke selects <span class="math notranslate nohighlight">\(h=0.1\)</span> (that is, Coke will sell at $0.10 below Pepsi as long as they operate at a profit), the formula for <span class="math notranslate nohighlight">\(p'_1\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 p'_1(p_2) = \begin{cases}
@@ -342,7 +342,7 @@ p_2 - 0.1 &amp; \text{if } 0.25 + 0.1 \le p_2 &lt; 2.65 + 0.1 \\
 <img alt="../../_images/bertrand_15_0.png" src="../../_images/bertrand_15_0.png" />
 </div>
 </div>
-<p>Finally, to find Coke’s selling price, we find <span class="math notranslate nohighlight">\(p'_1(1)\)</span>, since Coke believes Pepsi will sell at \$1.</p>
+<p>Finally, to find Coke’s selling price, we find <span class="math notranslate nohighlight">\(p'_1(1)\)</span>, since Coke believes Pepsi will sell at $1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">0.25</span>
@@ -354,7 +354,7 @@ p_2 - 0.1 &amp; \text{if } 0.25 + 0.1 \le p_2 &lt; 2.65 + 0.1 \\
     <span class="p">(</span><span class="n">p_m</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="n">p_1_prime</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">p_2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">p_1_prime</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">p_2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -364,7 +364,7 @@ p_2 - 0.1 &amp; \text{if } 0.25 + 0.1 \le p_2 &lt; 2.65 + 0.1 \\
 </div>
 </div>
 </div>
-<p>Thus, if Coke believes that Pepsi will sell cans at \$1, it should sell at \$0.90. This should make intuitive sense: we showed that <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span> was below the line <span class="math notranslate nohighlight">\(p_1=p_2\)</span> by a vertical distance of <span class="math notranslate nohighlight">\(h=0.1\)</span>, so it makes sense that Coke would sell at \$0.10 below Pepsi. If Coke had believed that Pepsi was going to sell at, say, \$2.70, then it would have been better for them to sell at the monopoly price level $p_m = $2.65$. If Pepsi was selling below margin cost, at \$0.20 maybe, then Coke’s best bet would have been to sell at $c = $0.25$, although they would have sold 0 units of output because consumers buy from the lowest-priced vendor.</p>
+<p>Thus, if Coke believes that Pepsi will sell cans at $1, it should sell at $0.90. This should make intuitive sense: we showed that <span class="math notranslate nohighlight">\(p'_1(p_2)\)</span> was below the line <span class="math notranslate nohighlight">\(p_1=p_2\)</span> by a vertical distance of <span class="math notranslate nohighlight">\(h=0.1\)</span>, so it makes sense that Coke would sell at $0.10 below Pepsi. If Coke had believed that Pepsi was going to sell at, say, $2.70, then it would have been better for them to sell at the monopoly price level <span class="math notranslate nohighlight">\(p_m = 2.65\)</span>. If Pepsi was selling below margin cost, at $0.20 maybe, then Coke’s best bet would have been to sell at <span class="math notranslate nohighlight">\(c = 0.25\)</span>, although they would have sold 0 units of output because consumers buy from the lowest-priced vendor.</p>
 </div>
 </div>
 

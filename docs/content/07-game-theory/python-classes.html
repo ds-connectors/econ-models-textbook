@@ -71,60 +71,60 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="../01-demand/index.html">1. Demand and Market Equilibrium</a>
+    <a href="../01-demand/index.html">Demand and Market Equilibrium</a>
   </li>
   <li class="">
-    <a href="../02-supply/index.html">2. Supply & Elasticity</a>
+    <a href="../02-supply/index.html">Supply & Elasticity</a>
   </li>
   <li class="">
-    <a href="../03-public/index.html">3. Public Economics</a>
+    <a href="../03-public/index.html">Public Economics</a>
   </li>
   <li class="">
-    <a href="../04-production/index.html">4. Production</a>
+    <a href="../04-production/index.html">Production</a>
   </li>
   <li class="">
-    <a href="../05-utility/index.html">5. Utility</a>
+    <a href="../05-utility/index.html">Utility</a>
   </li>
   <li class="">
-    <a href="../06-development/index.html">6. Development</a>
+    <a href="../06-development/index.html">Development</a>
   </li>
   <li class="active">
-    <a href="index.html">7. Game Theory</a>
+    <a href="index.html">Game Theory</a>
   <ul class="nav sidenav_l2">
     <li class="">
-      <a href="utility.html">7.1 Expected Utility Theory</a>
+      <a href="expected-utility.html">Expected Utility Theory</a>
     </li>
     <li class="">
-      <a href="equilibria-oligopolies.html">7.2 Equilibria & Oligopolies</a>
+      <a href="equilibria-oligopolies.html">Equilibria & Oligopolies</a>
     </li>
     <li class="">
-      <a href="cournot.html">7.3 Cournot Competition</a>
+      <a href="cournot.html">Cournot Competition</a>
     </li>
     <li class="">
-      <a href="bertrand.html">7.4 Bertrand Competition</a>
+      <a href="bertrand.html">Bertrand Competition</a>
     </li>
     <li class="active">
-      <a href="">7.5 Python Classes</a>
+      <a href="">Python Classes</a>
     </li>
   </ul>
   </li>
   <li class="">
-    <a href="../08-behavioral/index.html">8. Behavioral Economics</a>
+    <a href="../08-behavioral/index.html">Behavioral Economics</a>
   </li>
   <li class="">
-    <a href="../09-finance/index.html">9. Finance</a>
+    <a href="../09-finance/index.html">Finance</a>
   </li>
   <li class="">
-    <a href="../10-inequality/index.html">10. Inequality</a>
+    <a href="../10-inequality/index.html">Inequality</a>
   </li>
   <li class="">
-    <a href="../11-econometrics/index.html">11. Econometrics</a>
+    <a href="../11-econometrics/index.html">Econometrics</a>
   </li>
   <li class="">
-    <a href="../12-macro/index.html">12. Macroeconomic Policy</a>
+    <a href="../12-macro/index.html">Macroeconomic Policy</a>
   </li>
   <li class="">
-    <a href="../references.html">13. Bibliography</a>
+    <a href="../references.html">Bibliography</a>
   </li>
 </ul>
 </nav>
@@ -343,7 +343,7 @@
 </div>
 </div>
 </div>
-<p>Hmm, that representation isn’t very descriptive. Another dunder method of Python is <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, which defines a string representation of an object. Let’s define one for our <code class="docutils literal notranslate"><span class="pre">Car</span></code> class.</p>
+<p>Hmm, that representation isn’t very descriptive. Another dunder method of Python’s is <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, which defines a string representation of an object. Let’s define one for our <code class="docutils literal notranslate"><span class="pre">Car</span></code> class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
@@ -392,7 +392,7 @@
 </div>
 </div>
 </div>
-<p>They aren’t equal! That’s because, by default, the custom classes are only equal if they are the <em>same instance</em>, so <code class="docutils literal notranslate"><span class="pre">car_1</span> <span class="pre">==</span> <span class="pre">car_1</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> but <code class="docutils literal notranslate"><span class="pre">car_1</span> <span class="pre">==</span> <span class="pre">car_2</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>. For this reason, we need to define the <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> dunder method of <code class="docutils literal notranslate"><span class="pre">Car</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">True</span></code> only if the other object is a <code class="docutils literal notranslate"><span class="pre">Car</span></code> (determined using the <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> function) and has the same four attributes as the current car.</p>
+<p>They aren’t equal! That’s because, by default, the custom classes are only equal if they are the <em>same instance</em>, so <code class="docutils literal notranslate"><span class="pre">car_1</span> <span class="pre">==</span> <span class="pre">car_1</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> but <code class="docutils literal notranslate"><span class="pre">car_1</span> <span class="pre">==</span> <span class="pre">car_2</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>. For this reason, we need to define the <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> dunder method of <code class="docutils literal notranslate"><span class="pre">Car</span></code> which Python will call when we use the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator on a <code class="docutils literal notranslate"><span class="pre">Car</span></code>. We’ll say and object is equal to a <code class="docutils literal notranslate"><span class="pre">Car</span></code> if the other object is also a <code class="docutils literal notranslate"><span class="pre">Car</span></code> (determined using the <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> function) and has the same four attributes as the current car.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
@@ -625,7 +625,7 @@
 </div>
 </div>
 </div>
-<p>Now let’s see how many miles we have left to drive by defining <code class="docutils literal notranslate"><span class="pre">car.miles_to_empty</span></code>.</p>
+<p>Now let’s see how many miles we have left to drive by defining <code class="docutils literal notranslate"><span class="pre">Car.miles_to_empty</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>

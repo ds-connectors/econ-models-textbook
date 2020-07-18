@@ -54,14 +54,14 @@
     - file: content/05-utility/utility.ipynb
     - file: content/05-utility/budget-constraints.ipynb
     - url: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
-      title: $\LaTeX$
+      title: LaTeX
 
 - file: content/06-development/index.md
 
 - file: content/07-game-theory/index.md
   sections:
     # - title: Equilibria & Oligopolies
-    - file: content/07-game-theory/utility.ipynb
+    - file: content/07-game-theory/expected-utility.ipynb
     - file: content/07-game-theory/equilibria-oligopolies.ipynb
     - file: content/07-game-theory/cournot.ipynb
     - file: content/07-game-theory/bertrand.ipynb

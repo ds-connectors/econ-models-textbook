@@ -16,4 +16,4 @@ launch_buttons:
 html:
   favicon: content/images/favicon.ico
   use_repository_button: true
-  navbar_number_sections: true
+  navbar_number_sections: false

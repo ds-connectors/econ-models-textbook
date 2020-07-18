@@ -71,51 +71,51 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="../01-demand/index.html">1. Demand and Market Equilibrium</a>
+    <a href="../01-demand/index.html">Demand and Market Equilibrium</a>
   </li>
   <li class="">
-    <a href="../02-supply/index.html">2. Supply & Elasticity</a>
+    <a href="../02-supply/index.html">Supply & Elasticity</a>
   </li>
   <li class="">
-    <a href="../03-public/index.html">3. Public Economics</a>
+    <a href="../03-public/index.html">Public Economics</a>
   </li>
   <li class="">
-    <a href="../04-production/index.html">4. Production</a>
+    <a href="../04-production/index.html">Production</a>
   </li>
   <li class="">
-    <a href="../05-utility/index.html">5. Utility</a>
+    <a href="../05-utility/index.html">Utility</a>
   </li>
   <li class="">
-    <a href="../06-development/index.html">6. Development</a>
+    <a href="../06-development/index.html">Development</a>
   </li>
   <li class="">
-    <a href="../07-game-theory/index.html">7. Game Theory</a>
+    <a href="../07-game-theory/index.html">Game Theory</a>
   </li>
   <li class="">
-    <a href="../08-behavioral/index.html">8. Behavioral Economics</a>
+    <a href="../08-behavioral/index.html">Behavioral Economics</a>
   </li>
   <li class="">
-    <a href="../09-finance/index.html">9. Finance</a>
+    <a href="../09-finance/index.html">Finance</a>
   </li>
   <li class="active">
-    <a href="index.html">10. Inequality</a>
+    <a href="index.html">Inequality</a>
   <ul class="nav sidenav_l2">
     <li class="">
-      <a href="inequality.html">10.1 Measurements of Inequality</a>
+      <a href="inequality.html">Measurements of Inequality</a>
     </li>
     <li class="active">
-      <a href="">10.2 Income Inequality Historically</a>
+      <a href="">Income Inequality Historically</a>
     </li>
   </ul>
   </li>
   <li class="">
-    <a href="../11-econometrics/index.html">11. Econometrics</a>
+    <a href="../11-econometrics/index.html">Econometrics</a>
   </li>
   <li class="">
-    <a href="../12-macro/index.html">12. Macroeconomic Policy</a>
+    <a href="../12-macro/index.html">Macroeconomic Policy</a>
   </li>
   <li class="">
-    <a href="../references.html">13. Bibliography</a>
+    <a href="../references.html">Bibliography</a>
   </li>
 </ul>
 </nav>
@@ -432,8 +432,9 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top_10_world</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;USA&quot;</span><span class="p">,</span> <span class="s2">&quot;Europe&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Gini Coefficient&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Income Inequality over Time&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Gini Coefficient&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Income Inequality over Time&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -533,8 +534,8 @@
 <p>This graph depicts income inequality decreasing between 1910 and 1970 and increasing from 1970 to present.</p>
 <p>In 1913, Congress implemented the current income tax to promote equality. Originally meant to help compensate for revenue lost from reducing high tariffs, the new policy essentially made the top 1% start contributing to taxes. Additionally, the top marginal tax rate increased from 7% in 1913 to 73% in 1918, thus helping reduce income inequality. Right before the Great Depression, income inequality peaked, where the richest 1% possessed 19.6% of all income. During the Great Depression, top marginal tax rates increased, peaking at 94% in 1944. The top marginal tax rate decreased but remained high over subsequent decades, where it was 70% in 1965 and 50% in 1982. These high top marginal tax rates are correlated with low income inequality. During the Great Depression, the richest 1% had about 15% of total income. For the 10 years after the Great Depression, the top 1% had below 10% of total income and 8% for the 30 years afterwards. This period was known as the Great Compression, as income differentials between the top 1% and the rest of the country decreased.</p>
 <p>In the 1970s, the economy took a turn for the worse with high unemployment and inflation (stagflation) and low growth. In order to stimulate economic growth, the government reduced top marginal tax rates (70% to 38.5% in 1980s), deregulated corporate institutions, and attacked labor union memberships (membership decreased by half within 30 years). Although these policies improved economic growth, it resulted in higher income inequality.</p>
-<p>The graph below better shows that the share of income earned by the bottom 50% percentile steadily decreased, while the share earned by the top 1% increased steadily. This means that the top 1% has more wealth than the entire bottom 50% of the population. Suppose a class of 100 people has \$100 in aggregate. In a world with perfect equality, each person would have \$1. With this current level of income inequality, one person would have more wealth than 50 people combined.</p>
-<p>The media continues to report on the nation’s significant income disparity. <a class="reference external" href="https://www.washingtonpost.com/business/2019/09/26/income-inequality-america-highest-its-been-since-census-started-tracking-it-data-show/">The Washington Post wrote a story</a> and found that “The number of families earning \$15,000 or less has fallen since 2007, according to the latest census data, while the number of households bringing in \$250,000 a year or more has grown more than 15 percent.”</p>
+<p>The graph below better shows that the share of income earned by the bottom 50% percentile steadily decreased, while the share earned by the top 1% increased steadily. This means that the top 1% has more wealth than the entire bottom 50% of the population. Suppose a class of 100 people has $100 in aggregate. In a world with perfect equality, each person would have $1. With this current level of income inequality, one person would have more wealth than 50 people combined.</p>
+<p>The media continues to report on the nation’s significant income disparity. <a class="reference external" href="https://www.washingtonpost.com/business/2019/09/26/income-inequality-america-highest-its-been-since-census-started-tracking-it-data-show/">The Washington Post wrote a story</a> and found that “The number of families earning $15,000 or less has fallen since 2007, according to the latest census data, while the number of households bringing in $250,000 a year or more has grown more than 15 percent.”</p>
 <p>Can we conclude that high marginal tax rates lead to low income inequality but slow economic growth?</p>
 </div>
 <div class="section" id="unemployment-rates">

@@ -71,60 +71,60 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="../01-demand/index.html">1. Demand and Market Equilibrium</a>
+    <a href="../01-demand/index.html">Demand and Market Equilibrium</a>
   </li>
   <li class="">
-    <a href="../02-supply/index.html">2. Supply & Elasticity</a>
+    <a href="../02-supply/index.html">Supply & Elasticity</a>
   </li>
   <li class="">
-    <a href="../03-public/index.html">3. Public Economics</a>
+    <a href="../03-public/index.html">Public Economics</a>
   </li>
   <li class="">
-    <a href="../04-production/index.html">4. Production</a>
+    <a href="../04-production/index.html">Production</a>
   </li>
   <li class="">
-    <a href="../05-utility/index.html">5. Utility</a>
+    <a href="../05-utility/index.html">Utility</a>
   </li>
   <li class="">
-    <a href="../06-development/index.html">6. Development</a>
+    <a href="../06-development/index.html">Development</a>
   </li>
   <li class="active">
-    <a href="index.html">7. Game Theory</a>
+    <a href="index.html">Game Theory</a>
   <ul class="nav sidenav_l2">
     <li class="">
-      <a href="utility.html">7.1 Expected Utility Theory</a>
+      <a href="expected-utility.html">Expected Utility Theory</a>
     </li>
     <li class="">
-      <a href="equilibria-oligopolies.html">7.2 Equilibria & Oligopolies</a>
+      <a href="equilibria-oligopolies.html">Equilibria & Oligopolies</a>
     </li>
     <li class="active">
-      <a href="">7.3 Cournot Competition</a>
+      <a href="">Cournot Competition</a>
     </li>
     <li class="">
-      <a href="bertrand.html">7.4 Bertrand Competition</a>
+      <a href="bertrand.html">Bertrand Competition</a>
     </li>
     <li class="">
-      <a href="python-classes.html">7.5 Python Classes</a>
+      <a href="python-classes.html">Python Classes</a>
     </li>
   </ul>
   </li>
   <li class="">
-    <a href="../08-behavioral/index.html">8. Behavioral Economics</a>
+    <a href="../08-behavioral/index.html">Behavioral Economics</a>
   </li>
   <li class="">
-    <a href="../09-finance/index.html">9. Finance</a>
+    <a href="../09-finance/index.html">Finance</a>
   </li>
   <li class="">
-    <a href="../10-inequality/index.html">10. Inequality</a>
+    <a href="../10-inequality/index.html">Inequality</a>
   </li>
   <li class="">
-    <a href="../11-econometrics/index.html">11. Econometrics</a>
+    <a href="../11-econometrics/index.html">Econometrics</a>
   </li>
   <li class="">
-    <a href="../12-macro/index.html">12. Macroeconomic Policy</a>
+    <a href="../12-macro/index.html">Macroeconomic Policy</a>
   </li>
   <li class="">
-    <a href="../references.html">13. Bibliography</a>
+    <a href="../references.html">Bibliography</a>
   </li>
 </ul>
 </nav>
@@ -290,7 +290,7 @@
 </div>
 <div class="section" id="applying-cournot">
 <h2>Applying Cournot<a class="headerlink" href="#applying-cournot" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have shown how to derive the Cournot equilibrium, let’s apply this to a problem. Consider the industry of airline manufacturing: there are two main competitors, Boeing and Airbus, and for this problem we will think of this market as a Cournot duopoly. Suppose the market demand curve is given by <span class="math notranslate nohighlight">\(P = -1.89 Q + 148.89\)</span> where the price is in millions of \$ and that the marginal cost of both firms is constant at $c = $100$ million.</p>
+<p>Now that we have shown how to derive the Cournot equilibrium, let’s apply this to a problem. Consider the industry of airline manufacturing: there are two main competitors, Boeing and Airbus, and for this problem we will think of this market as a Cournot duopoly. Suppose the market demand curve is given by <span class="math notranslate nohighlight">\(P = -1.89 Q + 148.89\)</span> where the price is in millions of $ and that the marginal cost of both firms is constant at <span class="math notranslate nohighlight">\(c = 100\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/cournot_12_0.png" src="../../_images/cournot_12_0.png" />
@@ -397,7 +397,7 @@ r_1(q_1) &amp;= 2 \cdot d_1(q_1) - d_1(0) \\
 <span class="n">q_2_prime</span> <span class="o">=</span> <span class="p">(</span><span class="n">q_2</span> <span class="o">-</span> <span class="n">q_m</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="n">q_2_star</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">q_1_prime</span><span class="p">,</span> <span class="n">q_2_prime</span><span class="p">)</span>
-<span class="n">q_1_star</span> <span class="o">=</span> <span class="n">q_1_prime</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">q_2</span><span class="p">,</span> <span class="n">q_2_star</span><span class="p">)])</span>
+<span class="n">q_1_star</span> <span class="o">=</span> <span class="n">q_1_prime</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">q_2</span><span class="p">,</span> <span class="n">q_2_star</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;q_1_star = </span><span class="si">{</span><span class="n">q_1_star</span><span class="si">}</span><span class="se">\n</span><span class="s2">q_2_star = </span><span class="si">{</span><span class="n">q_2_star</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
