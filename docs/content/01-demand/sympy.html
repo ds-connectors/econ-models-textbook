@@ -268,11 +268,12 @@
 <img alt="../../_images/sympy_7_0.png" src="../../_images/sympy_7_0.png" />
 </div>
 </div>
-<p>To solve for the equilibrium given the supply and demand curve, we know that the price paid by consumers must equal to the price earned by suppliers. Thus, <span class="math notranslate nohighlight">\(P_D = P_S\)</span>, allowing us to set the two equations equal to each other and solve for the equilibrium quantity and thus equilibrium price. To solve this by hand, we would set up the following equation to solve for <span class="math notranslate nohighlight">\(Q\)</span>:
-<span class="math notranslate nohighlight">\($
+<p>To solve for the equilibrium given the supply and demand curve, we know that the price paid by consumers must equal to the price earned by suppliers. Thus, <span class="math notranslate nohighlight">\(P_D = P_S\)</span>, allowing us to set the two equations equal to each other and solve for the equilibrium quantity and thus equilibrium price. To solve this by hand, we would set up the following equation to solve for <span class="math notranslate nohighlight">\(Q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 P_D = P_S\\
 2-Q = 2Q-3
-$\)</span></p>
+\end{split}\]</div>
 <p>Using SymPy, we call <code class="docutils literal notranslate"><span class="pre">solve</span></code>, which takes in 2 arguments that represent the 2 sides of an equation and solves for the underlying variable such that the equation holds. Here, we pass in <span class="math notranslate nohighlight">\(P_D\)</span> and <span class="math notranslate nohighlight">\(P_S\)</span>, both represented in terms of <span class="math notranslate nohighlight">\(Q\)</span>, to solve for the value of <span class="math notranslate nohighlight">\(Q\)</span> such that <span class="math notranslate nohighlight">\(P_D=P_S\)</span>. It’s good to know that <code class="docutils literal notranslate"><span class="pre">solve</span></code> is a custom function, and will be provided in the notebooks for you.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

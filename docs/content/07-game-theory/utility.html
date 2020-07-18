@@ -250,13 +250,13 @@
                 
   <div class="section" id="expected-utility-theory">
 <h1>Expected Utility Theory<a class="headerlink" href="#expected-utility-theory" title="Permalink to this headline">¶</a></h1>
-<p>Imagine you’re offered a choice between \$1 guaranteed or \$100 with probability <span class="math notranslate nohighlight">\(\frac{1}{80}\)</span> (i.e. with probability <span class="math notranslate nohighlight">\(\frac{79}{80}\)</span>, you get \$0). Which would you choose? Most people would be probably say the \$1 because it’s guaranteed that you’ll get a positive outcome. But is that the rational choice?</p>
+<p>Imagine you’re offered a choice between \$1 guaranteed or \$100 with probability <span class="math notranslate nohighlight">\(\frac{1}{80}\)</span> (i.e. with probability <span class="math notranslate nohighlight">\(\frac{79}{80}\)</span>, you get \$0). Which would you choose?</p>
 <p>In game theory, we consider rationality by examining the utility of different outcomes to individuals. To do so, we calculate the <strong>expected utility</strong> of a set of outcomes, which is the average of the utilities of those outcomes weighted by their probabilities. In the example above, there are two outcomes:</p>
 <ul class="simple">
 <li><p>\$1 guaranteed. This occurs with probability <span class="math notranslate nohighlight">\(p_1=1\)</span> and we’ll say has utility <span class="math notranslate nohighlight">\(u_1 = 1\)</span>.</p></li>
 <li><p>\$100 with probability <span class="math notranslate nohighlight">\(p_2 = \frac{1}{80}\)</span>. We’ll say this has utility <span class="math notranslate nohighlight">\(u_2 = 100\)</span>.</p></li>
 </ul>
-<p>The expected utility of the first choice would be <span class="math notranslate nohighlight">\(p_1 \cdot u_1 = 1\)</span> because there is only one possible outcome and it has utility 1. The expected utility of the second choice would be <span class="math notranslate nohighlight">\(p_2 \cdot u_2 + (1 - p_2) \cdot 0 = 1.25\)</span> because we obtain utility <span class="math notranslate nohighlight">\(u_2\)</span> with probability <span class="math notranslate nohighlight">\(p_2\)</span> and utility 0 with probability <span class="math notranslate nohighlight">\(1-p_2\)</span>. Notice that the expected utility of the second choice is higher! This means that, had you chosen the \$1 guaranteed, you would have made the irrational choice, because it is <em>expected</em> that you would get \$1.25 as opposed to \$1 with the second choice.</p>
+<p>The expected utility of the first choice would be <span class="math notranslate nohighlight">\(p_1 \cdot u_1 = 1\)</span> because there is only one possible outcome and it has utility 1. The expected utility of the second choice would be <span class="math notranslate nohighlight">\(p_2 \cdot u_2 + (1 - p_2) \cdot 0 = 1.25\)</span> because we obtain utility <span class="math notranslate nohighlight">\(u_2\)</span> with probability <span class="math notranslate nohighlight">\(p_2\)</span> and utility 0 with probability <span class="math notranslate nohighlight">\(1-p_2\)</span>. Notice that the expected utility of the second choice is higher! This means that, had you chosen the \$1 guaranteed, you would have made the irrational choice, because it is <em>expected</em> that you would get \$1.25 with the second choice.</p>
 <p>The idea that individuals, when making a gamble, will choose the option that maximizes the expected utility based on their preferences is called the <strong>expected utility hypothesis</strong>.</p>
 <div class="section" id="expected-utility">
 <h2>Expected Utility<a class="headerlink" href="#expected-utility" title="Permalink to this headline">¶</a></h2>
@@ -273,13 +273,13 @@
 <tr>
     <td rowspan="2" width="100">Alice</td>
     <td>Attend</td>
-    <td>(0, 5)</td>
+    <td>(0, 2)</td>
     <td>(-2, 0)</td>
 </tr>
 <tr>
     <td>Don't Attend</td>
     <td>(-5, 5)</td>
-    <td>(5, 0)</td>
+    <td>(5, 3)</td>
 </tr>
 </table><div class="tip admonition">
 <p class="admonition-title">Reading a payoff matrix</p>
