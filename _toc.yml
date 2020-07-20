@@ -70,6 +70,9 @@
 - file: content/08-behavioral/index.md
 
 - file: content/09-finance/index.md
+  sections:
+    - file: content/09-finance/value-interest.ipynb
+    - file: content/09-finance/options.ipynb
 
 - file: content/10-inequality/index.md
   sections:
@@ -77,7 +80,11 @@
     - file: content/10-inequality/historical-inequality.ipynb
 
 - file: content/11-econometrics/index.md
-
+  sections:
+    - file: content/11-econometrics/single-variable.ipynb
+    - file: content/11-econometrics/statsmodels.ipynb
+    - file: content/11-econometrics/multivariable.ipynb
+    - file: content/11-econometrics/reading-econ-papers.ipynb
 
 - file: content/12-macro/index.md
 
