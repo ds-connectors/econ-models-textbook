@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -31,6 +32,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.13.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -68,48 +76,74 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="../01-demand/index.html">Demand and Market Equilibrium</a>
-  </li>
-  <li class="">
-    <a href="../02-supply/index.html">Supply & Elasticity</a>
-  </li>
-  <li class="">
-    <a href="../03-public/index.html">Public Economics</a>
-  </li>
-  <li class="">
-    <a href="../04-production/index.html">Production</a>
-  </li>
-  <li class="">
-    <a href="../05-utility/index.html">Utility</a>
-  </li>
-  <li class="">
-    <a href="../06-development/index.html">Development</a>
-  </li>
-  <li class="">
-    <a href="../07-game-theory/index.html">Game Theory</a>
-  </li>
-  <li class="">
-    <a href="../08-behavioral/index.html">Behavioral Economics</a>
-  </li>
-  <li class="">
-    <a href="../09-finance/index.html">Finance</a>
-  </li>
-  <li class="">
-    <a href="../10-inequality/index.html">Inequality</a>
-  </li>
-  <li class="">
-    <a href="../11-econometrics/index.html">Econometrics</a>
-  </li>
-  <li class="active">
-    <a href="">Macroeconomic Policy</a>
-  </li>
-  <li class="">
-    <a href="../references.html">Bibliography</a>
-  </li>
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-demand/index.html">
+   Demand and Market Equilibrium
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-supply/index.html">
+   Supply &amp; Elasticity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-public/index.html">
+   Public Economics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-production/index.html">
+   Production
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-utility/index.html">
+   Utility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-development/index.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-game-theory/index.html">
+   Game Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-behavioral/index.html">
+   Behavioral Economics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-finance/index.html">
+   Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-inequality/index.html">
+   Inequality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11-econometrics/index.html">
+   Econometrics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Macroeconomic Policy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   Bibliography
+  </a>
+ </li>
 </ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -179,15 +213,15 @@
         <!-- Launch buttons -->
 
     </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-    </ul>
-</nav>
-
-
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -199,6 +233,25 @@
 <h1>Macroeconomic Policy<a class="headerlink" href="#macroeconomic-policy" title="Permalink to this headline">¶</a></h1>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/12-macro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
