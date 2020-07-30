@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expected Utility Theory &#8212; Data 88: Economic Models Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -31,7 +32,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.13.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -295,13 +296,13 @@
                 
   <div class="section" id="expected-utility-theory">
 <h1>Expected Utility Theory<a class="headerlink" href="#expected-utility-theory" title="Permalink to this headline">¶</a></h1>
-<p>Imagine you’re offered a choice between \$1 guaranteed or \$100 with probability <span class="math notranslate nohighlight">\(\frac{1}{80}\)</span> (i.e. with probability <span class="math notranslate nohighlight">\(\frac{79}{80}\)</span>, you get \$0). Which would you choose?</p>
+<p>Imagine you’re offered a choice between $1 guaranteed or $100 with probability <span class="math notranslate nohighlight">\(\frac{1}{80}\)</span> (i.e. with probability <span class="math notranslate nohighlight">\(\frac{79}{80}\)</span>, you get $0). Which would you choose?</p>
 <p>In game theory, we consider rationality by examining the utility of different outcomes to individuals. To do so, we calculate the <strong>expected utility</strong> of a set of outcomes, which is the average of the utilities of those outcomes weighted by their probabilities. In the example above, there are two outcomes:</p>
 <ul class="simple">
-<li><p>\$1 guaranteed. This occurs with probability <span class="math notranslate nohighlight">\(p_1=1\)</span> and we’ll say has utility <span class="math notranslate nohighlight">\(u_1 = 1\)</span>.</p></li>
-<li><p>\$100 with probability <span class="math notranslate nohighlight">\(p_2 = \frac{1}{80}\)</span>. We’ll say this has utility <span class="math notranslate nohighlight">\(u_2 = 100\)</span>.</p></li>
+<li><p>$1 guaranteed. This occurs with probability <span class="math notranslate nohighlight">\(p_1=1\)</span> and we’ll say has utility <span class="math notranslate nohighlight">\(u_1 = 1\)</span>.</p></li>
+<li><p>$100 with probability <span class="math notranslate nohighlight">\(p_2 = \frac{1}{80}\)</span>. We’ll say this has utility <span class="math notranslate nohighlight">\(u_2 = 100\)</span>.</p></li>
 </ul>
-<p>The expected utility of the first choice would be <span class="math notranslate nohighlight">\(p_1 \cdot u_1 = 1\)</span> because there is only one possible outcome and it has utility 1. The expected utility of the second choice would be $p_2 \cdot u_2 + (1 - p_2) \cdot 0 = $ 1.25$ because we obtain utility <span class="math notranslate nohighlight">\(u_2\)</span> with probability <span class="math notranslate nohighlight">\(p_2\)</span> and utility 0 with probability <span class="math notranslate nohighlight">\(1-p_2\)</span>. Notice that the expected utility of the second choice is higher! This means that, had you chosen the $1 guaranteed, you would have made the irrational choice, because it is <em>expected</em> that you would get $1.25 with the second choice.</p>
+<p>The expected utility of the first choice would be <span class="math notranslate nohighlight">\(p_1 \cdot u_1 = 1\)</span> because there is only one possible outcome and it has utility 1. The expected utility of the second choice would be <span class="math notranslate nohighlight">\(p_2 \cdot u_2 + (1 - p_2) \cdot 0 = 1.25\)</span> because we obtain utility <span class="math notranslate nohighlight">\(u_2\)</span> with probability <span class="math notranslate nohighlight">\(p_2\)</span> and utility 0 with probability <span class="math notranslate nohighlight">\(1-p_2\)</span>. Notice that the expected utility of the second choice is higher! This means that, had you chosen the $1 guaranteed, you would have made the irrational choice, because it is <em>expected</em> that you would get $1.25 with the second choice.</p>
 <p>The idea that individuals, when making a gamble, will choose the option that maximizes the expected utility based on their preferences is called the <strong>expected utility hypothesis</strong>.</p>
 <div class="section" id="expected-utility">
 <h2>Expected Utility<a class="headerlink" href="#expected-utility" title="Permalink to this headline">¶</a></h2>
